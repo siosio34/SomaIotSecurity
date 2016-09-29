@@ -2,16 +2,13 @@
 ***
 // todo 프로젝트 설명
 
-# required 
-
-
 # Qucik Start
 ***
 
 // todo 설치 및 기본 셋팅
 
 
-# 실행 화면
+# ScreenShot
 ***
 
 // todo 실제 화면 사진
