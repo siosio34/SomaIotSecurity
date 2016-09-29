@@ -1,4 +1,4 @@
-# Rasberriy pi 3 Sequrity Iot AP
+# Rasberriy pi 3 Security Iot AP
 
 // todo 프로젝트 설명
 
