@@ -1,32 +1,30 @@
 # Rasberriy pi 3 Sequrity Iot AP
-***
+
 // todo 프로젝트 설명
 
 # Qucik Start
-***
 
 // todo 설치 및 기본 셋팅
 
-
 # ScreenShot
-***
 
 // todo 실제 화면 사진
 
 # References 
-***
+
+// todo 참고할 문헌
+
+# Copyright
 
 // todo 멤버들 각자 프로필
 
 Youngje jo [ siosio34@nate.com ] site : https://github.com/siosio34
 
 # 사용 기술
-***
 
 // todo 사용 기술 적어야될듯
 
 # License
-***
 
 The MIT License (MIT)
 
