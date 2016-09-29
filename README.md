@@ -18,7 +18,7 @@
 
 // todo 멤버들 각자 프로필
 
-Youngje jo [ siosio34@nate.com ] site : https://github.com/siosio34
+Youngje jo [ siosio34@nate.com ] site : https://github.com/siosio34  
 Gi-yong Kwon [ handgear05@gmail.com ] site : https://github.com/handgear
 
 # 사용 기술
