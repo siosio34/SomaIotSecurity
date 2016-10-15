@@ -2,11 +2,15 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <unistd.h>
+#include "gateway_main.h"
 #include "communicator.h"
+#include "write_conf.h"
 
 volatile int global_test = 42;
 volatile int flag_update = 0;
 volatile struct pharsed_data internal_data;
+volatile struct main_data inner_data;
+volatile struct update_flags update_flag;
 
 int main(){
 
@@ -30,19 +34,11 @@ int main(){
     //main loop for management demon
     while(1){
 
-    //check flag
-        if(flag_update == 1){
-            printf("SSID= %s\n", internal_data.local_SSID);
-            //update hostapd .conf
-            // sprintf(command, "./update_hostapd_conf.sh %s %s", SSID, passphrase);
-            // system(command); //update conf by script
-            flag_update = 0;
-        }
-        //page 별 conf update  .sh
+    write_conf();
 
 
     }
-   
+
     //===========================//
     //thread1 종료처리
     pthread_join(p_thread[0], (void **)&status);
