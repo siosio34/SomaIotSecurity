@@ -16,9 +16,9 @@ volatile struct lcd_struct lcd_data;
 
 int main(){
 
-    char command[100] = {0};
-    char SSID[50] = {0};
-    char passphrase[50] = {0};
+    // char command[100] = {0};
+    // char SSID[50] = {0};
+    // char passphrase[50] = {0};
 
     pthread_t p_thread[2]; //thread ID 저장할 변수
     int thr_id; //thread generation error check

@@ -71,10 +71,10 @@ void *t_function(void *data) {
 		example_PW= getJsonObject(jobj,"PW");
 		printf("received SSID= %s, PW= %s\n",example_SSID,example_PW);
 		//*****write******//
-		char *ssid_pw ="{ \"SSID\":\"PI3-AP-1\",\"PW\" :\"RASPBERRY!!!!\"}"; 
+		char *ssid_pw ="{ \"SSID\":\"PI3-AP-1\",\"PW\" :\"RASPBERRY!!!!\"}";
 //test data 실제 config 값으로 대체
 		sprintf(buff_snd, "%s", ssid_pw);
-		write(client_socket, buff_snd, strlen(buff_snd) + 1); 
+		write(client_socket, buff_snd, strlen(buff_snd) + 1);
 // +1: NULL까지 포함해서 전송
 		close(client_socket);
 	//==================================//
