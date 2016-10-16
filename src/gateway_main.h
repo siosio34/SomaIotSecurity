@@ -19,10 +19,3 @@ struct update_flags{
 };
 extern volatile struct update_flags update_flag;
 
-struct lcd_struct{
-    char row1[20];
-    char row2[20];
-    char row3[20];
-    char row4[20];
-}
-extern volatile struct lcd_struct lcd_data;

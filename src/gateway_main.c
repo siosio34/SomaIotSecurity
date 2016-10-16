@@ -44,7 +44,7 @@ int main(){
     while(1){
 
     write_conf();
-
+    update_flag.lcd = 1;
 
     }
 
