@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161010113930) do
+ActiveRecord::Schema.define(version: 20161006131925) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "wifisets", force: :cascade do |t|
-    t.string   "ssid"
-    t.string   "pass"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
