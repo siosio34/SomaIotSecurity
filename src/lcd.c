@@ -33,10 +33,6 @@ void *lcd_update(void *data){
     strncpy(lcd_data.row[0],"Hello World!" , 20);
     strncpy(lcd_data.row[1],"2nd row" , 20);
     strncpy(lcd_data.row[2],"3nd row" , 20);
-    //lcd_data.row[1] //1st row
-    //lcd_data.row[0] //2nd row
-    //lcd_data.row[3] //3rd row
-    //lcd_data.row[2] //4th row
     int i;int y=0;
 
     while(1){
@@ -64,4 +60,5 @@ void *lcd_update(void *data){
 
 
 }
+
 

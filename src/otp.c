@@ -52,11 +52,9 @@ void otp_generate(){
     // printf("%s\n", new_otp); //for debug
 }
 
-//flag 체크하고 (otp_enable인지 확인)
-//lcd 업데이트(lcd flag 올려줘야함), conf 업데이트, struct 업데이트
 void otp_update(){
 
-    //update config file
+    //update struct && config file
     strncpy(inner_data.guest_PW, new_otp, 16);
     update_flag.otp_conf = 1;
 
