@@ -10,6 +10,7 @@ extern volatile struct main_data inner_data;
 
 struct update_flags{
     int hostapd;
+    int otp_enable;
     int otp_switch;
     int otp_web;
     int otp_no_user;

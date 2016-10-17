@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <unistd.h>
+// #include <wiringPi.h>
 #include "gateway_main.h"
 #include "communicator.h"
 #include "write_conf.h"
 #include "lcd.h"
+#include "otp.h"
 
 volatile int global_test = 42;
 volatile int flag_update = 0;
@@ -25,30 +27,42 @@ int main(){
     int status; //thread 종료시 반환하는 값 저장 변수
     int a = 1; //쓰레드 함수 인자
 
+    //================init=====================//
+    // wiringPiSetup();        //init WiringPi
 
-    //thread1 generation
-    thr_id = pthread_create(&p_thread[0], NULL, t_function, (void *)&a);
-    if(thr_id < 0){
-            perror("thread create error : ");
-            exit(0);
-    }
+    // //thread1 generation
+    // thr_id = pthread_create(&p_thread[0], NULL, t_function, (void *)&a);
+    // if(thr_id < 0){
+    //         perror("thread create error : ");
+    //         exit(0);
+    // }
 
-    //lcd thread generation
-    thr_id = pthread_create(&p_thread[1], NULL, lcd_update, (void *)&a);
-    if(thr_id < 0){
-            perror("thread create error : ");
-            exit(0);
-    }
+    // //lcd thread generation
+    // thr_id = pthread_create(&p_thread[1], NULL, lcd_update, (void *)&a);
+    // if(thr_id < 0){
+    //         perror("thread create error : ");
+    //         exit(0);
+    // }
+
+    otp_init();
+    //=================init end=================//
 
     //main loop for management demon
     while(1){
 
-    write_conf();
-    update_flag.lcd = 1;
+    // write_conf();
+    otp();
+    // update_flag.lcd = 1;
+    update_flag.otp_enable = 1;
+    update_flag.otp_web = 1;
+    sleep(1);
+    printf("%s\n", inner_data.guest_PW);
+    printf("===================\n");
+
 
     }
 
-    //===========================//
+    //========================================//
     //thread1 종료처리
     pthread_join(p_thread[0], (void **)&status);
     //printf("return thread 0 %d\n", status);
@@ -60,7 +74,4 @@ int main(){
     return 0;
 
 }
-
-
-
 
