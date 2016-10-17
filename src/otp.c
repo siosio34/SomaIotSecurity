@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <time.h>
 // #include <wiringPi.h>
 #include "otp.h"
 #include "lcd.h"
@@ -17,6 +18,7 @@ void otp_init(){
     // pullUpDnControl(OTP_SW_PIN, PUD_UP); //pull-up switch pin
     // wiringPiISR (OTP_SW_PIN, INT_EDGE_FALLING, &otp_switch_handler);
 
+    srand(time(NULL));
 }
 
 void otp_switch_handler(){
@@ -69,7 +71,6 @@ void otp_update(){
 void gen_rand_str(int size){
 
     static char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
 
     for (int n = 0;n < size;n++) {
         int key = rand() % (int)(sizeof(charset) -1);
