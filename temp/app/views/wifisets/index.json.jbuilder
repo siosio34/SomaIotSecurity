@@ -1,0 +1,1 @@
+json.array! @wifisets, partial: 'wifisets/wifiset', as: :wifiset

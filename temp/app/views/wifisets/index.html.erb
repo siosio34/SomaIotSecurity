@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Wifisets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ssid</th>
+      <th>Pass</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wifisets.each do |wifiset| %>
+      <tr>
+        <td><%= wifiset.ssid %></td>
+        <td><%= wifiset.pass %></td>
+        <td><%= link_to 'Show', wifiset %></td>
+        <td><%= link_to 'Edit', edit_wifiset_path(wifiset) %></td>
+        <td><%= link_to 'Destroy', wifiset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wifiset', new_wifiset_path %>
