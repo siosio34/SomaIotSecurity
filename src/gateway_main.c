@@ -30,6 +30,8 @@ int main(){
     //================init=====================//
     wiringPiSetup();        //init WiringPi
     init_struct();
+    // update_flag.hostapd = 1;
+    update_flag.otp_conf = 1;
     write_conf();
     init_service();
 
@@ -92,7 +94,12 @@ void init_struct(){
 
 void init_service(){
     //run hostapd
-    system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf &");
-    system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd_1.conf &");
+    init_hostapd();
 
+}
+
+    system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf -f /var/log/hostapd_local.log &");
+    // system("disown");
+    system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd_1.conf -f /var/log/hostapd_guest.log &");
+    // system("disown");
 }
