@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-// #include <wiringPi.h>
+#include <time.h>
+#include <wiringPi.h>
 #include "otp.h"
 #include "lcd.h"
 #include "gateway_main.h"
@@ -12,11 +13,12 @@ char new_otp[16] = {0};
 char old_otp[16] = {0};
 
 void otp_init(){
-    // //otp HW switch init
-    // pinMode (OTP_SW_PIN, INPUT) ;
-    // pullUpDnControl(OTP_SW_PIN, PUD_UP); //pull-up switch pin
-    // wiringPiISR (OTP_SW_PIN, INT_EDGE_FALLING, &otp_switch_handler);
+    //otp HW switch init
+    pinMode (OTP_SW_PIN, INPUT) ;
+    pullUpDnControl(OTP_SW_PIN, PUD_UP); //pull-up switch pin
+    wiringPiISR (OTP_SW_PIN, INT_EDGE_FALLING, &otp_switch_handler);
 
+    srand(time(NULL));
 }
 
 void otp_switch_handler(){
@@ -41,26 +43,26 @@ void otp(){
 
 
 void otp_generate(){
-
-    do{
-        gen_rand_str(16);
+    gen_rand_str(8); //generate random string to new_otp
+    while(strcmp(new_otp, old_otp) == 0){ //if new_otp is same as old_otp
+        gen_rand_str(8); //make again
         // printf("%s\n", new_otp);
-        strncpy(old_otp, new_otp, 16); //update old_otp
-    }while(!strcmp(new_otp, old_otp));
+    }
+    strncpy(old_otp, new_otp, 8); //update old_otp
+
+
     // printf("%s\n", new_otp); //for debug
 }
 
-//flag 체크하고 (otp_enable인지 확인)
-//lcd 업데이트(lcd flag 올려줘야함), conf 업데이트, struct 업데이트
 void otp_update(){
 
-    //update config file
-    strncpy(inner_data.guest_PW, new_otp, 16);
+    //update struct && config file
+    strncpy(inner_data.guest_PW, new_otp, 8);
     update_flag.otp_conf = 1;
 
     //assign and change lcd data
-    // sprintf(lcd_data.row[0], "SSID: test");
-    // sprintf(lcd_data.row[1], "PW: %s", new_otp);
+    sprintf(lcd_data.row[0], "SSID: test");
+    sprintf(lcd_data.row[1], "PW: %s", new_otp);
 
     update_flag.lcd = 1; //
 
@@ -68,8 +70,7 @@ void otp_update(){
 
 void gen_rand_str(int size){
 
-    static char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
+    static char charset[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890123456789";
 
     for (int n = 0;n < size;n++) {
         int key = rand() % (int)(sizeof(charset) -1);

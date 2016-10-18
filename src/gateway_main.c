@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <unistd.h>
-// #include <wiringPi.h>
+#include <wiringPi.h>
 #include "gateway_main.h"
 #include "communicator.h"
 #include "write_conf.h"
@@ -28,7 +28,10 @@ int main(){
     int a = 1; //쓰레드 함수 인자
 
     //================init=====================//
-    // wiringPiSetup();        //init WiringPi
+    wiringPiSetup();        //init WiringPi
+    init_struct();
+    write_conf();
+    init_service();
 
     // //thread1 generation
     // thr_id = pthread_create(&p_thread[0], NULL, t_function, (void *)&a);
@@ -37,27 +40,28 @@ int main(){
     //         exit(0);
     // }
 
-    // //lcd thread generation
-    // thr_id = pthread_create(&p_thread[1], NULL, lcd_update, (void *)&a);
-    // if(thr_id < 0){
-    //         perror("thread create error : ");
-    //         exit(0);
-    // }
+    //lcd thread generation
+    thr_id = pthread_create(&p_thread[1], NULL, lcd_update, (void *)&a);
+    if(thr_id < 0){
+            perror("thread create error : ");
+            exit(0);
+    }
 
     otp_init();
+    update_flag.otp_enable = 1; //for debug
     //=================init end=================//
 
     //main loop for management demon
     while(1){
 
-    // write_conf();
+    write_conf();
     otp();
     // update_flag.lcd = 1;
-    update_flag.otp_enable = 1;
-    update_flag.otp_web = 1;
+
+    // update_flag.otp_web = 1;
     sleep(1);
-    printf("%s\n", inner_data.guest_PW);
-    printf("===================\n");
+    // printf("%s\n", inner_data.guest_PW);
+    // printf("===================\n");
 
 
     }
@@ -75,3 +79,20 @@ int main(){
 
 }
 
+void init_struct(){
+
+    //for debug
+    //will be changed to function which copy backup to struct
+    strncpy(inner_data.guest_SSID, "PI3-guest", 10);
+    strncpy(inner_data.guest_PW, "12345678", 9);
+
+
+
+}
+
+void init_service(){
+    //run hostapd
+    system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf &");
+    system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd_1.conf &");
+
+}

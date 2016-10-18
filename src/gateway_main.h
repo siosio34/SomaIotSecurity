@@ -14,9 +14,12 @@ struct update_flags{
     int otp_switch;
     int otp_web;
     int otp_no_user;
+    //int otp_no_user_changed;
     int otp_conf;
     int lcd;
 
 };
 extern volatile struct update_flags update_flag;
 
+void init_struct();
+void init_service();
