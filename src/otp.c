@@ -43,12 +43,14 @@ void otp(){
 
 
 void otp_generate(){
-
-    do{
+    gen_rand_str(8); //generate random string to new_otp
+    while(strcmp(new_otp, old_otp) == 0){ //if new_otp is same as old_otp
         gen_rand_str(8); //make again
         // printf("%s\n", new_otp);
-    }while(!strcmp(new_otp, old_otp));
+    }
     strncpy(old_otp, new_otp, 8); //update old_otp
+
+
     // printf("%s\n", new_otp); //for debug
 }
 
@@ -59,8 +61,8 @@ void otp_update(){
     update_flag.otp_conf = 1;
 
     //assign and change lcd data
-    // sprintf(lcd_data.row[0], "SSID: test");
-    // sprintf(lcd_data.row[1], "PW: %s", new_otp);
+    sprintf(lcd_data.row[0], "SSID: test");
+    sprintf(lcd_data.row[1], "PW: %s", new_otp);
 
     update_flag.lcd = 1; //
 
