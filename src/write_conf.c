@@ -47,7 +47,15 @@ void update_otp(){
 
     //개별로 restart 하기 힘들 것 같으면 otp변경시에도 hostapd()로 처리 가능
     //restart hostapd (unactivated)
-    system("sudo ./restart_hostapd.sh"); //update conf by script
+
+    system("sudo service hostapd stop");
+    sleep(1);
+    system("sudo service hostapd stop");
+    sleep(1);
+    system("sudo systemctl daemon-reload");
+    system("sudo service networking restart");
+
+    init_hostapd();
 
 
 }
