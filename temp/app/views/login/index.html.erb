@@ -23,22 +23,19 @@
 
     </div>
 
-    <div class="input-group margin-bottom-20">
-      <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-      <input type="text" class="form-control" placeholder="SSID">
-    </div>
-
-    <div class="input-group margin-bottom-20">
-      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-      <input type="text" class="form-control" placeholder="PASSWORD">
-    </div>
-    <hr>
-
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <%= link_to "로 그 인 ", welcome_index_path, class: "btn-u btn-block" %>
+    <form action = "/login/auth" >
+      <div class="input-group margin-bottom-20">
+        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+        <input type="text" class="form-control" placeholder="PASSWORD" name="password">
       </div>
-    </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <input class="btn-u btn-block" type="submit" value="로 그 인">
+        </div>
+      </div>
+     </form>
 
     <!-- 이제 여기에 로그인 처리를 해야된다 -->
     <!-- 서버랑 통신 요망 -->
@@ -46,26 +43,6 @@
   </div>
   <!--End Reg Block-->
 </div><!--/container-->
-<!--=== End Content Part ===-->
-
-
-<script type="text/javascript">
-  jQuery(document).ready(function() {
-    App.init();
-  });
-</script>
-
-
-
-<script type="text/javascript">
-		$.backstretch([
-			"../../assets/img/bg/19.jpg",
-			"../../assets/img/bg/18.jpg",
-			], {
-				fade: 1000,
-				duration: 7000
-			});
-</script>
 
 
 </body>
