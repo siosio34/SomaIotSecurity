@@ -68,7 +68,7 @@ void otp_update(){
 
 void gen_rand_str(int size){
 
-    static char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    static char charset[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890123456789";
 
     for (int n = 0;n < size;n++) {
         int key = rand() % (int)(sizeof(charset) -1);
