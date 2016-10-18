@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <unistd.h>
-// #include <wiringPi.h>
+#include <wiringPi.h>
 #include "gateway_main.h"
 #include "communicator.h"
 #include "write_conf.h"
@@ -28,7 +28,7 @@ int main(){
     int a = 1; //쓰레드 함수 인자
 
     //================init=====================//
-    // wiringPiSetup();        //init WiringPi
+    wiringPiSetup();        //init WiringPi
 
     // //thread1 generation
     // thr_id = pthread_create(&p_thread[0], NULL, t_function, (void *)&a);
@@ -37,27 +37,28 @@ int main(){
     //         exit(0);
     // }
 
-    // //lcd thread generation
-    // thr_id = pthread_create(&p_thread[1], NULL, lcd_update, (void *)&a);
-    // if(thr_id < 0){
-    //         perror("thread create error : ");
-    //         exit(0);
-    // }
+    //lcd thread generation
+    thr_id = pthread_create(&p_thread[1], NULL, lcd_update, (void *)&a);
+    if(thr_id < 0){
+            perror("thread create error : ");
+            exit(0);
+    }
 
     otp_init();
+    update_flag.otp_enable = 1; //for debug
     //=================init end=================//
 
     //main loop for management demon
     while(1){
 
-    // write_conf();
+    write_conf();
     otp();
     // update_flag.lcd = 1;
-    update_flag.otp_enable = 1;
-    update_flag.otp_web = 1;
+
+    // update_flag.otp_web = 1;
     sleep(1);
-    printf("%s\n", inner_data.guest_PW);
-    printf("===================\n");
+    // printf("%s\n", inner_data.guest_PW);
+    // printf("===================\n");
 
 
     }

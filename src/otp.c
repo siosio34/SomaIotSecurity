@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
-// #include <wiringPi.h>
+#include <wiringPi.h>
 #include "otp.h"
 #include "lcd.h"
 #include "gateway_main.h"
@@ -13,10 +13,10 @@ char new_otp[16] = {0};
 char old_otp[16] = {0};
 
 void otp_init(){
-    // //otp HW switch init
-    // pinMode (OTP_SW_PIN, INPUT) ;
-    // pullUpDnControl(OTP_SW_PIN, PUD_UP); //pull-up switch pin
-    // wiringPiISR (OTP_SW_PIN, INT_EDGE_FALLING, &otp_switch_handler);
+    //otp HW switch init
+    pinMode (OTP_SW_PIN, INPUT) ;
+    pullUpDnControl(OTP_SW_PIN, PUD_UP); //pull-up switch pin
+    wiringPiISR (OTP_SW_PIN, INT_EDGE_FALLING, &otp_switch_handler);
 
     srand(time(NULL));
 }
