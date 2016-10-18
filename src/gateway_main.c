@@ -29,6 +29,9 @@ int main(){
 
     //================init=====================//
     wiringPiSetup();        //init WiringPi
+    init_struct();
+    write_conf();
+    init_service();
 
     // //thread1 generation
     // thr_id = pthread_create(&p_thread[0], NULL, t_function, (void *)&a);
@@ -76,3 +79,20 @@ int main(){
 
 }
 
+void init_struct(){
+
+    //for debug
+    //will be changed to function which copy backup to struct
+    strncpy(inner_data.guest_SSID, "PI3-guest", 10);
+    strncpy(inner_data.guest_PW, "12345678", 9);
+
+
+
+}
+
+void init_service(){
+    //run hostapd
+    system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf &");
+    system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd_1.conf &");
+
+}
