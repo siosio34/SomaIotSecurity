@@ -45,17 +45,17 @@ void otp(){
 void otp_generate(){
 
     do{
-        gen_rand_str(16);
+        gen_rand_str(8); //make again
         // printf("%s\n", new_otp);
-        strncpy(old_otp, new_otp, 16); //update old_otp
     }while(!strcmp(new_otp, old_otp));
+    strncpy(old_otp, new_otp, 8); //update old_otp
     // printf("%s\n", new_otp); //for debug
 }
 
 void otp_update(){
 
     //update struct && config file
-    strncpy(inner_data.guest_PW, new_otp, 16);
+    strncpy(inner_data.guest_PW, new_otp, 8);
     update_flag.otp_conf = 1;
 
     //assign and change lcd data
