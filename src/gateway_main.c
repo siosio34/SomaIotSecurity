@@ -13,6 +13,7 @@ volatile int global_test = 42;
 volatile int flag_update = 0;
 volatile struct pharsed_data internal_data;
 volatile struct main_data inner_data;
+struct main_data backup_data;
 volatile struct update_flags update_flag;
 volatile struct lcd_struct lcd_data;
 
@@ -83,12 +84,17 @@ int main(){
 
 void init_struct(){
 
-    //for debug
-    //will be changed to function which copy backup to struct
-    strncpy(inner_data.guest_SSID, "PI3-guest", 10);
-    strncpy(inner_data.guest_PW, "12345678", 9);
+    //read struct from backup file(backup.txt)
+    FILE *fr;
+    fr=fopen("backup.txt","r");
+    fscanf(fr,"%s %d %s %s",&backup_data.local_SSID, &backup_data.local_PW, &backup_data.guest_SSID, &backup_data.guest_PW);
 
+    strncpy(inner_data.local_SSID, backup_data.local_SSID, 20);
+    strncpy(inner_data.local_PW, backup_data.local_PW, 20);
+    strncpy(inner_data.guest_SSID, backup_data.guest_SSID, 20);
+    strncpy(inner_data.guest_PW, backup_data.guest_PW, 20);
 
+    fclose(fr);
 
 }
 
@@ -98,6 +104,7 @@ void init_service(){
 
 }
 
+void init_hostapd(){
     system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf -f /var/log/hostapd_local.log &");
     // system("disown");
     system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd_1.conf -f /var/log/hostapd_guest.log &");
