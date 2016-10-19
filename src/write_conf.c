@@ -10,11 +10,13 @@ void write_conf(){
 
     if(update_flag.hostapd == 1){ //웹에서 업데이트 할 내용이 생긴 경우
         update_hostapd();
+        backup_struct();
         update_flag.hostapd = 0; //flag 초기
     }
 
     if(update_flag.otp_conf == 1){
         update_otp();
+        backup_struct();
         update_flag.otp_conf = 0;
     }
 }

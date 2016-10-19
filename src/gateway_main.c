@@ -110,3 +110,11 @@ void init_hostapd(){
     system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd_1.conf -f /var/log/hostapd_guest.log &");
     // system("disown");
 }
+
+void backup_struct(){
+    //save current struct
+    FILE *fw;
+    fw=fopen("backup.txt","w");
+    fprintf(fw,"%s %d %s %s\n",inner_data.local_SSID, inner_data.local_PW, inner_data.guest_SSID, inner_data.guest_PW);
+    fclose(fw);
+}
