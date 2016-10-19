@@ -5,6 +5,7 @@ struct main_data{
     char local_PW[20];
     char guest_SSID[20];
     char guest_PW[20];
+    char admin_PW[20];
 };
 extern volatile struct main_data inner_data;
 

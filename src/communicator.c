@@ -8,6 +8,7 @@
 #include <sys/socket.h>
 #include <json.h>
 #include "communicator.h"
+#include "gateway_main.h"
 #define BUFF_SIZE 1024
 //특정 문자 삭제 "지우기용
 char* getJsonObject(json_object*,char *);
@@ -46,8 +47,10 @@ void *t_function(void *data) {
         //===========json receiver=========//
 
         json_ID = 1; //update example
-        char* example_SSID = "Pi3-AP"; //test data
-        char* example_PW = "12345678";
+       // char* example_SSID = "Pi3-AP"; //test data
+       // char* example_PW = "12345678";
+	char page_name[20]="";
+	char admin_pw[20]="";
 		if (-1 == listen(server_socket, 5))
 		{
 			printf("대기상태 모드 설정 실패n");
@@ -67,24 +70,37 @@ void *t_function(void *data) {
 		jobj =json_tokener_parse(buff_rcv);
 		printf("jobj from str:\n---\n%s\n---\n", json_object_to_json_string_ext(jobj,JSON_C_TO_STRING_SPACED | JSON_C_TO_STRING_PRETTY));
 		printf("receive: %s\n", buff_rcv);
-		example_SSID=getJsonObject(jobj,"SSID");
-		example_PW= getJsonObject(jobj,"PW");
-		printf("received SSID= %s, PW= %s\n",example_SSID,example_PW);
+		sprintf(page_name,"%s",getJsonObject(jobj,"page_name"));
+			/*페이지이름에 따른  분기문*/
+			if(strcmp(page_name,"login")==0)
+			{
+			printf("login\n");
+			sprintf(admin_pw,"%s",getJsonObject(jobj,"admin_pw"));
+			}
+
+
+			/***************************/
+		printf("received page_name= %s, PW= %s \n",page_name,admin_pw);
 		//*****write******//
-		char *ssid_pw ="{ \"SSID\":\"PI3-AP-1\",\"PW\" :\"RASPBERRY!!!!\"}";
+		char ans[6] ="";
+		if(strcmp(admin_pw,"homeiot")==0)
+		{sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"true\"}");		}
+		else
+		{sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"false\"}");		}
 //test data 실제 config 값으로 대체
-		sprintf(buff_snd, "%s", ssid_pw);
+		sprintf(buff_snd, "%s", ans);
 		write(client_socket, buff_snd, strlen(buff_snd) + 1);
 // +1: NULL까지 포함해서 전송
 		close(client_socket);
+		printf("	클라이언트 접속 종료   		\n");
 	//==================================//
         if(new_json == 1 && json_ID == 1){ //received json data is for update
             //write global struct
-            strncpy(internal_data.local_SSID, example_SSID, 20);
+            sprintf(inner_data.admin_PW,"%s",admin_pw);
             //raise update flag
             flag_update = 1;
         }
-        // if(global_test==42)
+       // if(global_test==42)
        //sleep(3); //delay for test
     }
     return (void *)i;
