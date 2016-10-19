@@ -11,7 +11,7 @@ function write_conf()
     (
         fileName="hostapd_1.conf"
         cd
-        cd /etc/hostapd/hostapd_1.conf
+        cd /etc/hostapd
 
         #find line number of ssid conf
         ssid_line=$(perl -lne 'm|This is the name of the network| && print $.' $fileName)
