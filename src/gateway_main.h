@@ -9,14 +9,14 @@ struct main_data{
 extern volatile struct main_data inner_data;
 
 struct update_flags{
-    int hostapd;
-    int otp_enable;
-    int otp_switch;
-    int otp_web;
-    int otp_no_user;
-    //int otp_no_user_changed;
-    int otp_conf;
-    int lcd;
+    int hostapd; //need to update hostapd
+    int otp_enable; //otp function is active
+    int otp_switch; //hardware otp switch is clicked
+    int otp_web; //admin user clicked otp change button on web
+    int otp_no_user; //in guest lan, no user remain
+    //int otp_no_user_changed; //prevent repeated change of otp while no user using
+    int otp_conf; //guest hostapd need to be change (guest_PW)
+    int lcd; //lcd need to be update
 
 };
 extern volatile struct update_flags update_flag;
