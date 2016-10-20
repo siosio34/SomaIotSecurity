@@ -33,7 +33,7 @@ int main(){
     restart_lcd(); //cut power to lcd and erase lcd register
     init_struct();
     // update_flag.hostapd = 1;
-    update_flag.otp_conf = 1;
+    // update_flag.otp_conf = 1;
     write_conf();
     init_service();
 
@@ -88,13 +88,7 @@ void init_struct(){
     //read struct from backup file(backup.txt)
     FILE *fr;
     fr=fopen("backup.txt","r");
-    fscanf(fr,"%s %d %s %s",&backup_data.local_SSID, &backup_data.local_PW, &backup_data.guest_SSID, &backup_data.guest_PW);
-
-    strncpy(inner_data.local_SSID, backup_data.local_SSID, 20);
-    strncpy(inner_data.local_PW, backup_data.local_PW, 20);
-    strncpy(inner_data.guest_SSID, backup_data.guest_SSID, 20);
-    strncpy(inner_data.guest_PW, backup_data.guest_PW, 20);
-
+    fscanf(fr,"%s %s %s %s",&inner_data.local_SSID, &inner_data.local_PW, &inner_data.guest_SSID, &inner_data.guest_PW);
     fclose(fr);
 
 }
