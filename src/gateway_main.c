@@ -110,7 +110,7 @@ void backup_struct(){
     //save current struct
     FILE *fw;
     fw=fopen("backup.txt","w");
-    fprintf(fw,"%s %d %s %s\n",inner_data.local_SSID, inner_data.local_PW, inner_data.guest_SSID, inner_data.guest_PW);
+    fprintf(fw,"%s %s %s %s\n",inner_data.local_SSID, inner_data.local_PW, inner_data.guest_SSID, inner_data.guest_PW);
     fclose(fw);
 }
 
