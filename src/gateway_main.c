@@ -9,13 +9,13 @@
 #include "lcd.h"
 #include "otp.h"
 
-volatile int global_test = 42;
-volatile int flag_update = 0;
-volatile struct pharsed_data internal_data;
-volatile struct main_data inner_data;
+
+int flag_update = 0;
+struct pharsed_data internal_data;
+struct main_data inner_data;
 struct main_data backup_data;
-volatile struct update_flags update_flag;
-volatile struct lcd_struct lcd_data;
+struct update_flags update_flag;
+struct lcd_struct lcd_data;
 
 int main(){
 

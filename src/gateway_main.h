@@ -6,7 +6,7 @@ struct main_data{
     char guest_SSID[20];
     char guest_PW[20];
 };
-extern volatile struct main_data inner_data;
+extern struct main_data inner_data;
 
 struct update_flags{
     int hostapd; //need to update hostapd
@@ -19,7 +19,7 @@ struct update_flags{
     int lcd; //lcd need to be update
 
 };
-extern volatile struct update_flags update_flag;
+extern struct update_flags update_flag;
 
 void init_struct();
 void init_service();
