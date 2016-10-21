@@ -6609,3 +6609,21 @@ Cannot render console from 66.102.6.27! Allowed networks: 127.0.0.1, ::1, 127.0.
 Processing by Rails::WelcomeController#index as HTML
   Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
 Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.69 at 2016-10-21 12:23:32 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (109.1ms)
