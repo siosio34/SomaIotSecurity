@@ -88,9 +88,12 @@ void *t_function(void *data) {
 		else
 		{sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"false\"}");		}
 //test data 실제 config 값으로 대체
-		sprintf(buff_snd, "%s", ans);
+		
+//		sprintf(ans,"%s","\'{\"page_name\":\"login\",\"verify\":\"false\"}\'");
+		sprintf(buff_snd, "%s", buff_rcv);
 		write(client_socket, buff_snd, strlen(buff_snd) + 1);
 // +1: NULL까지 포함해서 전송
+		printf("\n%s\n",buff_rcv);
 		close(client_socket);
 		printf("	클라이언트 접속 종료   		\n");
 	//==================================//
