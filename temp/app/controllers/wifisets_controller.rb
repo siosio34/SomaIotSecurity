@@ -31,10 +31,10 @@ class WifisetsController < ApplicationController
     puts @wifiset.ssid
     client = TCPSocket.new 'localhost', 9990
     makeSSIDjson = {:SSID => @wifiset.ssid, :PW => @wifiset.pass}
-    client.puts JSON.generate(makeSSIDjson)
-    while line = client.gets
-	puts line
-    end
+  client.puts JSON.generate(makeSSIDjson)
+  while line = client.gets
+    puts line
+  end
     client.close
 
 	#my_wifi_set = {:ssid => @wifiset.ssid}
