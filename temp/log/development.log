@@ -6627,3 +6627,1756 @@ Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
   Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.4ms)
   Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
   Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (109.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:05:22 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (109.2ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:06:18 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at '{"page_name":"login하이요 ","verify":"false '):
+  app/controllers/login_controller.rb:24:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (108.3ms)
+
+
+Started GET "/login/" for 172.16.101.64 at 2016-10-21 13:11:43 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 3208ms (Views: 3205.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/animate.self-066dd43afaa891fb6cb9c597e6bd2379f2546a1489393639eafe04c3dadee305.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/app.self-88104439d028fa5932df5286eef13bcf3b49bc9890b4b448012f05e3e9b02896.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/blocks.self-ff0acb47cbd13a458e8814cd10d1000ba564342aaaf93c4d68ebd601b73929be.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap.min.self-aab82c0465d77a334ce3c89bd0a6642b2bd62859c2a60d53985ac3be1c3308d4.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/custom.self-ff3de5e9a8ba455865ed94182d303c2305ff5bba3f49c99acaf5d81a64e668ea.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/dark.self-30c6d325566b1bfd3e60d8f262b6c4f565a7e464a54c9f9e1e0f7bfc7b5952c7.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/default.self-d8b60ace0fe2b6cc878e1a7ecf654036fc55f31959c7008c80f4e55ebb6848ab.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/font-awesome.min.self-6dfdcf41ee5250c66a2093e40a77e70ee6c65d1d5a633dbbb7dede15cbad66b7.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/line-icons.self-fbd868bd15286f37465fa87b6a93fe8e10fe877aee62cd1a10ef2f61cd797252.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/page_log_reg_v2.self-cf4201138d8778c7dd1e8646bbc64f8aa15a41f1127cf5032257bc315fbc2ee6.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/scaffolds.self-297f4b34077e519061ce814105e39a8c5533999d51894c380ad8727f385319d5.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/style-switcher.self-83dc5afa6c6dc2fee51e3def0e50582c26b6fff3c324eca48f69e342f5837851.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/style.self-71d13ef289feb1f0729f97d3a27ada81ba3eb7159edcdc0b6ce9816936315ac9.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/wifisets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-d885a0a66bd595c10edb24f8879f94e334d88be0730c4d7c7a7b57c731c09037.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/font-awesome.self-43fdd40e82bd637d73e0e4de0b452533cc23973b137de775e1568039ceef9e5f.css?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/app.self-fbdc79a981fc50e6cd6c160b3f6d3a12ff57390dbf8728d43960e0235650184e.js?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/app.css" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/blocks.css" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/style-switcher.css" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/back-to-top.self-21ba2de8b17edc0c625f48e1fd226c361011eabefacdf2e0e2bc557090a82f64.js?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap.min.self-d475868eedd65d9ab19f96e8574a2c8ce91ba7d64b8bbfa47cd55591a956ed67.js?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/custom.self-6265d2bc9c028bac94cb10bc21bba93d72f68c74fe93d22f3ff8b27a908bb684.js?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery-migrate.min.self-4b9a092934f8df934403368a55b57a2c6c331f24d2b1f40b452bd2e95356aa3e.js?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.min.self-62701f59f6b1a18ba98cbbb3e13dc22941e6069a44d7fda7e8f139bb96f8669f.js?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.backstretch.min.self-2654b0d451d2a665a996218ece11c454214ed59606158b92269f4fb12eb55707.js?body=1" for 172.16.101.64 at 2016-10-21 13:11:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 172.16.101.64 at 2016-10-21 13:11:48 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 172.16.101.64 at 2016-10-21 13:11:48 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 172.16.101.64 at 2016-10-21 13:11:48 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/wifisets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 172.16.101.64 at 2016-10-21 13:11:48 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 172.16.101.64 at 2016-10-21 13:11:48 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/fontawesome-webfont-7dacf83f51179de8d7980a513e67ab3a08f2c6272bb5946df8fd77c0d1763b73.woff2" for 172.16.101.64 at 2016-10-21 13:11:48 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:15:25 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (A JSON text must at least contain two octets!):
+  app/controllers/login_controller.rb:20:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (107.7ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:17:48 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (31.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (14.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (121.3ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:17:54 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (30.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (114.9ms)
+
+
+Started GET "/" for 172.16.101.69 at 2016-10-21 13:18:44 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (0.3ms)
+Completed 200 OK in 10ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:18:44 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at '{"page_name":"login하이요 ","verify":"false '):
+  app/controllers/login_controller.rb:21:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (109.7ms)
+
+
+Started GET "/" for 172.16.101.69 at 2016-10-21 13:18:47 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (0.2ms)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 172.16.101.69 at 2016-10-21 13:18:49 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 340ms (Views: 335.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/app.css" for 172.16.101.69 at 2016-10-21 13:18:50 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/blocks.css" for 172.16.101.69 at 2016-10-21 13:18:50 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/style-switcher.css" for 172.16.101.69 at 2016-10-21 13:18:50 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.69 at 2016-10-21 13:18:53 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (A JSON text must at least contain two octets!):
+  app/controllers/login_controller.rb:21:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (112.7ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.69 at 2016-10-21 13:20:18 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at '{"page_name":"login하이요 ","verify":"false '):
+  app/controllers/login_controller.rb:21:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (111.7ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.69 at 2016-10-21 13:20:18 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNRESET (Connection reset by peer - recvfrom(2)):
+  app/controllers/login_controller.rb:18:in `recv'
+  app/controllers/login_controller.rb:18:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (108.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:20:33 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (110.5ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:20:37 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (111.6ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:20:39 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (109.8ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:20:41 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (29.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (112.5ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:21:59 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (107.5ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:22:01 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (13.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (113.4ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:22:03 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (112.9ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.69 at 2016-10-21 13:22:10 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.0ms)
+
+Encoding::UndefinedConversionError ("\xED" from ASCII-8BIT to UTF-8):
+  app/controllers/login_controller.rb:20:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (118.2ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.69 at 2016-10-21 13:22:13 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNRESET (Connection reset by peer - recvfrom(2)):
+  app/controllers/login_controller.rb:18:in `recv'
+  app/controllers/login_controller.rb:18:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (32.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (114.4ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:22:21 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (112.3ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:22:25 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (107.4ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:22:27 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (110.7ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:24:21 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (110.9ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:24:23 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (109.6ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:24:25 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9990):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (109.5ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:24:53 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (112.4ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:24:57 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (109.3ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:28:58 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+ArgumentError (too few arguments):
+  app/controllers/login_controller.rb:21:in `printf'
+  app/controllers/login_controller.rb:21:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (111.0ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:29:33 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (111.7ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:29:37 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (110.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:29:40 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (110.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:30:11 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x7391cac0>):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (128.8ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:31:19 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 130ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x73f57e90>):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (125.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:31:23 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (29.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (114.0ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:31:31 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (112.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:31:33 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (110.7ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:31:35 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 116ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x71eb28f8>):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (129.0ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:43:16 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (111.2ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:43:21 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (106.8ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:43:23 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (112.2ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:43:36 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (112.6ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:44:09 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (125.2ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:44:12 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (113.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:44:16 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (29.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (115.7ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:44:19 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (108.5ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:44:20 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (113.7ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:44:24 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 9090):
+  app/controllers/login_controller.rb:14:in `initialize'
+  app/controllers/login_controller.rb:14:in `new'
+  app/controllers/login_controller.rb:14:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (113.0ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:48:18 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 81ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x71031150>):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (130.4ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:51:23 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x71945c88>):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (129.0ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:52:14 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x724e5be0>):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (131.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:52:16 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x73be2938>):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (35.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (149.3ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:52:18 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x701ad7a0>):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (132.6ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:52:19 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x703dae58>):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (39.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (24.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (179.8ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:52:20 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x710cf268>):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (13.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (131.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:52:20 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x7230bef8>):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (131.2ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:53:41 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x38d5cb8>):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (125.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:55:00 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''):
+  app/controllers/login_controller.rb:20:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (113.5ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:56:38 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''):
+  app/controllers/login_controller.rb:20:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (111.9ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 13:58:57 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''{"page_name":"login","admin_pw":"aaa"}'):
+  app/controllers/login_controller.rb:21:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (108.6ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:00:18 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''{"page_name":"login","admin_pw":"aaa"}'):
+  app/controllers/login_controller.rb:21:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (108.2ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:01:06 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''{"page_name":"login","admin_pw":"aaa"}'):
+  app/controllers/login_controller.rb:21:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (109.6ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:01:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''{"page_name":"login","admin_pw":"aaa"}''):
+  app/controllers/login_controller.rb:20:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (30.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (118.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:03:10 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x74b1a1b0>):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (126.8ms)
+
+
+Started GET "/" for 172.16.101.69 at 2016-10-21 14:07:58 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (2.9ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 172.16.101.69 at 2016-10-21 14:08:01 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 3131ms (Views: 3127.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 172.16.101.69 at 2016-10-21 14:08:04 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 203ms (Views: 200.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/blocks.css" for 172.16.101.69 at 2016-10-21 14:08:05 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/style-switcher.css" for 172.16.101.69 at 2016-10-21 14:08:05 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/app.css" for 172.16.101.69 at 2016-10-21 14:08:05 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.69 at 2016-10-21 14:08:09 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x71a9b748>):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (123.7ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:09:26 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+NoMethodError (private method `gets' called for "'{\"page_name\":\"login\",\"admin_pw\":\"aaa\"}'\x00":String):
+  app/controllers/login_controller.rb:20:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (106.4ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:11:23 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''{"page_name":"login","admin_pw":"aaa"}''):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (13.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (130.2ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:15:08 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `str' for #<LoginController:0x723af6c8>):
+  app/controllers/login_controller.rb:20:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (29.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (14.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (132.5ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:15:36 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+ArgumentError (bad value for range):
+  app/controllers/login_controller.rb:20:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (113.6ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:17:37 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `my_string' for #<LoginController:0x71f30628>
+Did you mean?  String):
+  app/controllers/login_controller.rb:20:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (129.2ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:18:07 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 95ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `my_string' for #<LoginController:0x70424df0>
+Did you mean?  String):
+  app/controllers/login_controller.rb:20:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (124.7ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:18:23 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''{"page_name":"login","admin_pw":"aaa"}''):
+  app/controllers/login_controller.rb:20:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (110.9ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:19:31 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''{"page_name":"login","admin_pw":"aaa"}
+''):
+  app/controllers/login_controller.rb:20:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (110.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:20:36 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+NoMethodError (private method `puts' called for "'{\"page_name\":\"login\",\"admin_pw\":\"aaa\"}'\x00":String):
+  app/controllers/login_controller.rb:20:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (111.8ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:22:31 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+SyntaxError (/home/pi/SomaIotSecurity/temp/app/controllers/login_controller.rb:20: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+    aaa = "\'{"page_name":"login","admin_pw":"aaa"}\'"
+                        ^
+/home/pi/SomaIotSecurity/temp/app/controllers/login_controller.rb:20: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+    aaa = "\'{"page_name":"login","admin_pw":"aaa"}\'"
+                                ^
+/home/pi/SomaIotSecurity/temp/app/controllers/login_controller.rb:20: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+    aaa = "\'{"page_name":"login","admin_pw":"aaa"}\'"
+                                           ^
+/home/pi/SomaIotSecurity/temp/app/controllers/login_controller.rb:20: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+    aaa = "\'{"page_name":"login","admin_pw":"aaa"}\'"
+                                                 ^):
+  app/controllers/login_controller.rb:20: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/login_controller.rb:20: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/login_controller.rb:20: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/login_controller.rb:20: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (23.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (108.2ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:23:02 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''{"page_name":"login","admin_pw":"aaa"}''):
+  app/controllers/login_controller.rb:21:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (110.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.69 at 2016-10-21 14:23:57 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''{"page_name":"login","admin_pw":"aaa"}''):
+  app/controllers/login_controller.rb:21:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (112.8ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.69 at 2016-10-21 14:24:35 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''{"page_name":"login","admin_pw":"aaa"}''):
+  app/controllers/login_controller.rb:21:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (115.2ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.69 at 2016-10-21 14:24:36 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''{"page_name":"login","admin_pw":"aaa"}''):
+  app/controllers/login_controller.rb:21:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (112.3ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:24:53 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 81ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x73e43e60>):
+  app/controllers/login_controller.rb:23:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (30.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (132.4ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.69 at 2016-10-21 14:25:03 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 130ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x2bc0cc8>):
+  app/controllers/login_controller.rb:23:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (123.6ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.69 at 2016-10-21 14:25:37 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 144ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x740ad680>):
+  app/controllers/login_controller.rb:23:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (127.5ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.69 at 2016-10-21 14:28:53 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x70273908>):
+  app/controllers/login_controller.rb:23:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (10.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (134.4ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:29:04 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''{"page_name":"login","admin_pw":"aaa"}''):
+  app/controllers/login_controller.rb:21:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (111.0ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:29:47 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''):
+  app/controllers/login_controller.rb:21:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (111.4ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.69 at 2016-10-21 14:30:10 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''):
+  app/controllers/login_controller.rb:21:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (107.9ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:32:46 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at '\'{"page_name":"login","admin_pw":"aaa"}
+'):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.6ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (111.7ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:33:12 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+JSON::ParserError (784: unexpected token at ''{"page_name":"login","admin_pw":"aaa"}
+'):
+  app/controllers/login_controller.rb:22:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (110.5ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:33:59 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x712cd0d0>):
+  app/controllers/login_controller.rb:23:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (141.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.69 at 2016-10-21 14:34:06 +0000
+Cannot render console from 172.16.101.69! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 116ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x71b6a958>):
+  app/controllers/login_controller.rb:23:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (124.8ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:35:37 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x7485cbe8>):
+  app/controllers/login_controller.rb:24:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (122.4ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.64 at 2016-10-21 14:35:43 +0000
+Cannot render console from 172.16.101.64! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 127ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x7004a360>):
+  app/controllers/login_controller.rb:24:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (27.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (127.1ms)

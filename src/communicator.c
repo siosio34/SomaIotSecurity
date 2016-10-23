@@ -14,11 +14,11 @@
 char* getJsonObject(json_object*,char *);
 void Eliminate(char *str, char ch); //쓰레드에서 사용할 함수
 void *t_function(void *data) {
-    int id;
-    int i = 999;
-    int json_ID;
-    int new_json = 1;
-    // id = *((int *)data);
+	int id;
+	int i = 999;
+	int json_ID;
+	int new_json = 1;
+	// id = *((int *)data);
 	int server_socket;
 	int client_socket;
 	int client_addr_size;
@@ -42,15 +42,14 @@ void *t_function(void *data) {
 		printf("bind() 실행 에러n");
 		exit(1);
 	}
-    while(1)
-    {
-        //===========json receiver=========//
-
-        json_ID = 1; //update example
-       // char* example_SSID = "Pi3-AP"; //test data
-       // char* example_PW = "12345678";
-	char page_name[20]="";
-	char admin_pw[20]="";
+	while(1)
+	{
+        	//===========json receiver=========//
+        	json_ID = 1; //update example
+       		// char* example_SSID = "Pi3-AP"; //test data
+       		// char* example_PW = "12345678";
+		char page_name[20]="";
+		char admin_pw[20]="";
 		if (-1 == listen(server_socket, 5))
 		{
 			printf("대기상태 모드 설정 실패n");
@@ -71,43 +70,46 @@ void *t_function(void *data) {
 		printf("jobj from str:\n---\n%s\n---\n", json_object_to_json_string_ext(jobj,JSON_C_TO_STRING_SPACED | JSON_C_TO_STRING_PRETTY));
 		printf("receive: %s\n", buff_rcv);
 		sprintf(page_name,"%s",getJsonObject(jobj,"page_name"));
-			/*페이지이름에 따른  분기문*/
-			if(strcmp(page_name,"login")==0)
-			{
+		/*페이지이름에 따른  분기문*/
+		if(strcmp(page_name,"login")==0)
+		{
 			printf("login\n");
 			sprintf(admin_pw,"%s",getJsonObject(jobj,"admin_pw"));
-			}
-
-
-			/***************************/
+		}
+		/***************************/
 		printf("received page_name= %s, PW= %s \n",page_name,admin_pw);
 		//*****write******//
 		char ans[6] ="";
 		if(strcmp(admin_pw,"homeiot")==0)
-		{sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"true\"}");		}
+		{
+			sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"true\"}");		
+		}
 		else
-		{sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"false\"}");		}
-//test data 실제 config 값으로 대체
+		{
+			sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"false\"}");		
+		}
+		//test data 실제 config 값으로 대체
 		
-//		sprintf(ans,"%s","\'{\"page_name\":\"login\",\"verify\":\"false\"}\'");
 		sprintf(buff_snd, "%s", buff_rcv);
 		write(client_socket, buff_snd, strlen(buff_snd) + 1);
-// +1: NULL까지 포함해서 전송
+		// +1: NULL까지 포함해서 전송
 		printf("\n%s\n",buff_rcv);
 		close(client_socket);
 		printf("	클라이언트 접속 종료   		\n");
-	//==================================//
-        if(new_json == 1 && json_ID == 1){ //received json data is for update
-            //write global struct
-            sprintf(inner_data.admin_PW,"%s",admin_pw);
-            //raise update flag
-            flag_update = 1;
-        }
-       // if(global_test==42)
-       //sleep(3); //delay for test
-    }
+		//==================================//
+        	if(new_json == 1 && json_ID == 1)
+		{ //received json data is for update
+            	//write global struct
+            	sprintf(inner_data.admin_PW,"%s",admin_pw);
+            	//raise update flag
+            	flag_update = 1;
+        	}
+      		// if(global_test==42)
+       		//sleep(3); //delay for test
+    	}
     return (void *)i;
 }
+
 void Eliminate(char *str, char ch) {
     for (; *str != '\0'; str++)//종료 문자를 만날 때까지 반복
     {

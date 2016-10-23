@@ -90,9 +90,9 @@ void *t_function(void *data) {
 		//*****write******//
 		char ans[6] ="";
 		if(strcmp(admin_pw,"homeiot")==0)
-		{sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"true 성 공 \"}");		}
+		{sprintf(ans,"%s","{\"page_name\":\"login안녕하세요\", \"verify\":\"true 성 공 \"}");		}
 		else
-		{sprintf(ans,"%s","{\"page_name\":\"login하이요 \",\"verify\":\"false 실 패 \"}");		}
+		{sprintf(ans,"%s","{\"page_name\":\"login하이요\",\"verify\":\"false 실 패 \"}");		}
 		//test data 실제 config 값으로 대체
 		
 		//sprintf(ans,"%s","\'{\"page_name\":\"login\",\"verify\":\"false\"}\'");
