@@ -12,7 +12,6 @@ class LoginController < ApplicationController
   def auth
     @pass = params[:password]
     passjson = {:page_name => 'login', :admin_pw => @pass}
-<<<<<<< HEAD
     client = TCPSocket.new 'localhost', 9090
     client.puts JSON.generate(passjson)
     puts JSON.generate(passjson)
@@ -26,8 +25,7 @@ class LoginController < ApplicationController
       render 'welcome/index'
     else
       render 'login/index'
-=======
-    client.puts JSON.generate(passjson)
+   client.puts JSON.generate(passjson)
 
     while (line = client.gets)
       my_hash = JSON.parse(line)
@@ -36,14 +34,9 @@ class LoginController < ApplicationController
       else
         render 'login/index'
       end
->>>>>>> 0d246dd2a271c83fa1ecfc5451a3445ff01d2aef
     end
     client.close
   end
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 0d246dd2a271c83fa1ecfc5451a3445ff01d2aef
 end
 
+end

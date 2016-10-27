@@ -29,17 +29,13 @@ int main(){
     int a = 1; //쓰레드 함수 인자
 
     //================init=====================//
-<<<<<<< HEAD
-//     wiringPiSetup();        //init WiringPi
-=======
-    wiringPiSetup();        //init WiringPi
-    restart_lcd(); //cut power to lcd and erase lcd register
-    init_struct();
+//    wiringPiSetup();        //init WiringPi
+//    restart_lcd(); //cut power to lcd and erase lcd register
+//    init_struct();
     // update_flag.hostapd = 1;
     // update_flag.otp_conf = 1;
-    write_conf();
-    init_service();
->>>>>>> 0d246dd2a271c83fa1ecfc5451a3445ff01d2aef
+//    write_conf();
+//    init_service();
 
     //thread1 generation
     thr_id = pthread_create(&p_thread[0], NULL, t_function, (void *)&a);
@@ -48,7 +44,6 @@ int main(){
              exit(0);
      }
 
-<<<<<<< HEAD
     //// lcd thread generation
     // thr_id = pthread_create(&p_thread[1], NULL, lcd_update, (void *)&a);
     // if(thr_id < 0){
@@ -57,41 +52,23 @@ int main(){
     // }
 
     //otp_init();
-=======
     //lcd thread generation
     thr_id = pthread_create(&p_thread[1], NULL, lcd_update, (void *)&a);
     if(thr_id < 0){
             perror("thread create error : ");
             exit(0);
     }
-
-    otp_init();
+    printf("hi");
+    //otp_init();
     update_flag.otp_enable = 1; //for debug
->>>>>>> 0d246dd2a271c83fa1ecfc5451a3445ff01d2aef
-    //=================init end=================//
 
     //main loop for management demon
-    while(1){
-
-<<<<<<< HEAD
-    // write_conf();
-    //otp();
-=======
-    write_conf();
-    otp();
->>>>>>> 0d246dd2a271c83fa1ecfc5451a3445ff01d2aef
-    // update_flag.lcd = 1;
-
-    // update_flag.otp_web = 1;
-    sleep(1);
-<<<<<<< HEAD
+    while(0){
+     //write_conf();
+   // otp();
+   // sleep(1);
   //  printf("%s\n", inner_data.guest_PW);
   //  printf("===================\n");
-=======
-    // printf("%s\n", inner_data.guest_PW);
-    // printf("===================\n");
->>>>>>> 0d246dd2a271c83fa1ecfc5451a3445ff01d2aef
-
 
     }
 
@@ -107,9 +84,6 @@ int main(){
     return 0;
 
 }
-<<<<<<< HEAD
-=======
-
 void init_struct(){
 
     //read struct from backup file(backup.txt)
@@ -150,4 +124,3 @@ void restart_lcd(){
     digitalWrite(LCD_POW_PIN, LOW);
 
 }
->>>>>>> 0d246dd2a271c83fa1ecfc5451a3445ff01d2aef

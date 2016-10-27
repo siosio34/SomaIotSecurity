@@ -9,10 +9,11 @@
 #include <json.h>
 #include "communicator.h"
 #include "gateway_main.h"
+#include "string_edit.h"
 #define BUFF_SIZE 1024
 //특정 문자 삭제 "지우기용
 char* getJsonObject(json_object*,char *);
-void Eliminate(char *str, char ch); //쓰레드에서 사용할 함수
+//void Eliminate(char *str, char ch); //쓰레드에서 사용할 함수
 void *t_function(void *data) {
 	int id;
 	int i = 999;
@@ -35,7 +36,7 @@ void *t_function(void *data) {
 	}
 	memset(&server_addr, 0, sizeof(server_addr));
 	server_addr.sin_family = AF_INET;
-	server_addr.sin_port = htons(9990);
+	server_addr.sin_port = htons(9090);
 	server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");// 127.0.0.1 localhost
 	if (-1 == bind(server_socket, (struct sockaddr*)&server_addr, sizeof(server_addr)))
 	{
@@ -80,7 +81,7 @@ void *t_function(void *data) {
 		printf("received page_name= %s, PW= %s \n",page_name,admin_pw);
 		//*****write******//
 		char ans[6] ="";
-		if(strcmp(admin_pw,"homeiot")==0)
+		if(strcmp(admin_pw,"asdfsaf")==0)
 		{
 			sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"true\"}");		
 		}
@@ -110,16 +111,6 @@ void *t_function(void *data) {
     return (void *)i;
 }
 
-void Eliminate(char *str, char ch) {
-    for (; *str != '\0'; str++)//종료 문자를 만날 때까지 반복
-    {
-        if (*str == ch)//ch와 같은 문자일 때
-        {
-            strcpy(str, str + 1);
-            str--;
-        }
-    }
-}
 char* getJsonObject(json_object *jobj, char *key) {
 	struct json_object *jsontemp;
 	json_object_object_get_ex(jobj, key, &jsontemp);
