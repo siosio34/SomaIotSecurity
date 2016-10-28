@@ -41,13 +41,13 @@ void *lcd_update(void *data){
             // printf("same memory shared check\n");
 
             lcdPosition(lcd,0,0);
-            lcdPuts(lcd, lcd_data.row[1]);
-            lcdPosition(lcd,0,1);
             lcdPuts(lcd, lcd_data.row[0]);
+            lcdPosition(lcd,0,1);
+            lcdPuts(lcd, lcd_data.row[1]);
             lcdPosition(lcd,0,2);
-            lcdPuts(lcd, lcd_data.row[3]);
-            lcdPosition(lcd,0,3);
             lcdPuts(lcd, lcd_data.row[2]);
+            lcdPosition(lcd,0,3);
+            lcdPuts(lcd, lcd_data.row[3]);
 
             //for debug
             sprintf(lcd_data.row[3],"%d", y); y++;

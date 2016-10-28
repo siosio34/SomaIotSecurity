@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'util/setting'
+
+  get 'util/chlidren'
+
+  get 'util/otp'
+
+  get 'util/monitoring'
+
+  get 'util/setting'
+
   resources :wifisets
   resources :posts
   resources :welcome
@@ -60,3 +70,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
+

@@ -9,6 +9,7 @@
 #include "gateway_main.h"
 
 const int OTP_SW_PIN = 7; //wiringPi pin 7
+const int OTP_LENGTH = 8;
 char new_otp[16] = {0};
 char old_otp[16] = {0};
 
@@ -43,12 +44,12 @@ void otp(){
 
 
 void otp_generate(){
-    gen_rand_str(8); //generate random string to new_otp
+    gen_rand_str(OTP_LENGTH); //generate random string to new_otp
     while(strcmp(new_otp, old_otp) == 0){ //if new_otp is same as old_otp
-        gen_rand_str(8); //make again
+        gen_rand_str(OTP_LENGTH); //make again
         // printf("%s\n", new_otp);
     }
-    strncpy(old_otp, new_otp, 8); //update old_otp
+    strncpy(old_otp, new_otp, OTP_LENGTH); //update old_otp
 
 
     // printf("%s\n", new_otp); //for debug
@@ -57,7 +58,7 @@ void otp_generate(){
 void otp_update(){
 
     //update struct && config file
-    strncpy(inner_data.guest_PW, new_otp, 8);
+    strncpy(inner_data.guest_PW, new_otp, OTP_LENGTH);
     update_flag.otp_conf = 1;
 
     //assign and change lcd data
