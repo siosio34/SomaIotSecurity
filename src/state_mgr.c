@@ -19,11 +19,12 @@ int main()
 	{
 		const size_t BUFFER_SIZE = 128;
 		char buffer[BUFFER_SIZE];
+		div_state div={};
 		while (fgets(buffer,BUFFER_SIZE,fp)!=NULL)
 		{
 			count++;
 			Eliminate(buffer, ' ');
-			retText(buffer);
+			retText(buffer,&div);
 		}
 	}
 	state= pclose(fp);
