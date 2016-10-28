@@ -1,0 +1,404 @@
+
+
+Started GET "/" for 172.16.101.90 at 2016-10-28 11:47:00 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (7.8ms)
+Completed 200 OK in 95ms (Views: 42.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 172.16.101.90 at 2016-10-28 11:47:06 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 87727ms (Views: 87725.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/animate.self-066dd43afaa891fb6cb9c597e6bd2379f2546a1489393639eafe04c3dadee305.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:34 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/blocks.self-ff0acb47cbd13a458e8814cd10d1000ba564342aaaf93c4d68ebd601b73929be.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:34 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/dark.self-30c6d325566b1bfd3e60d8f262b6c4f565a7e464a54c9f9e1e0f7bfc7b5952c7.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:34 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/custom.self-ff3de5e9a8ba455865ed94182d303c2305ff5bba3f49c99acaf5d81a64e668ea.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:34 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/app.self-88104439d028fa5932df5286eef13bcf3b49bc9890b4b448012f05e3e9b02896.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:34 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap.min.self-aab82c0465d77a334ce3c89bd0a6642b2bd62859c2a60d53985ac3be1c3308d4.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:34 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/default.self-d8b60ace0fe2b6cc878e1a7ecf654036fc55f31959c7008c80f4e55ebb6848ab.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:34 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/font-awesome.min.self-6dfdcf41ee5250c66a2093e40a77e70ee6c65d1d5a633dbbb7dede15cbad66b7.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/line-icons.self-fbd868bd15286f37465fa87b6a93fe8e10fe877aee62cd1a10ef2f61cd797252.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/page_log_reg_v2.self-ba029d3cb4e5a072f3117bf6e9e9228a8fa47d5afc5e24304e6a52ded01e7285.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/scaffolds.self-297f4b34077e519061ce814105e39a8c5533999d51894c380ad8727f385319d5.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/style.self-71d13ef289feb1f0729f97d3a27ada81ba3eb7159edcdc0b6ce9816936315ac9.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/style-switcher.self-83dc5afa6c6dc2fee51e3def0e50582c26b6fff3c324eca48f69e342f5837851.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/util.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-d885a0a66bd595c10edb24f8879f94e334d88be0730c4d7c7a7b57c731c09037.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/wifisets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/font-awesome.self-43fdd40e82bd637d73e0e4de0b452533cc23973b137de775e1568039ceef9e5f.css?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/app.css" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/blocks.css" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/style-switcher.css" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/back-to-top.self-21ba2de8b17edc0c625f48e1fd226c361011eabefacdf2e0e2bc557090a82f64.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/app.self-fbdc79a981fc50e6cd6c160b3f6d3a12ff57390dbf8728d43960e0235650184e.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap.min.self-d475868eedd65d9ab19f96e8574a2c8ce91ba7d64b8bbfa47cd55591a956ed67.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/custom.self-6265d2bc9c028bac94cb10bc21bba93d72f68c74fe93d22f3ff8b27a908bb684.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery-migrate.min.self-4b9a092934f8df934403368a55b57a2c6c331f24d2b1f40b452bd2e95356aa3e.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.backstretch.min.self-58a84b74589b202e712e9915a7632fbc7760049d584ce7672b4aa95ddb0a6d46.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.min.self-ad66c584c2469d2bb527ba7aef5893549f1554ccc8ab3ccb43bd09ce8c3bf7a1.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:35 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:36 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/util.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:36 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/wifisets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:36 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:36 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 172.16.101.90 at 2016-10-28 11:48:36 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/fontawesome-webfont-7dacf83f51179de8d7980a513e67ab3a08f2c6272bb5946df8fd77c0d1763b73.woff2" for 172.16.101.90 at 2016-10-28 11:48:36 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.90 at 2016-10-28 11:48:44 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x72c71eb0>):
+  app/controllers/login_controller.rb:23:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (139.6ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.90 at 2016-10-28 11:52:38 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 142ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x132eb68>):
+  app/controllers/login_controller.rb:24:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (128.9ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.90 at 2016-10-28 11:55:06 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x7561fb00>):
+  app/controllers/login_controller.rb:24:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (123.9ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.90 at 2016-10-28 11:56:41 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x74189fe8>):
+  app/controllers/login_controller.rb:24:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.9ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (125.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.90 at 2016-10-28 11:58:24 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 137ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `verify' for #<LoginController:0x154c650>):
+  app/controllers/login_controller.rb:23:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (127.2ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.90 at 2016-10-28 12:00:30 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+  Rendered welcome/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 3045ms (Views: 2987.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/blocks.css" for 172.16.101.90 at 2016-10-28 12:00:34 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/app.css" for 172.16.101.90 at 2016-10-28 12:00:34 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/style-switcher.css" for 172.16.101.90 at 2016-10-28 12:00:34 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/util/setting" for 172.16.101.90 at 2016-10-28 12:00:41 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UtilController#setting as HTML
+  Rendered util/setting.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 252ms (Views: 250.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/auth" for 172.16.101.90 at 2016-10-28 12:00:44 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Rendered login/index.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 207ms (Views: 201.4ms | ActiveRecord: 0.0ms)
+
+Errno::EPIPE (Broken pipe):
+  app/controllers/login_controller.rb:28:in `write'
+  app/controllers/login_controller.rb:28:in `puts'
+  app/controllers/login_controller.rb:28:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (38.3ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (135.6ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.90 at 2016-10-28 12:00:56 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 210ms (Views: 206.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.90 at 2016-10-28 12:01:01 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+  Rendered login/index.html.erb within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 226ms (Views: 220.3ms | ActiveRecord: 0.0ms)
+
+Errno::EPIPE (Broken pipe):
+  app/controllers/login_controller.rb:28:in `write'
+  app/controllers/login_controller.rb:28:in `puts'
+  app/controllers/login_controller.rb:28:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.5ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (109.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.90 at 2016-10-28 12:01:25 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+  Rendered login/index.html.erb within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 212ms (Views: 206.7ms | ActiveRecord: 0.0ms)
+
+Errno::EPIPE (Broken pipe):
+  app/controllers/login_controller.rb:28:in `write'
+  app/controllers/login_controller.rb:28:in `puts'
+  app/controllers/login_controller.rb:28:in `auth'
+
+
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.7ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.4ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.1ms)
+  Rendered /home/pi/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (109.1ms)
+
+
+Started GET "/login/auth?password=[FILTERED]" for 172.16.101.90 at 2016-10-28 12:01:29 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#auth as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 212ms (Views: 209.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/blocks.css" for 172.16.101.90 at 2016-10-28 12:01:29 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/style-switcher.css" for 172.16.101.90 at 2016-10-28 12:01:29 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/app.css" for 172.16.101.90 at 2016-10-28 12:01:29 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/util/setting" for 172.16.101.90 at 2016-10-28 12:01:56 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UtilController#setting as HTML
+  Rendered util/setting.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 209ms (Views: 206.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/util/otp" for 172.16.101.90 at 2016-10-28 12:02:18 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UtilController#otp as HTML
+  Rendered util/otp.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 217ms (Views: 214.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/util/otp" for 172.16.101.90 at 2016-10-28 12:02:24 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UtilController#otp as HTML
+  Rendered util/otp.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 216ms (Views: 214.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/util/otp" for 172.16.101.90 at 2016-10-28 12:02:32 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UtilController#otp as HTML
+  Rendered util/otp.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 242ms (Views: 239.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/util/setting" for 172.16.101.90 at 2016-10-28 12:02:42 +0000
+Cannot render console from 172.16.101.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UtilController#setting as HTML
+  Rendered util/setting.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 251ms (Views: 248.7ms | ActiveRecord: 0.0ms)

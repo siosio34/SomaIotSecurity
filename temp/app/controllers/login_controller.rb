@@ -19,8 +19,7 @@ class LoginController < ApplicationController
     strip_json = response.strip
     puts strip_json
     my_hash = JSON.parse(strip_json)
-
-    if my_hash[verify] == 'true'
+    if my_hash["verify"] == 'true'
       render 'welcome/index'
     else
       render 'login/index'
