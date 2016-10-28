@@ -40,8 +40,7 @@ STATE_TYPE_NUM; i++)
 	{
 		if ((ptr = 
 strstr(arg, text_t[i]))) {
-			printf("%s\n", 
-ptr += strlen(text_t[i]));
+			//printf("%s\n", ptr += strlen(text_t[i]));
 			break;
 		}
 	}

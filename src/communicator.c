@@ -81,7 +81,7 @@ void *t_function(void *data) {
 		printf("received page_name= %s, PW= %s \n",page_name,admin_pw);
 		//*****write******//
 		char ans[6] ="";
-		if(strcmp(admin_pw,"asdfsaf")==0)
+		if(strcmp(admin_pw,inner_data.admin_PW)==0)
 		{
 			sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"true\"}");		
 		}
