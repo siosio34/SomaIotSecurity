@@ -1,4 +1,5 @@
 class UtilController < ApplicationController
+
   def setting
 
   end
@@ -11,4 +12,6 @@ class UtilController < ApplicationController
 
   def monitoring
   end
+
+
 end

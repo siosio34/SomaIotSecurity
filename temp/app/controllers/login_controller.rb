@@ -16,28 +16,18 @@ class LoginController < ApplicationController
     client = TCPSocket.new 'localhost', 9090
 
     client.puts JSON.generate(passjson)
-    puts JSON.generate(passjson)
-    puts JSON.generate(passjson).encoding
     response = client.read
-    puts response
-    aaa = '{"page_name":"login","admin_pw":"aaa"}'
-    my_hash = JSON.parse(aaa)
-    #my_hash = JSON.parse(line, :quirks_mode => true)
+    strip_json = response.strip
+    my_hash = JSON.parse(strip_json)
+
     if my_hash[verify] == 'true'
       render 'welcome/index'
     else
       render 'login/index'
-   client.puts JSON.generate(passjson)
 
-    while (line = client.gets)
-      my_hash = JSON.parse(line, :quirks_mode => true)
-      if my_hash[verify] == "true"
-        render 'welcome/index'
-      else
-        render 'login/index'
-      end
-    end
+    client.puts JSON.generate(passjson)
     client.close
+
     end
   end
 
