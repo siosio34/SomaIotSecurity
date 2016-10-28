@@ -81,6 +81,7 @@ void *t_function(void *data) {
 		printf("received page_name= %s, PW= %s \n",page_name,admin_pw);
 		//*****write******//
 		char ans[6] ="";
+		sprintf(inner_data.admin_PW,"%s","homeiot");
 		if(strcmp(admin_pw,inner_data.admin_PW)==0)
 		{
 			sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"true\"}");		
@@ -91,9 +92,10 @@ void *t_function(void *data) {
 		}
 		//test data 실제 config 값으로 대체
 		
-		sprintf(buff_snd, "%s", buff_rcv);
+		sprintf(buff_snd, "%s", ans);
 		write(client_socket, buff_snd, strlen(buff_snd) + 1);
 		// +1: NULL까지 포함해서 전송
+		printf("\nsend: %s",buff_snd);
 		printf("\n%s\n",buff_rcv);
 		close(client_socket);
 		printf("	클라이언트 접속 종료   		\n");

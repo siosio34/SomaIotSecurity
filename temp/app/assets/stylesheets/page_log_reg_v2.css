@@ -6,8 +6,8 @@ body {
 
 .reg-block {
 	width: 380px;
-	padding: 20px;
-	margin: 60px auto;
+	padding: 20px 20px 0;
+	margin: 30px auto 0px;
 	background: #fff;
 	border-top: solid 2px #72c02c;
 }
