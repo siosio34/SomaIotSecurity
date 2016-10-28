@@ -42,15 +42,21 @@ char* retText(char *arg,div_state *div) {
 			printf("%s", ptr += strlen(text_t[i]));
 			switch(i)
 			{
-				case 0: sprintf((*div).station,"%s",ptr); break;
-				case 1:	sprintf((*div).inactivetime,"%s",ptr); break;
-                                case 2:
-                                case 3:
-                                case 4:
-                                case 5:
-                                case 6:
-                                case 7:
-				default : break;
+			case 0: sprintf((*div).station, "%s", ptr); break;
+			case 1: sprintf((*div).inactivetime, "%s", ptr); break;
+			case 2: sprintf((*div).rxbytes, "%s", ptr); break;
+			case 3: sprintf((*div).rxpackets, "%s", ptr); break;
+			case 4: sprintf((*div).txbytes, "%s", ptr); break;
+			case 5: sprintf((*div).txpackets, "%s", ptr); break;
+			case 6: sprintf((*div).txfailed, "%s", ptr); break;
+			case 7: sprintf((*div).signal, "%s", ptr); break;
+			case 8: sprintf((*div).txbitrate, "%s", ptr); break;
+			case 9: sprintf((*div).rxbitrate, "%s", ptr); break;
+			case 10: sprintf((*div).authorized, "%s", ptr); break;
+			case 11: sprintf((*div).authenticated, "%s", ptr); break;
+			case 12: sprintf((*div).WMMWME, "%s", ptr); break;
+			case 13: sprintf((*div).TDLSpeer, "%s", ptr); break;
+			default: break;
 			}
 			break;
 		}
