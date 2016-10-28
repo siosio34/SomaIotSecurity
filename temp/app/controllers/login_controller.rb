@@ -3,7 +3,6 @@ require 'socket'
 require 'json'
 require 'csv'
 
-
 class LoginController < ApplicationController
 
   def index
@@ -18,6 +17,7 @@ class LoginController < ApplicationController
     client.puts JSON.generate(passjson)
     response = client.read
     strip_json = response.strip
+    puts strip_json
     my_hash = JSON.parse(strip_json)
 
     if my_hash[verify] == 'true'
