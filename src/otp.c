@@ -110,7 +110,9 @@ void gen_easy_str(){
         char line[OTP_WORD_LENGTH]; /* or other suitable maximum line size */
         while (fgets(line, OTP_WORD_LENGTH, file) != NULL){ /* read a line */
             if (count == lineNumber){
+                memset(new_otp, '\0', OTP_WORD_LENGTH);
                 strncpy(new_otp, line, OTP_WORD_LENGTH); //update new_otp
+                new_otp[strlen(line)-1] = ' '; //prevent printing strange char end of otp
                 printf("%s\n", line); //for debug
                 fclose(file);
                 return;
