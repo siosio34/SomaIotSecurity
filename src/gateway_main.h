@@ -17,6 +17,7 @@ struct update_flags{
     int otp_no_user; //in guest lan, no user remain
     //int otp_no_user_changed; //prevent repeated change of otp while no user using
     int otp_conf; //guest hostapd need to be change (guest_PW)
+    int otp_easyword; //0 for random PW, 1 for easyword PW
     int lcd; //lcd need to be update
 
 };

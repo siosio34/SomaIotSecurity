@@ -6,3 +6,4 @@ void otp_generate();
 void otp_update();
 
 void gen_rand_str(int size);
+void gen_easy_str();
