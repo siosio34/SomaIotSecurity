@@ -23,8 +23,5 @@ struct update_flags{
 };
 extern struct update_flags update_flag;
 
-void init_struct();
-void init_service();
-void init_hostapd();
-void backup_struct();
-void restart_lcd();
+int hostapd_local_PID;
+int hostapd_guest_PID;

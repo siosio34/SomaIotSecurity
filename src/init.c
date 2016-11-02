@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <wiringPi.h>
+#include <signal.h>
 #include "gateway_main.h"
 #include "write_conf.h"
 #include "lcd.h"
@@ -25,12 +26,80 @@ void init_service(){
 }
 
 void init_hostapd(){
-    system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf -f /var/log/hostapd_local.log &");
-    // system("disown");
-    system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd_1.conf -f /var/log/hostapd_guest.log &");
-    // system("disown");
+
+    hostapd_local_PID = fork();
+    if (hostapd_local_PID > 0){
+        printf("부모 프로세스 %d : %d\n", getpid(), hostapd_local_PID); //for debug
+
+    }
+    else if (hostapd_local_PID == 0){
+        printf("자식 프로세스 %d\n", getpid());//for debug
+        system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf -f /var/log/hostapd_local.log");
+        pause();
+    }
+    else if (hostapd_local_PID == -1){
+        perror("fork error : ");
+        exit(0);
+    }
+
+    hostapd_guest_PID = fork();
+    if (hostapd_guest_PID > 0){
+        printf("부모 프로세스 %d : %d\n", getpid(), hostapd_guest_PID);//for debug
+
+    }
+    else if (hostapd_guest_PID == 0){
+        printf("자식 프로세스 %d\n", getpid());//for debug
+        system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd_1.conf -f /var/log/hostapd_guest.log");
+        pause();
+    }
+    else if (hostapd_guest_PID == -1){
+        perror("fork error : ");
+        exit(0);
+    }
+
+
+}
+void restart_hostapd_local(){
+    kill(hostapd_local_PID, SIGTERM);
+
+    hostapd_local_PID = fork();
+    if (hostapd_local_PID > 0){
+        printf("부모 프로세스 %d : %d\n", getpid(), hostapd_local_PID); //for debug
+
+    }
+    else if (hostapd_local_PID == 0){
+        printf("자식 프로세스 %d\n", getpid());//for debug
+        system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf -f /var/log/hostapd_local.log");
+        pause();
+    }
+    else if (hostapd_local_PID == -1){
+        perror("fork error : ");
+        exit(0);
+    }
+
+    //update flag to notify update complete
 }
 
+void restart_hostapd_guest(){
+    kill(hostapd_guest_PID, SIGTERM);
+
+    hostapd_guest_PID = fork();
+    if (hostapd_guest_PID > 0){
+        printf("부모 프로세스 %d : %d\n", getpid(), hostapd_guest_PID);//for debug
+
+    }
+    else if (hostapd_guest_PID == 0){
+        printf("자식 프로세스 %d\n", getpid());//for debug
+        system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd_1.conf -f /var/log/hostapd_guest.log");
+        pause();
+    }
+    else if (hostapd_guest_PID == -1){
+        perror("fork error : ");
+        exit(0);
+    }
+
+    //update flag to notify update complete
+}
 void backup_struct(){
     //save current struct
     FILE *fw;
