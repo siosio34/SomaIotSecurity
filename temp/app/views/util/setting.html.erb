@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en"> <!--<![endif]-->
 <head>
   <title>SomaIotSequrity</title>
 
@@ -17,53 +20,53 @@
 <!--=== Content Part ===-->
 <div class="container">
   <!--Reg Block-->
-  <div class="reg-block">
-    <div class="reg-block-header">
-      <h2>공유기 관리자 비밀번호 변경</h2>
+
+  <form action="/util/setting_send">
+
+    <div class="reg-block">
+      <div class="reg-block-header">
+        <h2>공유기 관리자 비밀번호 변경</h2>
+      </div>
+
+      <div class="input-group margin-bottom-20">
+        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+        <input type="text" class="form-control" placeholder="변경 할 관리자 비밀번호" name="edit_admin_pass">
+      </div>
     </div>
 
-    <form action = "/login/auth" >
-      <div class="input-group margin-bottom-20">
-        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-        <input type="text" class="form-control" placeholder="변경 할 관리자 비밀번호" name="password">
-      </div>
-     </form>
-  </div>
-
-  <div class="reg-block">
+    <div class="reg-block">
       <div class="reg-block-header">
         <h2>현재 공유기 이름 <br>
-          (SSID) : PI-3 </h2>
+          (SSID) : <%= @local_ssid %> </h2>
+      </div>
+
+
+      <div class="input-group margin-bottom-20">
+        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+        <input type="text" class="form-control" placeholder="변경할 공유기 이름(SSID)" name="edit_local_ssid">
       </div>
 
       <div class="input-group margin-bottom-20">
         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-        <input type="text" class="form-control" placeholder="변경할 공유기 이름(SSID)" name="password">
+        <input type="text" class="form-control" placeholder="내부 비밀번호" name="edit_local_pass">
       </div>
 
-      <div class="input-group margin-bottom-20">
-        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-        <input type="text" class="form-control" placeholder="내부 비밀번호" name="password">
-      </div>
-
-    <hr>
+      <hr>
 
       <div class="reg-block-header">
         <h2>현재 손님용 공유기 이름 <br>
-          (SSID) : PI-Guest </h2>
+          (SSID) : <%= @guest_ssid %> </h2>
       </div>
 
       <div class="input-group margin-bottom-20">
         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-        <input type="text" class="form-control" placeholder="손님용 공유기 이름(SSID)" name="password">
+        <input type="text" class="form-control" placeholder="손님용 공유기 이름(SSID)" name="edit_guest_ssid">
       </div>
 
       <div class="input-group margin-bottom-20">
         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-        <input type="text" class="form-control" placeholder="손님용 비밀번호" name="password">
+        <input type="text" class="form-control" placeholder="손님용 비밀번호" name="edit_guest_pass">
       </div>
-
-    <form action = "/login/auth" >
 
       <hr>
 
@@ -72,13 +75,14 @@
           <input class="btn-u btn-block" type="submit" value="변경완료">
         </div>
       </div>
-    </form>
+    </div>
 
-    </form>
+  </form>
+
+
   <!--End Reg Block-->
-  </div><!--/container-->
-  </div>
-</div>
+</div><!--/container-->
+
 
 </body>
 </html>

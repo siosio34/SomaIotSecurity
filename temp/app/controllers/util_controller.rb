@@ -19,15 +19,30 @@ class UtilController < ApplicationController
     @guest_ssid = my_hash["guest_ssid"]
     @otp_enable = my_hash["otp_enable"]
 
-    puts @local_ssid
-    puts @guest_ssid
-    puts @otp_enable
 
     client.close
 
   end
 
-  def chlidren
+  def setting_send
+
+    @edit_admin_pass = params[:edit_admin_pass]
+    @edit_local_ssid = params[:edit_local_ssid]
+    @edit_local_pass = params[:edit_local_pass]
+    @edit_guest_ssid = params[:edit_guest_ssid]
+    @edit_guest_pass = params[:edit_guest_pass]
+
+    puts @edit_admin_pass
+    puts @edit_local_ssid
+    puts @edit_local_pass
+    puts @edit_guest_ssid
+    puts @edit_guest_pass
+
+
+  end
+
+
+def chlidren
 
   end
 

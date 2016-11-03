@@ -14,8 +14,7 @@ void write_conf(){
         backup_struct();
         update_flag.hostapd = 0; //flag 초기
     }
-
-    if(update_flag.otp_conf == 1){
+    else if(update_flag.otp_conf == 1){
         update_otp();
         backup_struct();
         update_flag.otp_conf = 0;
@@ -37,6 +36,8 @@ void update_hostapd(){
     //restart hostapd (unactivated)
     // sprintf(command, "./restart_hostapd.sh")
     // system(command); //update conf by script
+    restart_hostapd_local();
+    restart_hostapd_guest();
 
 }
 

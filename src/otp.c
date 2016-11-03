@@ -26,13 +26,17 @@ void otp_init(){
 
 void otp_switch_handler(){
     update_flag.otp_switch = 1;
-    sleep(1); //debounsing
 }
 
 void otp(){
     if(update_flag.otp_enable == 1){
+
+        sleep(1); //otp_switch debouncing
+
         //otp need to be changed
         if(update_flag.otp_switch == 1 || update_flag.otp_web == 1 || update_flag.otp_no_user == 1){
+
+
 
             otp_generate();
             otp_update();
@@ -50,10 +54,10 @@ void otp_generate(){
 
     if(update_flag.otp_easyword == 1){ // easyword PW
         gen_easy_str();
-        // while(strcmp(new_otp, old_otp) == 0){ //if new_otp is same as old_otp
-        //     gen_easy_str(); //make again
-        //     // printf("%s\n", new_otp);
-        // }
+        while(strcmp(new_otp, old_otp) == 0){ //if new_otp is same as old_otp
+            gen_easy_str(); //make again
+            // printf("%s\n", new_otp);
+        }
         strncpy(old_otp, new_otp, OTP_WORD_LENGTH); //update old_otp
 
     }
@@ -74,7 +78,7 @@ void otp_generate(){
 void otp_update(){
 
     //update struct && config file
-    strncpy(inner_data.guest_PW, new_otp, OTP_LENGTH); //need to fix
+    strncpy(inner_data.guest_PW, new_otp, OTP_WORD_LENGTH); //need to fix
     update_flag.otp_conf = 1;
 
     //assign and change lcd data

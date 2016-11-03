@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'util/setting'
+  get 'util/setting_send'
 
   get 'util/chlidren'
 
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
   get 'util/monitoring'
 
   get 'util/setting'
+
+
 
   resources :wifisets
   resources :posts
