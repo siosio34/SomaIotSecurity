@@ -109,7 +109,7 @@ void backup_struct(){
 }
 
 void restart_lcd(){
-    const int LCD_POW_PIN = 2; //wiringPi pin 7
+    const int LCD_POW_PIN = 2; //wiringPi pin 2
     pullUpDnControl(LCD_POW_PIN, PUD_DOWN); //pull-down switch pin
     pinMode(LCD_POW_PIN, OUTPUT);
     digitalWrite(LCD_POW_PIN, HIGH);
