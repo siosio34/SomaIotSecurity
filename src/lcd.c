@@ -39,7 +39,7 @@ void *lcd_update(void *data){
         if(update_flag.lcd == 1){
             //write lcd
             // printf("same memory shared check\n");
-
+            lcdClear(lcd);
             lcdPosition(lcd,0,0);
             lcdPuts(lcd, lcd_data.row[0]);
             lcdPosition(lcd,0,1);

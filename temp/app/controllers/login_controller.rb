@@ -3,7 +3,6 @@ require 'socket'
 require 'json'
 require 'csv'
 
-
 class LoginController < ApplicationController
 
   def index

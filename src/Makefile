@@ -4,8 +4,8 @@ JSONC = /usr/local/include/json-c
 .SUFFIXES: .c .o
 all:run
 
-run:gateway_main.o communicator.o otp.o lcd.o write_conf.o
-	$(CC) -o $@ gateway_main.o communicator.o otp.o lcd.o write_conf.o -lpthread -ljson-c -lwiringPi -lwiringPiDev
+run:gateway_main.o communicator.o otp.o lcd.o write_conf.o init.o
+	$(CC) -o $@ gateway_main.o communicator.o otp.o lcd.o write_conf.o init.o -lpthread -ljson-c -lwiringPi -lwiringPiDev
 
 communicator.o:
 	$(CC) -c communicator.c -I$(JSONC)
@@ -16,9 +16,12 @@ otp.o:
 lcd.o:
 	$(CC) -c lcd.c -lwiringPi -lwiringPiDev
 
+
 write_conf.o:
 	$(CC) -c write_conf.c	
 
+init.o:
+	$(CC) -c init.c -lwiringPi -lwiringPiDev
 clean:
 	 rm -f *.o
 
