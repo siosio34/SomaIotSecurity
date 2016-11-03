@@ -19,17 +19,14 @@ class LoginController < ApplicationController
     strip_json = response.strip
     puts strip_json
     my_hash = JSON.parse(strip_json)
+    client.close
+
     if my_hash["verify"] == 'true'
       render 'welcome/index'
     else
-      render 'login/index'
-
-    client.puts JSON.generate(passjson)
-    client.close
-
+      render 'login/auth'
     end
+
   end
-
-
 
 end
