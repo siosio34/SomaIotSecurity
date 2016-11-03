@@ -50,10 +50,10 @@ void otp_generate(){
 
     if(update_flag.otp_easyword == 1){ // easyword PW
         gen_easy_str();
-        // while(strcmp(new_otp, old_otp) == 0){ //if new_otp is same as old_otp
-        //     gen_easy_str(); //make again
-        //     // printf("%s\n", new_otp);
-        // }
+        while(strcmp(new_otp, old_otp) == 0){ //if new_otp is same as old_otp
+            gen_easy_str(); //make again
+            // printf("%s\n", new_otp);
+        }
         strncpy(old_otp, new_otp, OTP_WORD_LENGTH); //update old_otp
 
     }
