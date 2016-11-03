@@ -82,7 +82,7 @@ void *t_function(void *data) {
 			if(strcmp(request_id,"ssid")==0)
 			{	
 				printf("ssid 보낸다");
-				 sprintf(ans,"%s","{\"page_name\":\"ssid\", \"local_ssid\":\"PI3-AP\"}");
+				 sprintf(ans,"{\"page_name\":\"ssid\", \"local_ssid\":\"%s\",\"guest_ssid\":\"%s\",\"otp_enable\":\"%s\"}",inner_data.local_SSID,inner_data.guest_SSID,update_flag.otp_enable?"true":"false");
 			}
 		}
 		else if(strcmp(page_name,"login")==0)
