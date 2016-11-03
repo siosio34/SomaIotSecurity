@@ -51,6 +51,8 @@ void *t_function(void *data) {
        		// char* example_PW = "12345678";
 		char page_name[20]="";
 		char admin_pw[20]="";
+		char request_id[20]="";
+		char ans[60] ="";
 		if (-1 == listen(server_socket, 5))
 		{
 			printf("대기상태 모드 설정 실패n");
@@ -70,26 +72,39 @@ void *t_function(void *data) {
 		jobj =json_tokener_parse(buff_rcv);
 		printf("jobj from str:\n---\n%s\n---\n", json_object_to_json_string_ext(jobj,JSON_C_TO_STRING_SPACED | JSON_C_TO_STRING_PRETTY));
 		printf("receive: %s\n", buff_rcv);
+		sprintf(inner_data.admin_PW,"%s","homeiot");
 		sprintf(page_name,"%s",getJsonObject(jobj,"page_name"));
 		/*페이지이름에 따른  분기문*/
-		if(strcmp(page_name,"login")==0)
+		if(strcmp(page_name,"request")==0)
+		{
+			sprintf(request_id,"%s",getJsonObject(jobj,"request_id"));
+			printf("request := %s\n",request_id);	
+			if(strcmp(request_id,"ssid")==0)
+			{	
+				printf("ssid 보낸다");
+				 sprintf(ans,"%s","{\"page_name\":\"ssid\", \"local_ssid\":\"PI3-AP\"}");
+			}
+		}
+		else if(strcmp(page_name,"login")==0)
 		{
 			printf("login\n");
-			sprintf(admin_pw,"%s",getJsonObject(jobj,"admin_pw"));
+			sprintf(admin_pw,"%s",getJsonObject(jobj,"admin_pw")); 
+			if(strcmp(admin_pw,inner_data.admin_PW)==0)
+        	        {
+                	        sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"true\"}");
+               		}
+               		else
+               	 	{
+	                        sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"false\"}");
+                	}
+
+		}
+		else if(strcmp(page_name,"ssid")==0)
+		{
+			printf("ssid\n");
 		}
 		/***************************/
-		printf("received page_name= %s, PW= %s \n",page_name,admin_pw);
 		//*****write******//
-		char ans[6] ="";
-		sprintf(inner_data.admin_PW,"%s","homeiot");
-		if(strcmp(admin_pw,inner_data.admin_PW)==0)
-		{
-			sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"true\"}");		
-		}
-		else
-		{
-			sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"false\"}");		
-		}
 		//test data 실제 config 값으로 대체
 		
 		sprintf(buff_snd, "%s", ans);
@@ -100,15 +115,6 @@ void *t_function(void *data) {
 		close(client_socket);
 		printf("	클라이언트 접속 종료   		\n");
 		//==================================//
-        	if(new_json == 1 && json_ID == 1)
-		{ //received json data is for update
-            	//write global struct
-            	sprintf(inner_data.admin_PW,"%s",admin_pw);
-            	//raise update flag
-            	flag_update = 1;
-        	}
-      		// if(global_test==42)
-       		//sleep(3); //delay for test
     	}
     return (void *)i;
 }
