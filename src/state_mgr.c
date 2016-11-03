@@ -12,8 +12,8 @@ int main()
 	FILE *fp;
     	int state;
 	int i;
-	int conn_div_cnt=1;
-	int new_div_flag;
+	int conn_div_cnt=0;
+	int new_div_flag=1;
 	div_state div[200]={};
 	time_t   current_time;
 	while(1){
@@ -33,30 +33,28 @@ int main()
 			Eliminate(buffer, ' ');
 			if(retText(buffer,&temp_div)){ //마지막 줄을 찾았을때.
 	                	for(i=0;i<conn_div_cnt;i++)
-        	        	{
-                	        	if(strcmp(temp_div.station,div[i].station)==0)
-                        		{	char timestp[20]={};
+        	        	{							
+					printf("\n%d MAC:%s, TX:%s, RX:%s, CONTIME:%s\n",i,div[i].station,div[i].rxbytes,div[i].txbytes,div[i].connTime);
+	              	        	if(strcmp(temp_div.station,div[i].station)==0)
+                        		{	char timestp[30]={};
 						strcpy(timestp,div[i].connTime);
                                 		div[i]=temp_div;
 						strcpy(div[i].connTime,timestp);
-
-                                		//printf("%s",div[i].station);
 						new_div_flag=0;
                         			break;
                         		}
+					//couldn't found div MAC
 					new_div_flag=1;
-					printf("MAC:%s, TX:%s, RX:%s",div[i].station,div[i].rxbytes,div[i].txbytes);
                 		}
 				if(new_div_flag)
 				{
 
 					time( &current_time);
-					printf( "%ldn", current_time);
-					printf( ctime( &current_time));
-					printf("new divice connected\n");
-					conn_div_cnt++;
+					printf("\n!!!!!!!!!!!!!!!!!!!!!new divice connected!!!!!!!!!!!\n\n");
 					div[conn_div_cnt]=temp_div;
+					printf("\n\n%s\n\n\n",div[conn_div_cnt].station);
 					strcpy(div[conn_div_cnt].connTime,ctime(&current_time));
+					conn_div_cnt++;
 				}
 			}
 		}
