@@ -29,29 +29,23 @@ int main(){
     int a = 1; //쓰레드 함수 인자
 
     //================init=====================//
-//    wiringPiSetup();        //init WiringPi
-//    restart_lcd(); //cut power to lcd and erase lcd register
-//    init_struct();
+    wiringPiSetup();        //init WiringPi
+    restart_lcd(); //cut power to lcd and erase lcd register
+    init_struct();
     // update_flag.hostapd = 1;
     // update_flag.otp_conf = 1;
 //    write_conf();
-//    init_service();
+    signal(SIGCHLD, SIG_IGN);
+    init_service();
 
     //thread1 generation
-    thr_id = pthread_create(&p_thread[0], NULL, t_function, (void *)&a);
-    if(thr_id < 0){
-            perror("thread create error : ");
-             exit(0);
-     }
-
-    //// lcd thread generation
-    // thr_id = pthread_create(&p_thread[1], NULL, lcd_update, (void *)&a);
+    // thr_id = pthread_create(&p_thread[0], NULL, t_function, (void *)&a);
     // if(thr_id < 0){
     //         perror("thread create error : ");
-    //         exit(0);
-    // }
+    //          exit(0);
+    //  }
 
-    //otp_init();
+
     //lcd thread generation
     thr_id = pthread_create(&p_thread[1], NULL, lcd_update, (void *)&a);
     if(thr_id < 0){
@@ -59,14 +53,15 @@ int main(){
             exit(0);
     }
     printf("hi");
-    //otp_init();
+    otp_init();
     update_flag.otp_enable = 1; //for debug
 
     //main loop for management demon
-    while(0){
-     //write_conf();
-   // otp();
-   // sleep(1);
+    while(1){
+        write_conf();
+        update_flag.otp_easyword = 1;
+        otp();
+        sleep(1);
   //  printf("%s\n", inner_data.guest_PW);
   //  printf("===================\n");
 
