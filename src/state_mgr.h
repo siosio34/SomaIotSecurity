@@ -1,7 +1,11 @@
+#include <time.h>
 #define STATE_TYPE_NUM 14
 
 typedef struct{
+	char conn_state;
 	char station[40];
+	char IP[16];
+	char host_name[50];
 	char inactivetime[20];
 	char rxbytes[20];
 	char rxpackets[20];
@@ -15,8 +19,15 @@ typedef struct{
 	char authenticated[20];
 	char WMMWME[20];
 	char TDLSpeer[20];
-	char connTime[30];
-}div_state;
+	char connTime[15];
+	char disconnTime[15];
+}dev_state;
+typedef struct{
+	char connTime[15];
+	char MAC[40];
+	char IP[16];
+	char host_name[50];
+}MAC_IP;
 char *text_t[] = {
 	"Station",
 	"inactivetime:",
@@ -33,34 +44,42 @@ char *text_t[] = {
 	"WMM/WME:",
 	"TDLSpeer:"
 };
-
-int retText(char *arg,div_state *div) {
+int get_time(char *dev);
+int retText(char *arg,dev_state *dev) {
 	int i = 0;	
 	char *ptr;
 	for (i = 0; i <STATE_TYPE_NUM; i++)
 	{
 		if ((ptr =strstr(arg, text_t[i]))) {
 //			printf("%s", ptr += strlen(text_t[i]));
+			ptr += strlen(text_t[i]);
+
 			switch(i)
 			{
-			case 0: sprintf((*div).station, "%s", ptr); break;
-			case 1: sprintf((*div).inactivetime, "%s", ptr); break;			
-			case 2: sprintf((*div).rxbytes, "%s", ptr); break;
-			case 3: sprintf((*div).rxpackets, "%s", ptr); break;
-			case 4: sprintf((*div).txbytes, "%s", ptr); break;
-			case 5: sprintf((*div).txpackets, "%s", ptr); break;
-			case 6: sprintf((*div).txfailed, "%s", ptr); break;
-			case 7: sprintf((*div).signal, "%s", ptr); break;
-			case 8: sprintf((*div).txbitrate, "%s", ptr); break;
-			case 9: sprintf((*div).rxbitrate, "%s", ptr); break;
-			case 10: sprintf((*div).authorized, "%s", ptr); break;
-			case 11: sprintf((*div).authenticated, "%s", ptr); break;
-			case 12: sprintf((*div).WMMWME, "%s", ptr); break;
-			case 13: sprintf((*div).TDLSpeer, "%s", ptr); return 1; break;
+			case 0: snprintf((*dev).station,18, "%s", ptr); break;
+			case 1: sprintf((*dev).inactivetime, "%s", ptr); break;			
+			case 2: sprintf((*dev).rxbytes, "%s", ptr); break;
+			case 3: sprintf((*dev).rxpackets, "%s", ptr); break;
+			case 4: sprintf((*dev).txbytes, "%s", ptr); break;
+			case 5: sprintf((*dev).txpackets, "%s", ptr); break;
+			case 6: sprintf((*dev).txfailed, "%s", ptr); break;
+			case 7: sprintf((*dev).signal, "%s", ptr); break;
+			case 8: sprintf((*dev).txbitrate, "%s", ptr); break;
+			case 9: sprintf((*dev).rxbitrate, "%s", ptr); break;
+			case 10: sprintf((*dev).authorized, "%s", ptr); break;
+			case 11: sprintf((*dev).authenticated, "%s", ptr); break;
+			case 12: sprintf((*dev).WMMWME, "%s", ptr); break;
+			case 13: sprintf((*dev).TDLSpeer, "%s", ptr); return 1; break;
 			default: break;
 			}
 			break;
 		}
 	}
+return 0;
+}
+int get_time(char *dev_time){
+time_t current_time;
+time( &current_time);
+sprintf(dev_time,"%d",current_time);
 return 0;
 }
