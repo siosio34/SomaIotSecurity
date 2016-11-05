@@ -54,7 +54,7 @@ void *lcd_update(void *data){
 
             update_flag.lcd = 0;
         }
-        // sleep(1); //check for each second
+        sleep(1); //check for each second
 
     } //while end
 
