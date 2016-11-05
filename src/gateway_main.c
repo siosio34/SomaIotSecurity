@@ -30,14 +30,15 @@ int main(){
 
     //================init=====================//
     wiringPiSetup();        //init WiringPi
-    restart_lcd(); //cut power to lcd and erase lcd register
+
     init_struct();
     // update_flag.hostapd = 1;
     // update_flag.otp_conf = 1;
 //    write_conf();
     signal(SIGCHLD, SIG_IGN);
     init_service();
-
+    sleep(1);
+    restart_lcd(); //cut power to lcd and erase lcd register
     //thread1 generation
     // thr_id = pthread_create(&p_thread[0], NULL, t_function, (void *)&a);
     // if(thr_id < 0){
