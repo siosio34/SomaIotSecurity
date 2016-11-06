@@ -50,11 +50,11 @@ void *lcd_update(void *data){
             lcdPuts(lcd, lcd_data.row[3]);
 
             //for debug
-            sprintf(lcd_data.row[3],"%d", y); y++;
+            //sprintf(lcd_data.row[3],"%d", y); y++;
 
             update_flag.lcd = 0;
         }
-        // sleep(1); //check for each second
+        sleep(1); //check for each second
 
     } //while end
 
