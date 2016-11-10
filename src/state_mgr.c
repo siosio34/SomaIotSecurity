@@ -1,22 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/shm.h>
 #include "string_edit.h"
 #include "state_mgr.h"
+#include "unistd.h"
 #include <string.h>
-#include <time.h>
+#define MAX_DEVICE_NUM 200
+#define SHMEMKEY 1000
 int main()
 {
+	printf("Shmat ERROR");
 	char command[]="sudo iw dev wlan0 station dump";	
+	char dhcp_command[]="cat /var/lib/misc/dnsmasq.leases";
 	int count = 0;
 	FILE *fp;
-    	int state;
+	FILE *fp_dhcp;
 	int i;
-	int conn_div_cnt=0;
-	int new_div_flag=1;
-	div_state div[200]={};
-	time_t   current_time;
+	int conn_dev_cnt=0;
+	int new_dev_flag=1;
+	state_arry* dev;
+	/*****공용 메모리*****/
+	int shmem_id;
+	
+	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_arry),0777);
+	if(shmem_id ==-1)
+	{
+		perror("shmget ERROR");
+		exit(1);
+	}
+	if(dev==(void *)-1)
+	{
+		perror("shmat ERROR");
+		exit(1);
+	}
 	while(1){
+	  dev =(state_arry*)shmat(shmem_id,NULL,0);
 	fp = popen(command, "r");
 	if(!fp)
 	{
@@ -26,40 +45,90 @@ int main()
 	{
 		const size_t BUFFER_SIZE = 128;
 		char buffer[BUFFER_SIZE];
-		div_state temp_div={};
+		char buffer_dhcp[BUFFER_SIZE];
+		char dev_conn_check_flag[MAX_DEVICE_NUM]={0};
+		/*접속 기기 처리*/
+		dev_state temp_dev={};
 		while (fgets(buffer,BUFFER_SIZE,fp)!=NULL)
 		{
 			count++;
-			Eliminate(buffer, ' ');
-			if(retText(buffer,&temp_div)){ //마지막 줄을 찾았을때.
-	                	for(i=0;i<conn_div_cnt;i++)
-        	        	{							
-					printf("\n%d MAC:%s, TX:%s, RX:%s, CONTIME:%s\n",i,div[i].station,div[i].rxbytes,div[i].txbytes,div[i].connTime);
-	              	        	if(strcmp(temp_div.station,div[i].station)==0)
-                        		{	char timestp[30]={};
-						strcpy(timestp,div[i].connTime);
-                                		div[i]=temp_div;
-						strcpy(div[i].connTime,timestp);
-						new_div_flag=0;
+			Eliminate(buffer,' ');
+			Eliminate(buffer,'\t');
+			if(retText(buffer,&temp_dev)){ //마지막 줄을 찾았을때.
+				MAC_IP mac_ip={};
+				fp_dhcp=popen(dhcp_command,"r");
+                                while(fgets(buffer_dhcp,BUFFER_SIZE,fp_dhcp)!=NULL)
+                                {
+					sscanf(buffer_dhcp,"%s %s %s %s",mac_ip.connTime,mac_ip.MAC,mac_ip.IP,mac_ip.host_name);
+					 if(strcmp(temp_dev.station,mac_ip.MAC)==0)
+                                        {
+                                        	strcpy(temp_dev.IP,mac_ip.IP);
+                                        	strcpy(temp_dev.host_name,mac_ip.host_name);
+                                	}
+                                }
+				for(i=0;i<conn_dev_cnt;i++)
+        	        	{
+
+					if(strcmp(temp_dev.station,dev->dev_states[i].station)==0)
+                        		{
+						if(dev->dev_states[i].conn_state=='\0'){(get_time(dev->dev_states[i].connTime));}
+						strcpy(temp_dev.connTime,dev->dev_states[i].connTime);
+						dev->dev_states[i]=temp_dev;
+						//memcpy((dev->dev_states[i]),temp_dev,sizeof(temp_dev));
+						new_dev_flag=0;
+						dev_conn_check_flag[i]=1;
                         			break;
                         		}
 					//couldn't found div MAC
-					new_div_flag=1;
+					new_dev_flag=1;
                 		}
-				if(new_div_flag)
+				if(new_dev_flag)
 				{
 
-					time( &current_time);
 					printf("\n!!!!!!!!!!!!!!!!!!!!!new divice connected!!!!!!!!!!!\n\n");
-					div[conn_div_cnt]=temp_div;
-					printf("\n\n%s\n\n\n",div[conn_div_cnt].station);
-					strcpy(div[conn_div_cnt].connTime,ctime(&current_time));
-					conn_div_cnt++;
+                              		dev->dev_states[conn_dev_cnt]=temp_dev;
+					//memcpy((dev->dev_states[conn_dev_cnt]),temp_dev,sizeof(temp_dev));
+					printf("%s",temp_dev.station);
+					strcpy(dev->dev_states[conn_dev_cnt].station,temp_dev.station);
+					get_time(dev->dev_states[conn_dev_cnt].connTime);
+					dev_conn_check_flag[conn_dev_cnt]=1;
+					conn_dev_cnt++;
 				}
 			}
 		}
+		/*접속 종료 기기 처리*/
+		for(i=0;i<conn_dev_cnt;i++)
+		{
+			if(dev_conn_check_flag[i])
+			{
+			dev->dev_states[i].conn_state='1';
+			}
+			else
+			{
+			dev->dev_states[i].conn_state='0';
+				//
+			if(strlen(dev->dev_states[i].disconnTime)==0)
+				{
+				get_time(dev->dev_states[i].disconnTime);
+				}
+			}
+			printf(
+			"\nConneted:%c\nMAC:%s\nIP:%s\nHOST_NAME:%s\nrx:%stx:%sconnected:%s\ndisconnected:%s\n",
+			dev->dev_states[i].conn_state,dev->dev_states[i].station,
+			dev->dev_states[i].IP,dev->dev_states[i].host_name,
+			dev->dev_states[i].rxbytes,dev->dev_states[i].txbytes,
+			dev->dev_states[i].connTime,dev->dev_states[i].disconnTime);
+
+		}
 	}
-	state= pclose(fp);
+	if(shmdt(dev) == -1)//detach from shared memory
+	{
+		perror("shmdt failed");
+		exit(1);
+	}
+
+	pclose(fp);
+	pclose(fp_dhcp);
 	sleep(1);
 	}
 	return 0;
