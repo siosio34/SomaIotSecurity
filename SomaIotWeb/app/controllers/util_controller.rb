@@ -1,5 +1,6 @@
 require 'socket'
 require 'json'
+require 'date'
 
 class UtilController < ApplicationController
 
@@ -76,14 +77,14 @@ class UtilController < ApplicationController
     @my_monitoring_json = JSON.parse(strip_json)
     @info_device_list = @my_monitoring_json['con_list']
 
+
+
     client.close
 
     # monitor json list로 받아온 다음에
     # view 에 출력'
 
     # 밑에 제이썬 파싱 예제
-
-
 
 
   #  # Convert the String response into a plain old Ruby array. It is faster and saves you time compared to the standard Ruby libraries too.

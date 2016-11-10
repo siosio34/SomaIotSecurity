@@ -17,13 +17,14 @@
 
       <%= @info_device_list.each do |info| %>
           <tr>
+
             <td> <%= 1 %></td>
             <td> <%= info['MAC'] %></td>
             <td> <%= info['IP'] %></td>
             <td> <%= info['HOST_NAME'] %></td>
             <td> <%= info['rx'] %></td>
             <td> <%= info['tx'] %></td>
-            <td> <%= info['connected'] %></td>
+            <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
             <td> <%= info['disconnected'] %></td>
           </tr>
       <%= end %>
