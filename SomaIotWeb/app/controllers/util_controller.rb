@@ -25,6 +25,8 @@ class UtilController < ApplicationController
 
   def setting_send
 
+
+
     @edit_admin_pass = params[:edit_admin_pass]
     @edit_local_ssid = params[:edit_local_ssid]
     @edit_local_pass = params[:edit_local_pass]
@@ -61,7 +63,10 @@ class UtilController < ApplicationController
 
   def monitoring
 
+    passjson = {:page_name => 'request' , :request_id => 'con_list'}
     client = TCPSocket.new 'localhost', 9090
+    client.puts JSON.generate(passjson)
+
     response = client.read
     strip_json = response.strip
 
