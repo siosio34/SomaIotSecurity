@@ -82,8 +82,8 @@ void otp_update(){
     update_flag.otp_conf = 1;
 
     //assign and change lcd data
-    sprintf(lcd_data.row[0], "SSID: test");
-    sprintf(lcd_data.row[1], "PW: %s", new_otp);
+    sprintf(lcd_data.row[0], "SSID: %s", inner_data.guest_SSID);
+    sprintf(lcd_data.row[1], "PW: %s", inner_data.guest_PW);
 
     update_flag.lcd = 1; //
 

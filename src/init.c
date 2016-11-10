@@ -34,7 +34,10 @@ void init_hostapd(){
     }
     else if (hostapd_local_PID == 0){
         printf("자식 프로세스 %d\n", getpid());//for debug
-        system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf -f /var/log/hostapd_local.log");
+
+        char *argv[]   = { "hostapd", "/etc/hostapd/hostapd.conf", "-f", "/var/log/hostapd_local.log", NULL};
+        execv( "/usr/sbin/hostapd", argv);
+
         pause();
     }
     else if (hostapd_local_PID == -1){
@@ -49,7 +52,10 @@ void init_hostapd(){
     }
     else if (hostapd_guest_PID == 0){
         printf("자식 프로세스 %d\n", getpid());//for debug
-        system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd_1.conf -f /var/log/hostapd_guest.log");
+
+        char *argv[]   = { "hostapd", "/etc/hostapd/hostapd_1.conf", "-f", "/var/log/hostapd_guest.log", NULL};
+        execv( "/usr/sbin/hostapd", argv);
+
         pause();
     }
     else if (hostapd_guest_PID == -1){
@@ -69,7 +75,10 @@ void restart_hostapd_local(){
     }
     else if (hostapd_local_PID == 0){
         printf("자식 프로세스 %d\n", getpid());//for debug
-        system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf -f /var/log/hostapd_local.log");
+
+        char *argv[]   = { "hostapd", "/etc/hostapd/hostapd.conf", "-f", "/var/log/hostapd_local.log", NULL};
+        execv( "/usr/sbin/hostapd", argv);
+
         pause();
     }
     else if (hostapd_local_PID == -1){
@@ -90,7 +99,10 @@ void restart_hostapd_guest(){
     }
     else if (hostapd_guest_PID == 0){
         printf("자식 프로세스 %d\n", getpid());//for debug
-        system("sudo /usr/sbin/hostapd /etc/hostapd/hostapd_1.conf -f /var/log/hostapd_guest.log");
+
+        char *argv[]   = { "hostapd", "/etc/hostapd/hostapd_1.conf", "-f", "/var/log/hostapd_guest.log", NULL};
+        execv( "/usr/sbin/hostapd", argv);
+
         pause();
     }
     else if (hostapd_guest_PID == -1){
@@ -116,4 +128,10 @@ void restart_lcd(){
     sleep(1);
     digitalWrite(LCD_POW_PIN, LOW);
 
+    sprintf(lcd_data.row[0], "SSID: %s", inner_data.guest_SSID);
+    sprintf(lcd_data.row[1], "PW: %s", inner_data.guest_PW);
+    update_flag.lcd = 1;
+    sprintf(lcd_data.row[2], "SSID: %s", inner_data.local_SSID);
+    sprintf(lcd_data.row[3], "PW: %s", inner_data.local_PW);
+    update_flag.lcd = 1;
 }

@@ -15,7 +15,7 @@ typedef struct{
 	char authenticated[20];
 	char WMMWME[20];
 	char TDLSpeer[20];
-	char connTime[20];
+	char connTime[30];
 }div_state;
 char *text_t[] = {
 	"Station",
