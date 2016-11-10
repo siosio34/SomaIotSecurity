@@ -33,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/../SomaIotWeb/app/controllers/util_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="259">
-              <caret line="69" column="23" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="23" />
+              <caret line="71" column="21" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -92,8 +92,8 @@
       <file leaf-file-name="monitoring.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../SomaIotWeb/app/views/util/monitoring.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+            <state relative-caret-position="225">
+              <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -189,7 +189,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-27" />
+    <option name="x" value="423" />
     <option name="y" value="23" />
     <option name="width" value="840" />
     <option name="height" value="986" />
@@ -569,15 +569,15 @@
       <workItem from="1477647682161" duration="11237000" />
       <workItem from="1478173362202" duration="3115000" />
       <workItem from="1478177911745" duration="2338000" />
-      <workItem from="1478774552438" duration="4589000" />
+      <workItem from="1478774552438" duration="4703000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49915000" />
+    <option name="totallyTimeSpent" value="50029000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-27" y="23" width="840" height="986" extended-state="0" />
+    <frame x="423" y="23" width="840" height="986" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.425" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -853,14 +853,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../SomaIotWeb/app/controllers/login_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../SomaIotWeb/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -917,18 +909,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../SomaIotWeb/app/controllers/login_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../SomaIotWeb/app/controllers/util_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
-          <caret line="69" column="23" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="23" />
+          <caret line="71" column="21" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../SomaIotWeb/app/views/util/monitoring.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+        <state relative-caret-position="225">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
           <folding />
         </state>
       </provider>

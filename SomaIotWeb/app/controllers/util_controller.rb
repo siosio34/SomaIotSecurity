@@ -67,7 +67,9 @@ class UtilController < ApplicationController
 
     puts strip_json
 
+
     @my_monitoring_json = JSON.parse(strip_json)
+    @info_device_list = @my_monitoring_json['con_list']
 
     client.close
 
