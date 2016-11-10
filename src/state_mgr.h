@@ -23,6 +23,10 @@ typedef struct{
 	char disconnTime[15];
 }dev_state;
 typedef struct{
+	int conn_dev_cont;
+	dev_state dev_states[20];
+}state_arry;
+typedef struct{
 	char connTime[15];
 	char MAC[40];
 	char IP[16];
@@ -80,6 +84,6 @@ return 0;
 int get_time(char *dev_time){
 time_t current_time;
 time( &current_time);
-sprintf(dev_time,"%d",current_time);
+sprintf(dev_time,"%d",(int)current_time);
 return 0;
 }
