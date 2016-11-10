@@ -26,11 +26,11 @@ void update_hostapd(){
     printf("SSID= %s\n", inner_data.local_SSID);
 
     //update local hostapd .conf (unactivated)
-    sprintf(command, "./update_hostapd_conf.sh %s %s", inner_data.local_SSID, inner_data.local_PW);
+    sprintf(command, "./script/update_hostapd_conf.sh %s %s", inner_data.local_SSID, inner_data.local_PW);
     system(command); //update conf by script
 
     //update guest hostapd .conf (unactivated)
-    sprintf(command, "./update_hostapd_conf_1.sh %s %s", inner_data.guest_SSID, inner_data.guest_PW);
+    sprintf(command, "./script/update_hostapd_conf_1.sh %s %s", inner_data.guest_SSID, inner_data.guest_PW);
     system(command); //update conf by script
 
     //restart hostapd (unactivated)
@@ -46,7 +46,7 @@ void update_otp(){
     // printf("OTP= %s\n", internal_data.local_SSID);
 
     //update guest hostapd .conf (unactivated)
-    sprintf(command, "./update_hostapd_conf_1.sh %s %s", inner_data.guest_SSID, inner_data.guest_PW);
+    sprintf(command, "./script/update_hostapd_conf_1.sh %s %s", inner_data.guest_SSID, inner_data.guest_PW);
     system(command); //update conf by script
 
     //개별로 restart 하기 힘들 것 같으면 otp변경시에도 hostapd()로 처리 가능
