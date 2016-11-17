@@ -122,7 +122,7 @@ int main()
 			
 		}
 	}
-	if(shmdt(dev) == -1)//detach from shared memory
+	if(shmdt(state_return_string) == -1)//detach from shared memory
 	{
 		perror("shmdt failed");
 		exit(1);
