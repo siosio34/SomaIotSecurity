@@ -40,18 +40,23 @@ void *t_function(void *data) {
 	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_return_string_t),0777|IPC_CREAT);
 	if(shmem_id==-1){printf("Shmeget ERROR\n"); exit(1);}
 	else{printf("%d\n",shmem_id);}
-	state_return_string=(state_return_string_t*)shmat(shmem_id,NULL,0);
+	void * shmaddr;
+	 if((shmaddr=shmat(shmem_id, (void *)0, 0)) == (void *)-1) {
+       perror("shmat failed");
+       exit(1);
+	}
+	state_return_string=(state_return_string_t*)shmaddr;
 	server_socket = socket(AF_INET, SOCK_STREAM, 0);
-	  if(shmdt( state_return_string) == -1)
+	 if(shmdt( state_return_string) == -1)
 		{
 				perror("shmdt failed");
 				exit(1);
 		}
-	 state_return_string->check=1;
+	state_return_string->check=1;
   	int sockopt = 1;
 	   	if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &sockopt, sizeof(sockopt)) == -1) {
 			  	perror("socket setting failed");
-		exit(EXIT_FAILURE);
+				exit(EXIT_FAILURE);
 		}
 	if (-1 == server_socket)
 	{
@@ -78,7 +83,7 @@ void *t_function(void *data) {
 		char page_name[20]="";
 		char admin_pw[20]="";
 		char request_id[20]="";
-		char ans[1024] ="";
+		char ans[2024] ="";
 		if (-1 == listen(server_socket, 5))
 		{
 			printf("대기상태 모드 설정 실패n");
@@ -118,6 +123,7 @@ void *t_function(void *data) {
 					printf("waiting...\n");
 				}
 				sprintf(ans,state_return_string->dev_states);
+				sprintf(ans,"{\"page_name\":\"con_list\",\"con_list\":[{\"1\":\"true\",\"MAC\":\"c8:14:79:e8:3e:15\",\"IP\":\"172.24.1.113\",\"HOST_NAME\":\"android-ebff699db65b334b\",\"rx\":\"96932\",\"tx\":\"225657\",\"connected\":\"1478777438\",\"disconnected\":\"0\"},{\"2\":\"true\",\"MAC\":\"00:04:79:e8:3e:15\",\"IP\":\"172.24.1.113\",\"HOST_NAME\":\"KIMDONGWOO\",\"rx\":\"96932\",\"tx\":\"225657\",\"connected\":\"1478777438\",\"disconnected\":\"0\"}]}");
 				state_return_string->check=1;
 			}
 		}

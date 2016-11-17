@@ -26,8 +26,6 @@ class UtilController < ApplicationController
 
   def setting_send
 
-
-
     @edit_admin_pass = params[:edit_admin_pass]
     @edit_local_ssid = params[:edit_local_ssid]
     @edit_local_pass = params[:edit_local_pass]
@@ -45,8 +43,6 @@ class UtilController < ApplicationController
     response = client.read
 
     strip_json = response.strip
-    puts strip_json
-    my_hash = JSON.parse(strip_json)
 
     # json 읽는거 만들어야한다
 
@@ -69,34 +65,11 @@ class UtilController < ApplicationController
     client.puts JSON.generate(passjson)
 
     response = client.read
+
     strip_json = response.strip
-
-    puts strip_json
-
 
     @my_monitoring_json = JSON.parse(strip_json)
     @info_device_list = @my_monitoring_json['con_list']
-
-
-
-    client.close
-
-    # monitor json list로 받아온 다음에
-    # view 에 출력'
-
-    # 밑에 제이썬 파싱 예제
-
-
-  #  # Convert the String response into a plain old Ruby array. It is faster and saves you time compared to the standard Ruby libraries too.
-  #  result = JSON.parse(buffer)
-# #  An example of how to take a random sample of elements from an array. Pass the number of elements you want into .sample() method. It's probably a better idea for the server to limit the results before sending, but you can use basic Ruby skills to trim & modify the data however you'd like.
-  #  result = result.sample(5)
-#
-# #  Loop through each of the elements in the 'result' Array & print some of their attributes.
-  #    result.each do |user|
-  #    puts "#{user['id']}\t#{user['name']}\t#{user['email']}"
-  #    puts "Registered: #{user['created_at']}\n\n"
-  #  end
 
   end
 

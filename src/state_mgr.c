@@ -35,8 +35,8 @@ int main()
 		perror("shmat ERROR");
 		exit(1);
 	}
-	while(1){
 	  state_return_string =(state_return_string_t *)shmat(shmem_id,NULL,0);
+	while(1){
 	fp = popen(command, "r");
 	if(!fp)
 	{
