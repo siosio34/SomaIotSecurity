@@ -23,6 +23,7 @@ typedef struct{
 	char disconnTime[15];
 }dev_state;
 typedef struct{
+	int check;
 	int conn_dev_cont;
 	dev_state dev_states[20];
 }state_arry;

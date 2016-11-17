@@ -40,16 +40,19 @@ void *t_function(void *data) {
 	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_arry),0777|IPC_CREAT);
 	if(shmem_id==-1){printf("Shmeget ERROR\n"); exit(1);}
 	else{printf("%d\n",shmem_id);}
-	//conn_devs_arry=(state_arry*)malloc(sizeof(state_arry));
 	conn_devs_arry=(state_arry*)shmat(shmem_id,NULL,0);
 	server_socket = socket(AF_INET, SOCK_STREAM, 0);
-
-
-  	if(shmdt(conn_devs_arry) == -1) 
-	{
-       		perror("shmdt failed");
-       		exit(1);
-	}
+	  if(shmdt(conn_devs_arry) == -1)
+        {
+                perror("shmdt failed");
+                exit(1);
+        }
+	conn_devs_arry->check=1;
+  	int sockopt = 1;
+       	if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &sockopt, sizeof(sockopt)) == -1) {
+              	perror("socket setting failed");
+		exit(EXIT_FAILURE);
+        }
 	if (-1 == server_socket)
 	{
 		printf("server socket 생성 실패n");
@@ -75,7 +78,7 @@ void *t_function(void *data) {
 		char page_name[20]="";
 		char admin_pw[20]="";
 		char request_id[20]="";
-		char ans[60] ="";
+		char ans[1024] ="";
 		if (-1 == listen(server_socket, 5))
 		{
 			printf("대기상태 모드 설정 실패n");
@@ -101,7 +104,7 @@ void *t_function(void *data) {
 		if(strcmp(page_name,"request")==0)
 		{
 			sprintf(request_id,"%s",getJsonObject(jobj,"request_id"));
-			printf("request := %s\n",request_id);	
+			printf("request := %s",request_id);	
 			if(strcmp(request_id,"ssid")==0)
 			{	
 				printf("send ssid!");
