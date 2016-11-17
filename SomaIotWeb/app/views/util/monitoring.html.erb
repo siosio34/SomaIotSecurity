@@ -1,0 +1,37 @@
+<h1>Util#monitoring</h1>
+
+<div class="container">
+  <h1 align="center">Monitoring Page</h1>
+  <div class="table-responsive"></div>
+    <table class="table table-bordered">
+      <tr class="info">
+        <th> </th>
+        <th>Mac Address     </th>
+        <th>IP  </th>
+        <th>HOST NAME     </th>
+        <th>RS BYTE</th>
+        <th>CS BYTE</th>
+        <th>CONNECT TIME</th>
+        <th>CONNECTOUT BYTE</th>
+      </tr>
+
+      <%= @info_device_list.each do |info| %>
+          <tr>
+
+            <td> <%= 1 %></td>
+            <td> <%= info['MAC'] %></td>
+            <td> <%= info['IP'] %></td>
+            <td> <%= info['HOST_NAME'] %></td>
+            <td> <%= info['rx'] %></td>
+            <td> <%= info['tx'] %></td>
+            <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
+            <td> <%= info['disconnected'] %></td>
+          </tr>
+      <%= end %>
+
+    </table>
+  </div>
+</div>
+
+
+
