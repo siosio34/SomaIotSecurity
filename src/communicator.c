@@ -6,7 +6,7 @@
 #include <arpa/inet.h>
 #include <sys/types.h>
 #include <sys/socket.h>
-#include <json.h>    //제이슨 파서 라이브러리
+#include <json-c/json.h>    //제이슨 파서 라이브러리
 #include <sys/shm.h> //공유메모리 라이브러리
 #include <sys/ipc.h>
 #include "communicator.h"
@@ -35,30 +35,30 @@ void *t_function(void *data) {
 	struct json_object *jobj;
 	/*shared_memory val */
 	void * shared_memory=NULL;
-	state_arry* conn_devs_arry;
+	state_return_string_t* state_return_string;
 	int shmem_id;
-	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_arry),0777|IPC_CREAT);
+	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_return_string_t),0777|IPC_CREAT);
 	if(shmem_id==-1){printf("Shmeget ERROR\n"); exit(1);}
 	else{printf("%d\n",shmem_id);}
-	conn_devs_arry=(state_arry*)shmat(shmem_id,NULL,0);
+	state_return_string=(state_return_string_t*)shmat(shmem_id,NULL,0);
 	server_socket = socket(AF_INET, SOCK_STREAM, 0);
-	  if(shmdt(conn_devs_arry) == -1)
-        {
-                perror("shmdt failed");
-                exit(1);
-        }
-	conn_devs_arry->check=1;
+	  if(shmdt( state_return_string) == -1)
+		{
+				perror("shmdt failed");
+				exit(1);
+		}
+	 state_return_string->check=1;
   	int sockopt = 1;
-       	if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &sockopt, sizeof(sockopt)) == -1) {
-              	perror("socket setting failed");
+	   	if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &sockopt, sizeof(sockopt)) == -1) {
+			  	perror("socket setting failed");
 		exit(EXIT_FAILURE);
-        }
+		}
 	if (-1 == server_socket)
 	{
 		printf("server socket 생성 실패n");
 		exit(1);
 	}
-	
+
 	memset(&server_addr, 0, sizeof(server_addr));
 	server_addr.sin_family = AF_INET;
 	server_addr.sin_port = htons(9090);
@@ -71,10 +71,10 @@ void *t_function(void *data) {
 	printf("웹서버 통신 스래드 실행 \n");
 	while(1)
 	{
-        	//===========json receiver=========//
-        	json_ID = 1; //update example
-       		// char* example_SSID = "Pi3-AP"; //test data
-       		// char* example_PW = "12345678";
+			//===========json receiver=========//
+			json_ID = 1; //update example
+	   		// char* example_SSID = "Pi3-AP"; //test data
+	   		// char* example_PW = "12345678";
 		char page_name[20]="";
 		char admin_pw[20]="";
 		char request_id[20]="";
@@ -104,31 +104,35 @@ void *t_function(void *data) {
 		if(strcmp(page_name,"request")==0)
 		{
 			sprintf(request_id,"%s",getJsonObject(jobj,"request_id"));
-			printf("request := %s",request_id);	
+			printf("request := %s",request_id);
 			if(strcmp(request_id,"ssid")==0)
-			{	
+			{
 				printf("send ssid!");
 				sprintf(ans,"{\"page_name\":\"ssid\", \"local_ssid\":\"%s\",\"guest_ssid\":\"%s\",\"otp_enable\":\"%s\"}",inner_data.local_SSID,inner_data.guest_SSID,update_flag.otp_enable?"true":"false");
 			}
 			else if(strcmp(request_id,"con_list")==0)
 			{
 				printf("send conlist!");
-				sprintf(ans,"{\"page_name\":\"con_list\",\"con_list\":[{\"1\":\"true\",\"MAC\":\"c8:14:79:e8:3e:15\",\"IP\":\"172.24.1.113\",\"HOST_NAME\":\"android-ebff699db65b334b\",\"rx\":\"96932\",\"tx\":\"225657\",\"connected\":\"1478777438\",\"disconnected\":\"0\"}]}");
-
+				while( state_return_string->check) {
+					sleep(1);
+					printf("waiting...\n");
+				}
+				sprintf(ans,state_return_string->dev_states);
+				state_return_string->check=1;
 			}
 		}
 		else if(strcmp(page_name,"login")==0)
 		{
 			printf("login\n");
-			sprintf(admin_pw,"%s",getJsonObject(jobj,"admin_pw")); 
+			sprintf(admin_pw,"%s",getJsonObject(jobj,"admin_pw"));
 			if(strcmp(admin_pw,inner_data.admin_PW)==0)
-        	        {
-                	        sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"true\"}");
-               		}
-               		else
-               	 	{
-	                        sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"false\"}");
-                	}
+					{
+							sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"true\"}");
+			   		}
+			   		else
+			   	 	{
+							sprintf(ans,"%s","{\"page_name\":\"login\", \"verify\":\"false\"}");
+					}
 
 		}
 		else if(strcmp(page_name,"ssid")==0)
@@ -138,7 +142,7 @@ void *t_function(void *data) {
 		/***************************/
 		//*****write******//
 		//test data 실제 config 값으로 대체
-		
+
 		sprintf(buff_snd, "%s", ans);
 		write(client_socket, buff_snd, strlen(buff_snd) + 1);
 		// +1: NULL까지 포함해서 전송
@@ -147,8 +151,8 @@ void *t_function(void *data) {
 		close(client_socket);
 		printf("	클라이언트 접속 종료   		\n");
 		//==================================//
-    	}
-    return (void *)i;
+		}
+	return (void *)i;
 }
 
 char* getJsonObject(json_object *jobj, char *key) {

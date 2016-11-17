@@ -20,11 +20,11 @@ int main()
 	int i;
 	int conn_dev_cnt=0;
 	int new_dev_flag=1;
-	state_arry* dev;
+	dev_state_t dev[200];
 	/*****공용 메모리*****/
 	int shmem_id;
-	
-	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_arry),0777);
+	state_return_string_t* state_return_string;
+	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_return_string_t),0777);
 	if(shmem_id ==-1)
 	{
 		perror("shmget ERROR");
@@ -36,7 +36,7 @@ int main()
 		exit(1);
 	}
 	while(1){
-	  dev =(state_arry*)shmat(shmem_id,NULL,0);
+	  state_return_string =(state_return_string_t *)shmat(shmem_id,NULL,0);
 	fp = popen(command, "r");
 	if(!fp)
 	{
@@ -49,7 +49,7 @@ int main()
 		char buffer_dhcp[BUFFER_SIZE];
 		char dev_conn_check_flag[MAX_DEVICE_NUM]={0};
 		/*접속 기기 처리*/
-		dev_state temp_dev={};
+		dev_state_t temp_dev={};
 		while (fgets(buffer,BUFFER_SIZE,fp)!=NULL)
 		{
 			count++;
@@ -58,40 +58,40 @@ int main()
 			if(retText(buffer,&temp_dev)){ //마지막 줄을 찾았을때.
 				MAC_IP mac_ip={};
 				fp_dhcp=popen(dhcp_command,"r");
-                                while(fgets(buffer_dhcp,BUFFER_SIZE,fp_dhcp)!=NULL)
-                                {
+								while(fgets(buffer_dhcp,BUFFER_SIZE,fp_dhcp)!=NULL)
+								{
 					sscanf(buffer_dhcp,"%s %s %s %s",mac_ip.connTime,mac_ip.MAC,mac_ip.IP,mac_ip.host_name);
 					 if(strcmp(temp_dev.station,mac_ip.MAC)==0)
-                                        {
-                                        	strcpy(temp_dev.IP,mac_ip.IP);
-                                        	strcpy(temp_dev.host_name,mac_ip.host_name);
-                                	}
-                                }
+										{
+											strcpy(temp_dev.IP,mac_ip.IP);
+											strcpy(temp_dev.host_name,mac_ip.host_name);
+									}
+								}
 				for(i=0;i<conn_dev_cnt;i++)
-        	        	{
+						{
 
-					if(strcmp(temp_dev.station,dev->dev_states[i].station)==0)
-                        		{
-						if(dev->dev_states[i].conn_state=='\0'){(get_time(dev->dev_states[i].connTime));}
-						strcpy(temp_dev.connTime,dev->dev_states[i].connTime);
-						dev->dev_states[i]=temp_dev;
+					if(strcmp(temp_dev.station,dev[i].station)==0)
+								{
+						if(dev[i].conn_state=='\0'){(get_time(dev[i].connTime));}
+						strcpy(temp_dev.connTime,dev[i].connTime);
+						dev[i]=temp_dev;
 						//memcpy((dev->dev_states[i]),temp_dev,sizeof(temp_dev));
 						new_dev_flag=0;
 						dev_conn_check_flag[i]=1;
-                        			break;
-                        		}
+									break;
+								}
 					//couldn't found div MAC
 					new_dev_flag=1;
-                		}
+						}
 				if(new_dev_flag)
 				{
 
 					printf("\n!!!!!!!!!!!!!!!!!!!!!new divice connected!!!!!!!!!!!\n\n");
-                              		dev->dev_states[conn_dev_cnt]=temp_dev;
-					//memcpy((dev->dev_states[conn_dev_cnt]),temp_dev,sizeof(temp_dev));
+					dev[conn_dev_cnt]=temp_dev;
+					//memcpy((dev[conn_dev_cnt]),temp_dev,sizeof(temp_dev));
 					printf("%s",temp_dev.station);
-					strcpy(dev->dev_states[conn_dev_cnt].station,temp_dev.station);
-					get_time(dev->dev_states[conn_dev_cnt].connTime);
+					strcpy(dev[conn_dev_cnt].station,temp_dev.station);
+					get_time(dev[conn_dev_cnt].connTime);
 					dev_conn_check_flag[conn_dev_cnt]=1;
 					conn_dev_cnt++;
 				}
@@ -102,24 +102,24 @@ int main()
 		{
 			if(dev_conn_check_flag[i])
 			{
-			dev->dev_states[i].conn_state='1';
+			dev[i].conn_state='1';
 			}
 			else
 			{
-			dev->dev_states[i].conn_state='0';
+			dev[i].conn_state='0';
 				//
-			if(strlen(dev->dev_states[i].disconnTime)==0)
+			if(strlen(dev[i].disconnTime)==0)
 				{
-				get_time(dev->dev_states[i].disconnTime);
+				get_time(dev[i].disconnTime);
 				}
 			}
 			printf(
 			"\nConneted:%c\nMAC:%s\nIP:%s\nHOST_NAME:%s\nrx:%stx:%sconnected:%s\ndisconnected:%s\n",
-			dev->dev_states[i].conn_state,dev->dev_states[i].station,
-			dev->dev_states[i].IP,dev->dev_states[i].host_name,
-			dev->dev_states[i].rxbytes,dev->dev_states[i].txbytes,
-			dev->dev_states[i].connTime,dev->dev_states[i].disconnTime);
-
+			dev[i].conn_state,dev[i].station,
+			dev[i].IP,dev[i].host_name,
+			dev[i].rxbytes,dev[i].txbytes,
+			dev[i].connTime,dev[i].disconnTime);
+			
 		}
 	}
 	if(shmdt(dev) == -1)//detach from shared memory

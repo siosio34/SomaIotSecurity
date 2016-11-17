@@ -21,12 +21,12 @@ typedef struct{
 	char TDLSpeer[20];
 	char connTime[15];
 	char disconnTime[15];
-}dev_state;
+}dev_state_t;
 typedef struct{
 	int check;
 	int conn_dev_cont;
-	dev_state dev_states[20];
-}state_arry;
+	char dev_states[1024];
+}state_return_string_t;
 typedef struct{
 	char connTime[15];
 	char MAC[40];
@@ -50,7 +50,7 @@ char *text_t[] = {
 	"TDLSpeer:"
 };
 int get_time(char *dev);
-int retText(char *arg,dev_state *dev) {
+int retText(char *arg,dev_state_t *dev) {
 	int i = 0;	
 	char *ptr;
 	for (i = 0; i <STATE_TYPE_NUM; i++)
