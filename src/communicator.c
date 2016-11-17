@@ -55,6 +55,7 @@ void *t_function(void *data) {
 		printf("server socket 생성 실패n");
 		exit(1);
 	}
+	
 	memset(&server_addr, 0, sizeof(server_addr));
 	server_addr.sin_family = AF_INET;
 	server_addr.sin_port = htons(9090);
@@ -106,7 +107,7 @@ void *t_function(void *data) {
 				printf("send ssid!");
 				sprintf(ans,"{\"page_name\":\"ssid\", \"local_ssid\":\"%s\",\"guest_ssid\":\"%s\",\"otp_enable\":\"%s\"}",inner_data.local_SSID,inner_data.guest_SSID,update_flag.otp_enable?"true":"false");
 			}
-			else if(strcmp(request_id,"conlist"))
+			else if(strcmp(request_id,"con_list")==0)
 			{
 				printf("send conlist!");
 				sprintf(ans,"{\"page_name\":\"con_list\",\"con_list\":[{\"1\":\"true\",\"MAC\":\"c8:14:79:e8:3e:15\",\"IP\":\"172.24.1.113\",\"HOST_NAME\":\"android-ebff699db65b334b\",\"rx\":\"96932\",\"tx\":\"225657\",\"connected\":\"1478777438\",\"disconnected\":\"0\"}]}");

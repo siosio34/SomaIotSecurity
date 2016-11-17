@@ -1,3 +1,4 @@
 /tmp/*
 /log/*
 /app/assets/img/*
+../src/gateway_main.c

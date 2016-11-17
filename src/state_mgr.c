@@ -10,6 +10,7 @@
 #define SHMEMKEY 1000
 int main()
 {
+	printf("afdsf");
 	printf("Shmat ERROR");
 	char command[]="sudo iw dev wlan0 station dump";	
 	char dhcp_command[]="cat /var/lib/misc/dnsmasq.leases";
