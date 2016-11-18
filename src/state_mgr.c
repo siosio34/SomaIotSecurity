@@ -6,8 +6,10 @@
 #include "state_mgr.h"
 #include "unistd.h"
 #include <string.h>
+#include <signal.h>
 #define MAX_DEVICE_NUM 200
 #define SHMEMKEY 1000
+void sigusr_handler(int signo);
 int main()
 {
 	printf("afdsf");
@@ -25,6 +27,7 @@ int main()
 	int shmem_id;
 	state_return_string_t* state_return_string;
 	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_return_string_t),0777);
+	signal(SIGUSR,sigusr_handler);
 	if(shmem_id ==-1)
 	{
 		perror("shmget ERROR");
@@ -135,3 +138,7 @@ int main()
 	return 0;
 }
 
+void sigusr_hander(int signo);
+{
+
+}

@@ -35,24 +35,16 @@ void *t_function(void *data) {
 	struct json_object *jobj;
 	/*shared_memory val */
 	void * shared_memory=NULL;
-	state_return_string_t* state_return_string;
+	state_return_string_t state_return_string;
+	state_return_string_t* state_return_p;
 	int shmem_id;
-	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_return_string_t),0777|IPC_CREAT);
+	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_return_string_t),0666|IPC_CREAT);
 	if(shmem_id==-1){printf("Shmeget ERROR\n"); exit(1);}
 	else{printf("%d\n",shmem_id);}
-	void * shmaddr;
-	 if((shmaddr=shmat(shmem_id, (void *)0, 0)) == (void *)-1) {
-       perror("shmat failed");
-       exit(1);
-	}
-	state_return_string=(state_return_string_t*)shmaddr;
+
+	state_return_p=(state_return_string_t*)shmat(shmem_id, (void *)0, 0); 
 	server_socket = socket(AF_INET, SOCK_STREAM, 0);
-	 if(shmdt( state_return_string) == -1)
-		{
-				perror("shmdt failed");
-				exit(1);
-		}
-	state_return_string->check=1;
+	state_return_p->check=1;
   	int sockopt = 1;
 	   	if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &sockopt, sizeof(sockopt)) == -1) {
 			  	perror("socket setting failed");
@@ -118,13 +110,13 @@ void *t_function(void *data) {
 			else if(strcmp(request_id,"con_list")==0)
 			{
 				printf("send conlist!");
-				while( state_return_string->check) {
-					sleep(1);
-					printf("waiting...\n");
-				}
-				sprintf(ans,state_return_string->dev_states);
+				//while( state_return_string->check) {
+				//	sleep(1);
+				//	printf("waiting...\n");
+				//}
+				sprintf(ans,state_return_p->dev_states);
 				sprintf(ans,"{\"page_name\":\"con_list\",\"con_list\":[{\"1\":\"true\",\"MAC\":\"c8:14:79:e8:3e:15\",\"IP\":\"172.24.1.113\",\"HOST_NAME\":\"android-ebff699db65b334b\",\"rx\":\"96932\",\"tx\":\"225657\",\"connected\":\"1478777438\",\"disconnected\":\"0\"},{\"2\":\"true\",\"MAC\":\"00:04:79:e8:3e:15\",\"IP\":\"172.24.1.113\",\"HOST_NAME\":\"KIMDONGWOO\",\"rx\":\"96932\",\"tx\":\"225657\",\"connected\":\"1478777438\",\"disconnected\":\"0\"}]}");
-				state_return_string->check=1;
+				state_return_p->check=1;
 			}
 		}
 		else if(strcmp(page_name,"login")==0)
@@ -143,7 +135,13 @@ void *t_function(void *data) {
 		}
 		else if(strcmp(page_name,"ssid")==0)
 		{
-			printf("ssid\n");
+			printf("NEWssid\n");
+			sprintf(inner_data.local_SSID,"%s",getJsonObject(jobj,"local_ssid"));
+			sprintf(inner_data.local_PW,"%s",getJsonObject(jobj,"local_PW"));
+			sprintf(inner_data.guest_PW,"%s",getJsonObject(jobj,"guest_ssid"));
+			sprintf(inner_data.guest_SSID,"%s",getJsonObject(jobj,"guest_pw"));
+			sprintf(inner_data.admin_PW,"%s",getJsonObject(jobj,"admin_pw"));
+			update_flag.hostapd=1; //변경사항 설정
 		}
 		/***************************/
 		//*****write******//
