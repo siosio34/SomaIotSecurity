@@ -18,6 +18,7 @@
 #define MAX_DEV_NUM 200
 //특정 문자 삭제 "지우기용
 char* getJsonObject(json_object*,char *);
+
 //void Eliminate(char *str, char ch); //쓰레드에서 사용할 함수
 int state_mgr_PID;
 void *t_function(void *data) {
@@ -174,7 +175,7 @@ void init_state_mgr(){
         printf("자식 프로세스 %d\n", getpid());//for debug
 
         char *argv[]   = { "state_mgr", NULL};
-        execv( "~/SomaIotSecurity/src", argv);
+        execv( "~/SomaIotSecurity/src/state_mgr", argv);
 
     }
 }
