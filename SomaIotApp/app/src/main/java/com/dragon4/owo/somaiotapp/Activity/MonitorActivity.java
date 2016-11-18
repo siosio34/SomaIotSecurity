@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.dragon4.owo.somaiotapp.Data.HttpHandler;
 import com.dragon4.owo.somaiotapp.Model.Monitor;
 import com.dragon4.owo.somaiotapp.R;
 
@@ -40,6 +41,13 @@ public class MonitorActivity extends AppCompatActivity {
         //// TODO: 2016. 11. 18. json값 넘겨받기
         //myDataset.add()
 
+    }
+
+    public void addMonitorList() {
+
+        String siteUrl = "http:192.168.0.19:3000/util";
+        //HttpHandler.execute().get();
+        //myDataset.add()
 
     }
 }

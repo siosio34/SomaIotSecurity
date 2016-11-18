@@ -27,9 +27,6 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.X509TrustManager;
 
-/**
- * Created by joyeongje on 2016. 10. 2..
- */
 
 public class HttpHandler extends AsyncTask<String, Void, String> {
     private static final String TAG = "HttpHandler";
