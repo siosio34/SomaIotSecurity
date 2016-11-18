@@ -10,6 +10,8 @@
 #define MAX_DEVICE_NUM 200
 #define SHMEMKEY 1000
 void sigusr_handler(int signo);
+state_return_string_t* state_return_p;
+
 int main()
 {
 	printf("afdsf");
@@ -25,9 +27,8 @@ int main()
 	dev_state_t dev[200];
 	/*****공용 메모리*****/
 	int shmem_id;
-	state_return_string_t* state_return_string;
-	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_return_string_t),0777);
-	signal(SIGUSR,sigusr_handler);
+	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_return_string_t),0666);
+	signal(SIGUSR1,sigusr_handler);
 	if(shmem_id ==-1)
 	{
 		perror("shmget ERROR");
@@ -38,7 +39,7 @@ int main()
 		perror("shmat ERROR");
 		exit(1);
 	}
-	  state_return_string =(state_return_string_t *)shmat(shmem_id,NULL,0);
+	  state_return_p =(state_return_string_t *)shmat(shmem_id,NULL,0);
 	while(1){
 	fp = popen(command, "r");
 	if(!fp)
@@ -125,7 +126,7 @@ int main()
 			
 		}
 	}
-	if(shmdt(state_return_string) == -1)//detach from shared memory
+	if(shmdt(state_return_p) == -1)//detach from shared memory
 	{
 		perror("shmdt failed");
 		exit(1);
@@ -138,7 +139,13 @@ int main()
 	return 0;
 }
 
-void sigusr_hander(int signo);
+void sigusr_handler(int signo)
 {
-
+	while(!state_return_p->check)
+	{
+		printf("waiting");
+	}
+	
+	strcpy(state_return_p->dev_states,"{\"page_name\":\"con_list\",\"con_list\":[{\"1\":\"true\",\"MAC\":\"c8:14:79:e8:3e:15\",\"IP\":\"172.24.1.113\",\"HOST_NAME\":\"android-ebff699db65b334b\",\"rx\":\"96932\",\"tx\":\"225657\",\"connected\":\"1478777438\",\"disconnected\":\"0\"},{\"2\":\"true\",\"MAC\":\"00:04:79:e8:3e:15\",\"IP\":\"172.24.1.113\",\"HOST_NAME\":\"KIMDONGWOO\",\"rx\":\"96932\",\"tx\":\"225657\",\"connected\":\"1478777438\",\"disconnected\":\"0\"}]}");
+	state_return_p->check=0;
 }

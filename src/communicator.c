@@ -19,6 +19,7 @@
 //특정 문자 삭제 "지우기용
 char* getJsonObject(json_object*,char *);
 //void Eliminate(char *str, char ch); //쓰레드에서 사용할 함수
+int state_mgr_PID;
 void *t_function(void *data) {
 	int id;
 	int i = 999;
@@ -66,6 +67,8 @@ void *t_function(void *data) {
 		exit(1);
 	}
 	printf("웹서버 통신 스래드 실행 \n");
+	init_state_mgr();
+	printf("상태관리자 실행 PID:%d\n",state_mgr_PID);
 	while(1)
 	{
 			//===========json receiver=========//
@@ -110,12 +113,13 @@ void *t_function(void *data) {
 			else if(strcmp(request_id,"con_list")==0)
 			{
 				printf("send conlist!");
-				//while( state_return_string->check) {
-				//	sleep(1);
-				//	printf("waiting...\n");
-				//}
+				
+				while( state_return_p->check) {
+					sleep(0.3);
+					printf("waiting...\n");
+				}
 				sprintf(ans,state_return_p->dev_states);
-				sprintf(ans,"{\"page_name\":\"con_list\",\"con_list\":[{\"1\":\"true\",\"MAC\":\"c8:14:79:e8:3e:15\",\"IP\":\"172.24.1.113\",\"HOST_NAME\":\"android-ebff699db65b334b\",\"rx\":\"96932\",\"tx\":\"225657\",\"connected\":\"1478777438\",\"disconnected\":\"0\"},{\"2\":\"true\",\"MAC\":\"00:04:79:e8:3e:15\",\"IP\":\"172.24.1.113\",\"HOST_NAME\":\"KIMDONGWOO\",\"rx\":\"96932\",\"tx\":\"225657\",\"connected\":\"1478777438\",\"disconnected\":\"0\"}]}");
+				//sprintf(ans,"{\"page_name\":\"con_list\",\"con_list\":[{\"1\":\"true\",\"MAC\":\"c8:14:79:e8:3e:15\",\"IP\":\"172.24.1.113\",\"HOST_NAME\":\"android-ebff699db65b334b\",\"rx\":\"96932\",\"tx\":\"225657\",\"connected\":\"1478777438\",\"disconnected\":\"0\"},{\"2\":\"true\",\"MAC\":\"00:04:79:e8:3e:15\",\"IP\":\"172.24.1.113\",\"HOST_NAME\":\"KIMDONGWOO\",\"rx\":\"96932\",\"tx\":\"225657\",\"connected\":\"1478777438\",\"disconnected\":\"0\"}]}");
 				state_return_p->check=1;
 			}
 		}
@@ -159,6 +163,21 @@ void *t_function(void *data) {
 	return (void *)i;
 }
 
+
+void init_state_mgr(){
+
+    state_mgr_PID = fork();
+    if (state_mgr_PID > 0){
+        printf("부모 프로세스 %d : %d\n", getpid(), state_mgr_PID); //for debug
+    }
+    else if (state_mgr_PID == 0){
+        printf("자식 프로세스 %d\n", getpid());//for debug
+
+        char *argv[]   = { "state_mgr", NULL};
+        execv( "~/SomaIotSecurity/src", argv);
+
+    }
+}
 char* getJsonObject(json_object *jobj, char *key) {
 	struct json_object *jsontemp;
 	json_object_object_get_ex(jobj, key, &jsontemp);
