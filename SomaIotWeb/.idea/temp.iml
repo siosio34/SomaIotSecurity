@@ -113,10 +113,10 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../temp/spec" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/../temp/.bundle" />
       <excludeFolder url="file://$MODULE_DIR$/../temp/components" />
       <excludeFolder url="file://$MODULE_DIR$/../temp/public/system" />
-      <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/../temp/vendor/bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
