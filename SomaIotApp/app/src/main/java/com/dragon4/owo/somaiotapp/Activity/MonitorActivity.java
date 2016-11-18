@@ -4,12 +4,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.dragon4.owo.somaiotapp.Data.HttpHandler;
 import com.dragon4.owo.somaiotapp.Model.Monitor;
 import com.dragon4.owo.somaiotapp.R;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class MonitorActivity extends AppCompatActivity {
 
@@ -38,15 +40,22 @@ public class MonitorActivity extends AppCompatActivity {
         // specify an adapter (see also next example)
         mRecyclerView.setAdapter(mAdapter);
 
+        try {
+            addMonitorList();
+
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
         //// TODO: 2016. 11. 18. json값 넘겨받기
         //myDataset.add()
 
     }
 
-    public void addMonitorList() {
+    public void addMonitorList() throws ExecutionException, InterruptedException {
 
-        String siteUrl = "http:192.168.0.19:3000/util";
-        //HttpHandler.execute().get();
+        String siteUrl = "http:192.168.0.19:3000/util/monitoring.json";
+        String temp = new HttpHandler().execute(siteUrl).get();
+        Log.i("monitorText",temp);
         //myDataset.add()
 
     }

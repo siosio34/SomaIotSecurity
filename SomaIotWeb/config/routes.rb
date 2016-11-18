@@ -10,8 +10,6 @@ Rails.application.routes.draw do
 
   get 'util/setting'
 
-
-
   resources :wifisets
   resources :posts
   resources :welcome
