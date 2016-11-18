@@ -14,8 +14,6 @@ state_return_string_t* state_return_p;
 
 int main()
 {
-	printf("afdsf");
-	printf("Shmat ERROR");
 	char command[]="sudo iw dev wlan0 station dump";	
 	char dhcp_command[]="cat /var/lib/misc/dnsmasq.leases";
 	int count = 0;
@@ -24,7 +22,7 @@ int main()
 	int i;
 	int conn_dev_cnt=0;
 	int new_dev_flag=1;
-	dev_state_t dev[200];
+	dev_state_t dev[20];
 	/*****공용 메모리*****/
 	int shmem_id;
 	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_return_string_t),0666);
@@ -34,12 +32,7 @@ int main()
 		perror("shmget ERROR");
 		exit(1);
 	}
-	if(dev==(void *)-1)
-	{
-		perror("shmat ERROR");
-		exit(1);
-	}
-	  state_return_p =(state_return_string_t *)shmat(shmem_id,NULL,0);
+	 state_return_p =(state_return_string_t *)shmat(shmem_id,NULL,0);
 	while(1){
 	fp = popen(command, "r");
 	if(!fp)
@@ -126,13 +119,9 @@ int main()
 			
 		}
 	}
-	if(shmdt(state_return_p) == -1)//detach from shared memory
-	{
-		perror("shmdt failed");
-		exit(1);
-	}
 
 	pclose(fp);
+	if(fp_dhcp)
 	pclose(fp_dhcp);
 	sleep(1);
 	}
