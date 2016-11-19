@@ -9,6 +9,7 @@
 #include <json-c/json.h>    //제이슨 파서 라이브러리
 #include <sys/shm.h> //공유메모리 라이브러리
 #include <sys/ipc.h>
+#include <signal.h>
 #include "communicator.h"
 #include "state_mgr.h"
 #include "gateway_main.h"
@@ -114,7 +115,7 @@ void *t_function(void *data) {
 			else if(strcmp(request_id,"con_list")==0)
 			{
 				printf("send conlist!");
-				
+				kill(state_mgr_PID, SIGUSR1);
 				while( state_return_p->check) {
 					sleep(0.3);
 					printf("waiting...\n");
@@ -174,9 +175,9 @@ void init_state_mgr(){
     else if (state_mgr_PID == 0){
         printf("자식 프로세스 %d\n", getpid());//for debug
 
-        char *argv[]   = { "state_mgr", NULL};
-        execv( "~/SomaIotSecurity/src/state_mgr", argv);
-
+        char *argv[]   = { "/home/pi/SomaIotSecurity/src/state_mgr",NULL};
+        execv( "/home/pi/SomaIotSecurity/src/state_mgr", argv);
+	printf("무슨일인지 실행이 안된다");
     }
 }
 char* getJsonObject(json_object *jobj, char *key) {
