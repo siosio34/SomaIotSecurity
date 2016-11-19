@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.dragon4.owo.somaiotapp.Data.HttpHandler;
 import com.dragon4.owo.somaiotapp.Model.Monitor;
@@ -53,9 +54,14 @@ public class MonitorActivity extends AppCompatActivity {
 
     public void addMonitorList() throws ExecutionException, InterruptedException {
 
-        String siteUrl = "http:192.168.0.19:3000/util/monitoring.json";
+        String siteUrl = "http:192.168.0.19:3000/welcome/test";
         String temp = new HttpHandler().execute(siteUrl).get();
-        Log.i("monitorText",temp);
+
+        if(temp != null) {
+            Log.i("monitorText", temp);
+            Toast.makeText(getApplicationContext(),temp,Toast.LENGTH_LONG).show();
+
+        }
         //myDataset.add()
 
     }

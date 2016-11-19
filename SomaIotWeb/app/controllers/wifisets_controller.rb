@@ -37,11 +37,6 @@ class WifisetsController < ApplicationController
   end
     client.close
 
-	#my_wifi_set = {:ssid => @wifiset.ssid}
-    #puts my_wifi_set
-	
-
-    
     respond_to do |format|
       if @wifiset.save
         format.html { redirect_to @wifiset, notice: 'Wifiset was successfully created.' }

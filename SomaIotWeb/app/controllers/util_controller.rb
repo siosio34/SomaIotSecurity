@@ -71,6 +71,10 @@ class UtilController < ApplicationController
     @my_monitoring_json = JSON.parse(strip_json)
     @info_device_list = @my_monitoring_json['con_list']
 
+    render :json => {
+        :device => @info_device_list
+    }
+
   end
 
 

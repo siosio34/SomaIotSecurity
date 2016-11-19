@@ -6,6 +6,7 @@
     </div>
   <div class="table-responsive"></div>
     <table class="table table-bordered">
+
       <tr class="info">
         <th> </th>
         <th>Mac Address     </th>
@@ -15,27 +16,50 @@
         <th>CS BYTE</th>
         <th>CONNECT TIME</th>
         <th>CONNECTOUT BYTE</th>
-	<th>마지막 접속 시간</th>
+	      <th>마지막 접속 시간</th>
       </tr>
 
-	
       <% @info_device_list.each do |info| %>
-          <tr>
-            <td> <%= 1 %></td>
-            <td> <%= info['MAC'] %></td>
-            <td> <%= info['IP'] %></td>
-            <td> <%= info['HOST_NAME'] %></td>
-            <td> <%= ((info['rx'].to_i)/1024).to_s + ' Mb' %></td>
-            <td> <%= ((info['tx'].to_i)/1024).to_s +  'Mb' %></td>
-            <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
-            <td> <%= info['disconnected'] %></td>
-	    <% t = ((Time.now).to_i - info['connected'].to_i) %>
-	    <% mm, ss = t.divmod(60) %>           
-	    <% hh, mm = mm.divmod(60) %>          
-	    <% dd, hh = hh.divmod(24) %>         
-            <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td> 
-	    
-          </tr>
+          <% t = ((Time.now).to_i - info['connected'].to_i) %>
+          <% mm, ss = t.divmod(60) %>
+          <% hh, mm = mm.divmod(60) %>
+          <% dd, hh = hh.divmod(24) %>
+
+          <% flag = info['flag'] %>
+          <% if flag == 'danger' %>
+                  <tr class = 'bg-danger'>
+                    <td> <%= info['MAC'] %></td>
+                    <td> <%= info['IP'] %></td>
+                    <td> <%= info['HOST_NAME'] %></td>
+                    <td> <%= ((info['rx'].to_i)/1024).to_s + ' Mb' %></td>
+                    <td> <%= ((info['tx'].to_i)/1024).to_s +  'Mb' %></td>
+                    <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
+                    <td> <%= info['disconnected'] %></td>
+                    <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>
+                  </tr>
+          <% elsif flag == 'new_device' %>
+                  <tr class = 'bg-color-green'>
+                    <td> <%= info['MAC'] %></td>
+                    <td> <%= info['IP'] %></td>
+                    <td> <%= info['HOST_NAME'] %></td>
+                    <td> <%= ((info['rx'].to_i)/1024).to_s + ' Mb' %></td>
+                    <td> <%= ((info['tx'].to_i)/1024).to_s +  'Mb' %></td>
+                    <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
+                    <td> <%= info['disconnected'] %></td>
+                    <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>
+                  </tr>
+          <% else %>
+                  <tr class = 'bg-color-white'>
+                    <td> <%= info['MAC'] %></td>
+                    <td> <%= info['IP'] %></td>
+                    <td> <%= info['HOST_NAME'] %></td>
+                    <td> <%= ((info['rx'].to_i)/1024).to_s + ' Mb' %></td>
+                    <td> <%= ((info['tx'].to_i)/1024).to_s +  'Mb' %></td>
+                    <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
+                    <td> <%= info['disconnected'] %></td>
+                    <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>
+                  </tr>
+          <% end %>
       <% end %>
 	
     </table>
