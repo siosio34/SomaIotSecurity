@@ -117,7 +117,7 @@ void *t_function(void *data) {
 				printf("send conlist!");
 				kill(state_mgr_PID, SIGUSR1);
 				while( state_return_p->check) {
-					sleep(0.3);
+					sleep(1);
 					printf("waiting...\n");
 				}
 				sprintf(ans,state_return_p->dev_states);

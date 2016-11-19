@@ -5,6 +5,8 @@
 #include "string_edit.h"
 #include "state_mgr.h"
 #include "unistd.h"
+#include <json-c/json.h>
+#include <json-c/json_object.h>
 #include <string.h>
 #include <signal.h>
 #define MAX_DEVICE_NUM 200
@@ -12,17 +14,17 @@
 void sigusr_handler(int signo);
 state_return_string_t* state_return_p;
 
+dev_state_t dev[20];
+int conn_dev_cnt=0;
+
+	char command[2][35]={"sudo iw dev wlan0 station dump","sudo iw dev wlan1 station dump"};
 int main()
 {
-	char command[]="sudo iw dev wlan0 station dump";	
+	//sigusr_handler(1);
 	char dhcp_command[]="cat /var/lib/misc/dnsmasq.leases";
-	int count = 0;
-	FILE *fp;
-	FILE *fp_dhcp;
-	int i;
-	int conn_dev_cnt=0;
-	int new_dev_flag=1;
-	dev_state_t dev[20];
+	get_state(0);
+	get_state(1);
+
 	/*****공용 메모리*****/
 	int shmem_id;
 	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_return_string_t),0666);
@@ -33,14 +35,24 @@ int main()
 		exit(1);
 	}
 	 state_return_p =(state_return_string_t *)shmat(shmem_id,NULL,0);
-	while(1){
-	fp = popen(command, "r");
+	
+	return 0;
+}
+void get_state(int wlan_i){
+		int count = 0;
+		FILE *fp;
+		FILE *fp_dhcp;
+		int i;
+		int new_dev_flag=1;
+while(1){
+	fp = popen(command[wlan_i], "r");
 	if(!fp)
 	{
 		printf( "커멘드 실행에 실패했습니다." );
 	}
 	else
 	{
+	
 		const size_t BUFFER_SIZE = 128;
 		char buffer[BUFFER_SIZE];
 		char buffer_dhcp[BUFFER_SIZE];
@@ -71,6 +83,7 @@ int main()
 								{
 						if(dev[i].conn_state=='\0'){(get_time(dev[i].connTime));}
 						strcpy(temp_dev.connTime,dev[i].connTime);
+						strcpy(temp_dev.flag,dev[i].flag);
 						dev[i]=temp_dev;
 						//memcpy((dev->dev_states[i]),temp_dev,sizeof(temp_dev));
 						new_dev_flag=0;
@@ -87,8 +100,9 @@ int main()
 					dev[conn_dev_cnt]=temp_dev;
 					//memcpy((dev[conn_dev_cnt]),temp_dev,sizeof(temp_dev));
 					printf("%s",temp_dev.station);
-					strcpy(dev[conn_dev_cnt].station,temp_dev.station);
+					strcpy(dev[conn_dev_cnt].station,temp_dev.station);					
 					get_time(dev[conn_dev_cnt].connTime);
+					strcpy(dev[conn_dev_cnt].flag,"1");
 					dev_conn_check_flag[conn_dev_cnt]=1;
 					conn_dev_cnt++;
 				}
@@ -99,7 +113,7 @@ int main()
 		{
 			if(dev_conn_check_flag[i])
 			{
-			dev[i].conn_state='1';
+			dev[i].conn_state=wlan_i==0?'1':'2';
 			}
 			else
 			{
@@ -110,12 +124,13 @@ int main()
 				get_time(dev[i].disconnTime);
 				}
 			}
-			printf(
+			
+			if(0){printf(
 			"\nConneted:%c\nMAC:%s\nIP:%s\nHOST_NAME:%s\nrx:%stx:%sconnected:%s\ndisconnected:%s\n",
 			dev[i].conn_state,dev[i].station,
 			dev[i].IP,dev[i].host_name,
 			dev[i].rxbytes,dev[i].txbytes,
-			dev[i].connTime,dev[i].disconnTime);
+			dev[i].connTime,dev[i].disconnTime);}
 			
 		}
 	}
@@ -123,18 +138,67 @@ int main()
 	pclose(fp);
 	if(fp_dhcp)
 	pclose(fp_dhcp);
+	fp_dhcp=NULL;
 	sleep(1);
 	}
-	return 0;
 }
-
 void sigusr_handler(int signo)
 {
+	
+	struct json_object *array,*temp , *object[9];
+       	array = json_object_new_array();
+	printf("sigusr handler%d\n",conn_dev_cnt);
+	if(conn_dev_cnt>0){
+	int i;
+	for(i=0; i<conn_dev_cnt;i++){
+		char itoa_c[5];sprintf(itoa_c,"%d",i);
+        	temp = json_object_new_object();
+		printf("%s",dev[i].station);
+	      	object[0] = json_object_new_string(dev[i].conn_state=='1'?"true":"false");
+	  	json_object_object_add(temp,itoa_c, object[0]);
+
+		object[1] = json_object_new_string(dev[i].station);
+		json_object_object_add(temp,"MAC", object[1]);
+        	object[2] = json_object_new_string(dev[i].IP);
+		json_object_object_add(temp,"IP", object[2]);
+
+        	object[3] = json_object_new_string(dev[i].host_name);
+		json_object_object_add(temp,"HOST_NAME", object[3]);
+
+       		object[4] = json_object_new_string(dev[i].rxbytes);
+		json_object_object_add(temp,"rx", object[4]);
+
+        	object[5] = json_object_new_string(dev[i].txbytes);
+ 		json_object_object_add(temp,"tx", object[5]);
+
+		object[6] = json_object_new_string(dev[i].connTime);
+		json_object_object_add(temp,"connected", object[6]);
+
+        	object[7] = json_object_new_string(dev[i].disconnTime);
+		json_object_object_add(temp,"disconnected", object[7]);
+
+        	object[8] = json_object_new_string(dev[i].flag);
+		json_object_object_add(temp,"flag", object[8]);
+		json_object_array_add(array,temp);
+	}
+	 json_object * jobj = json_object_new_object();
+	json_object *con_list = json_object_new_string("con_list");
+	json_object_object_add(jobj,"page_name", con_list);
+	json_object_object_add(jobj,"con_list",array);
+
+
 	while(!state_return_p->check)
 	{
-		printf("waiting");
+		printf("waiting_state_mgr");
 	}
+	sprintf(state_return_p->dev_states,json_object_to_json_string(jobj));
+	//
+	printf("%s",state_return_p->dev_states);
 	
-	strcpy(state_return_p->dev_states,"{\"page_name\":\"con_list\",\"con_list\":[{\"1\":\"true\",\"MAC\":\"c8:14:79:e8:3e:15\",\"IP\":\"172.24.1.113\",\"HOST_NAME\":\"android-ebff699db65b334b\",\"rx\":\"96932\",\"tx\":\"225657\",\"connected\":\"1478777438\",\"disconnected\":\"0\"},{\"2\":\"true\",\"MAC\":\"00:04:79:e8:3e:15\",\"IP\":\"172.24.1.113\",\"HOST_NAME\":\"KIMDONGWOO\",\"rx\":\"96932\",\"tx\":\"225657\",\"connected\":\"1478777438\",\"disconnected\":\"0\"}]}");
+	}//1개이상인경우
+	else{//연결된 디바이스가 없는경우
+		strcpy(state_return_p->dev_states,"{\"page_name\":\"con_list\",\"con_list\":[]}");
+	}
+
 	state_return_p->check=0;
 }
