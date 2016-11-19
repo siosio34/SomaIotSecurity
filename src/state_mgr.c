@@ -17,19 +17,14 @@ state_return_string_t* state_return_p;
 dev_state_t dev[20];
 int conn_dev_cnt=0;
 
+	char command[2][35]={"sudo iw dev wlan0 station dump","sudo iw dev wlan1 station dump"};
 int main()
 {
 	//sigusr_handler(1);
-	char command[]="sudo iw dev wlan0 station dump";
-	char command2[]="sudo iw dev wlan1 station dump";
 	char dhcp_command[]="cat /var/lib/misc/dnsmasq.leases";
+	get_state(0);
+	get_state(1);
 
-
-	int count = 0;
-	FILE *fp;
-	FILE *fp_dhcp;
-	int i;
-	int new_dev_flag=1;
 	/*****공용 메모리*****/
 	int shmem_id;
 	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_return_string_t),0666);
@@ -40,14 +35,24 @@ int main()
 		exit(1);
 	}
 	 state_return_p =(state_return_string_t *)shmat(shmem_id,NULL,0);
-	while(1){
-	fp = popen(command, "r");
+	
+	return 0;
+}
+void get_state(int wlan_i){
+		int count = 0;
+		FILE *fp;
+		FILE *fp_dhcp;
+		int i;
+		int new_dev_flag=1;
+while(1){
+	fp = popen(command[wlan_i], "r");
 	if(!fp)
 	{
 		printf( "커멘드 실행에 실패했습니다." );
 	}
 	else
 	{
+	
 		const size_t BUFFER_SIZE = 128;
 		char buffer[BUFFER_SIZE];
 		char buffer_dhcp[BUFFER_SIZE];
@@ -108,7 +113,7 @@ int main()
 		{
 			if(dev_conn_check_flag[i])
 			{
-			dev[i].conn_state='1';
+			dev[i].conn_state=wlan_i==0?'1':'2';
 			}
 			else
 			{
@@ -136,9 +141,7 @@ int main()
 	fp_dhcp=NULL;
 	sleep(1);
 	}
-	return 0;
 }
-
 void sigusr_handler(int signo)
 {
 	
