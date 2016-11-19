@@ -3,19 +3,22 @@
     <div class="reg-block-header">
       <h2>모니터링</h2>
     </div>
+
+
   <div class="table-responsive"></div>
     <table class="table table-bordered">
 
       <tr class="info">
         <th> </th>
-        <th>Mac Address     </th>
-        <th>IP  </th>
-        <th>HOST NAME     </th>
+        <th>Mac</th>
+        <th>IP </th>
+        <th>HOST NAME </th>
         <th>RS BYTE</th>
         <th>CS BYTE</th>
         <th>CONNECT TIME</th>
         <th>CONNECTOUT BYTE</th>
 	      <th>마지막 접속 시간</th>
+        <td>차단하기</td>
       </tr>
 
       <% @info_device_list.each do |info| %>
@@ -35,6 +38,7 @@
                     <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
                     <td> <%= info['disconnected'] %></td>
                     <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>
+                    <td><button class="btn btn-danger btn-xs" value="차단"></button></td>
                   </tr>
           <% elsif flag == 'new_device' %>
                   <tr class = 'bg-color-green'>
@@ -46,6 +50,7 @@
                     <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
                     <td> <%= info['disconnected'] %></td>
                     <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>
+                    <td><button class="btn btn-danger btn-xs" value="차단"></button></td>
                   </tr>
           <% else %>
                   <tr class = 'bg-color-white'>
@@ -57,6 +62,7 @@
                     <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
                     <td> <%= info['disconnected'] %></td>
                     <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>
+                    <td><button class="btn btn-danger btn-xs" value="차단"></button></td>
                   </tr>
           <% end %>
       <% end %>

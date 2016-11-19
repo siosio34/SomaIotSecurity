@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
 
   def test
     my_hash = {:hello => "goodbye"}
-    @test_json = JSON.generate(my_hash)
+    @test_json = my_hash.to_json.to_s.html_safe
   end
 
 
