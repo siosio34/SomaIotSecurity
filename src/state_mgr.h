@@ -21,6 +21,7 @@ typedef struct{
 	char TDLSpeer[20];
 	char connTime[15];
 	char disconnTime[15];
+	char flag[2];
 }dev_state_t;
 typedef struct{
 	int check;
