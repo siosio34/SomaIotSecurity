@@ -3,6 +3,8 @@
     <div class="reg-block-header">
       <h2>모니터링</h2>
     </div>
+
+
   <div class="table-responsive"></div>
     <table class="table table-bordered">
 
@@ -60,7 +62,6 @@
                     <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
                     <td> <%= info['disconnected'] %></td>
                     <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>
-			
 		    <td><button class="btn btn-danger" value="차단"></button></td>
                   </tr>
           <% end %>

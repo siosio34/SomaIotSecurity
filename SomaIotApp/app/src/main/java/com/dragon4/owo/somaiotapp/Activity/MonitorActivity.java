@@ -54,7 +54,8 @@ public class MonitorActivity extends AppCompatActivity {
 
     public void addMonitorList() throws ExecutionException, InterruptedException {
 
-        String siteUrl = "http:192.168.0.19:3000/welcome/test";
+        // TODO: 2016. 11. 19. 유알엘 바꾸기
+        String siteUrl = "http://192.168.0.19:3000/welcome/test";
         String temp = new HttpHandler().execute(siteUrl).get();
 
         if(temp != null) {

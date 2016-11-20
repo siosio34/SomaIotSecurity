@@ -5,7 +5,11 @@ package com.dragon4.owo.somaiotapp.Data;
  */
 
 import android.os.AsyncTask;
+import android.text.Html;
 import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -20,6 +24,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.util.ArrayList;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -88,15 +93,28 @@ public class HttpHandler extends AsyncTask<String, Void, String> {
             conn.setReadTimeout(10000);
             conn.setConnectTimeout(10000);
             conn.setRequestMethod("GET");
+            conn.setRequestProperty("Connection", "Keep-Alive");
+            conn.setRequestProperty("Accept-Charset", "UFT-8");
+            conn.setRequestProperty("Cache-Control", "no-cache");
+            conn.setRequestProperty("Accept", "application/json");
+            conn.setDoInput(true);
+            conn.connect();
 
-            //// TODO: 2016. 10. 12. json
 
             int responseCode = conn.getResponseCode();
             Log.i("ResponseCode : ", Integer.toString(responseCode));
 
+            //// TODO: 2016. 11. 19.  예외처리
 
             InputStream in = new BufferedInputStream(conn.getInputStream());
             responseStr = convertStreamToString(in);
+            responseStr = responseStr.trim();
+
+            // TODO: 2016. 11. 19. json 처리해야됨
+
+            JSONArray jsonObject = new JSONArray(responseStr);
+           // Log.i("으악",jsonObject.getString("hello"));
+
 
 
         } catch (MalformedURLException e) {
@@ -118,7 +136,7 @@ public class HttpHandler extends AsyncTask<String, Void, String> {
         try {
 
             while ((line = reader.readLine()) != null) {
-                sb.append(line + '\n');
+                sb.append(line).append('\n');
             }
         } catch (IOException e) {
             e.printStackTrace();

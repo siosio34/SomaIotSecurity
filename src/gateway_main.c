@@ -3,6 +3,7 @@
 #include <pthread.h>
 #include <unistd.h>
 #include <wiringPi.h>
+#include <signal.h>
 #include "gateway_main.h"
 #include "communicator.h"
 #include "write_conf.h"
@@ -34,8 +35,8 @@ int main(){
     init_struct();
     // update_flag.hostapd = 1;
     // update_flag.otp_conf = 1;
-//    write_conf();
-//    signal(SIGCHLD, SIG_IGN);
+    write_conf();
+    signal(SIGCHLD, SIG_IGN);
     init_service();
     sleep(1);
   //  restart_lcd(); //cut power to lcd and erase lcd register
