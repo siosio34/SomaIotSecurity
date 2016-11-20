@@ -158,7 +158,7 @@ void *t_function(void *data) {
 		// +1: NULL까지 포함해서 전송
 		printf("\nsend: %s",buff_snd);
 		printf("\n%s\n",buff_rcv);
-		usleep(1000);
+		usleep(3000);
 		close(client_socket);
 		printf("	클라이언트 접속 종료   		\n");
 		//==================================//

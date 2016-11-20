@@ -2,7 +2,7 @@
 #define STATE_TYPE_NUM 14
 
 typedef struct{
-	char conn_state;
+	char conn_state[2];
 	char station[40];
 	char IP[16];
 	char host_name[50];

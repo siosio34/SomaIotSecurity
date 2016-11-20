@@ -17,6 +17,8 @@ state_return_string_t* state_return_p=NULL;
 dev_state_t dev[2][20];
 int conn_dev_cnt[2]={0};
 char command[2][35]={"sudo iw dev wlan0 station dump","sudo iw dev wlan1 station dump"};
+void init();
+void save();
 int main()
 {
 	printf("상태관리자 실행 성공");
@@ -30,10 +32,12 @@ int main()
 		exit(1);
 	}
 	state_return_p =(state_return_string_t *)shmat(shmem_id,NULL,0);
+	init();
 	while(1)
 	{
 		get_state(0);
 		get_state(1);
+		save();
 		sleep(1);
 	}
 	return 0;
@@ -53,7 +57,7 @@ void get_state(int wlan_i){
 	}
 	else
 	{
-	
+		printf("scan wlan%d\n",wlan_i);
 		const size_t BUFFER_SIZE = 128;
 		char buffer[BUFFER_SIZE];
 		char buffer_dhcp[BUFFER_SIZE];
@@ -82,7 +86,7 @@ void get_state(int wlan_i){
 
 					if(strcmp(temp_dev.station,dev[wlan_i][i].station)==0)
 								{
-						if(dev[wlan_i][i].conn_state==0){(get_time(dev[wlan_i][i].connTime));}
+						if(strcmp(dev[wlan_i][i].conn_state,"0")==0){(get_time(dev[wlan_i][i].connTime));}
 						strcpy(temp_dev.connTime,dev[wlan_i][i].connTime);
 						strcpy(temp_dev.flag,dev[wlan_i][i].flag);
 						dev[wlan_i][i]=temp_dev;
@@ -114,25 +118,23 @@ void get_state(int wlan_i){
 		{
 			if(dev_conn_check_flag[i])
 			{
-			dev[wlan_i][i].conn_state=wlan_i==0?'1':'2';
+			strcpy(dev[wlan_i][i].conn_state,wlan_i==0?"1":"2");
 			}
 			else
 			{
-			dev[wlan_i][i].conn_state=0;
+			strcpy(dev[wlan_i][i].conn_state,"0");
 				//
 			if(strlen(dev[wlan_i][i].disconnTime)==0)
 				{
 				get_time(dev[wlan_i][i].disconnTime);
 				}
 			}
-			
-			if(0){printf(
-			"\nConneted:%c\nMAC:%s\nIP:%s\nHOST_NAME:%s\nrx:%stx:%sconnected:%s\ndisconnected:%s\n",
+			if(1){printf(
+			"\nConneted:%s\nMAC:%s\nIP:%s\nHOST_NAME:%s\nrx:%stx:%sconnected:%s\ndisconnected:%s\nnew_dev_flag:%s\n",
 			dev[wlan_i][i].conn_state,dev[wlan_i][i].station,
 			dev[wlan_i][i].IP,dev[wlan_i][i].host_name,
 			dev[wlan_i][i].rxbytes,dev[wlan_i][i].txbytes,
-			dev[wlan_i][i].connTime,dev[wlan_i][i].disconnTime);}
-			
+			dev[wlan_i][i].connTime,dev[wlan_i][i].disconnTime,dev[wlan_i][i].flag);}
 		}
 	}
 
@@ -141,7 +143,57 @@ void get_state(int wlan_i){
 		pclose(fp_dhcp);
 		fp_dhcp=NULL;
 	}
-	sleep(1);
+}
+void init()
+{
+	//read past state from file
+    FILE *fr=NULL;
+    fr=fopen("backup_connlist_local.txt","r");
+   int i=0;
+	if(fr!=NULL){
+	while(fscanf(fr, "%s %s %s %s %s %s %s %s %s ", 
+	dev[0][i].conn_state,dev[0][i].station,dev[0][i].IP,
+        dev[0][i].host_name,dev[0][i].rxbytes,dev[0][i].txbytes,
+        dev[0][i].connTime,dev[0][i].disconnTime,dev[0][i].flag) != EOF){
+	i++;
+   }
+	conn_dev_cnt[0]=i;
+   fclose(fr);
+   fr=fopen("backup_connlist_guest.txt","r");
+  	i=0;
+	while(fscanf(fr, "%s %s %s %s %s %s %s %s %s ",
+        dev[1][i].conn_state,dev[1][i].station,dev[1][i].IP,
+        dev[1][i].host_name,dev[1][i].rxbytes,dev[1][i].txbytes,
+        dev[1][i].connTime,dev[1][i].disconnTime,dev[1][i].flag) != EOF){
+   	i++;
+	}
+	conn_dev_cnt[1]=i;
+
+   fclose(fr);
+	}
+}
+void save()
+{
+	FILE *f=NULL;
+	f=fopen("backup_connlist_local.txt","w");
+	int i;
+	for(i=0;i<conn_dev_cnt[0];i++)
+	{
+	fprintf(f,"%s %s %s %s %s %s %s %s %s ",
+        dev[0][i].conn_state,dev[0][i].station,dev[0][i].IP,
+        dev[0][i].host_name,dev[0][i].rxbytes,dev[0][i].txbytes,
+        dev[0][i].connTime,dev[0][i].disconnTime,dev[0][i].flag);
+	}
+	fclose(f);
+	f=fopen("backup_connlist_guest.txt","w");	
+	for(i=0;i<conn_dev_cnt[1];i++)
+	{
+	fprintf(f,"%s %s %s %s %s %s %s %s %s ",
+	dev[1][i].conn_state,dev[1][i].station,dev[1][i].IP,
+	dev[1][i].host_name,dev[1][i].rxbytes,dev[1][i].txbytes,
+	dev[1][i].connTime,dev[1][i].disconnTime,dev[1][i].flag);
+	}
+	fclose(f);
 }
 void sigusr_handler(int signo)
 {
