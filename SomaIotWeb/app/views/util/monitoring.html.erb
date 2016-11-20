@@ -7,56 +7,61 @@
     <table class="table table-bordered">
 
       <tr class="info">
-        <th> </th>
-        <th>Mac Address     </th>
+        <th>Mac</th>
         <th>IP  </th>
-        <th>HOST NAME     </th>
-        <th>RS BYTE</th>
-        <th>CS BYTE</th>
-        <th>CONNECT TIME</th>
-        <th>CONNECTOUT BYTE</th>
-	      <th>마지막 접속 시간</th>
+        <th>기기명 </th>
+        <th>RX</th>
+        <th>TX</th>
+        <th>들어온 시간</th>
+        <th>나간 시간</th>
+	<th>마지막 접속 시간</th>
+	<th>차단하기</th>
       </tr>
 
+
       <% @info_device_list.each do |info| %>
+	  
           <% t = ((Time.now).to_i - info['connected'].to_i) %>
           <% mm, ss = t.divmod(60) %>
           <% hh, mm = mm.divmod(60) %>
           <% dd, hh = hh.divmod(24) %>
-
           <% flag = info['flag'] %>
-          <% if flag == 'danger' %>
+          <% if flag == '2' %>
                   <tr class = 'bg-danger'>
                     <td> <%= info['MAC'] %></td>
                     <td> <%= info['IP'] %></td>
                     <td> <%= info['HOST_NAME'] %></td>
-                    <td> <%= ((info['rx'].to_i)/1024).to_s + ' Mb' %></td>
-                    <td> <%= ((info['tx'].to_i)/1024).to_s +  'Mb' %></td>
+                    <td> <%= ((info['rx'].to_i)/1024).to_s +  'Kb' %></td>
+                    <td> <%= ((info['tx'].to_i)/1024).to_s +  'Kb' %></td>
                     <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
                     <td> <%= info['disconnected'] %></td>
                     <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>
+		    <td><button class="btn btn-danger" value="차단"></button></td>
                   </tr>
-          <% elsif flag == 'new_device' %>
+          <% elsif flag == '1' %>
                   <tr class = 'bg-color-green'>
                     <td> <%= info['MAC'] %></td>
                     <td> <%= info['IP'] %></td>
                     <td> <%= info['HOST_NAME'] %></td>
-                    <td> <%= ((info['rx'].to_i)/1024).to_s + ' Mb' %></td>
-                    <td> <%= ((info['tx'].to_i)/1024).to_s +  'Mb' %></td>
+                    <td> <%= ((info['rx'].to_i)/1024).to_s +  'Kb' %></td>
+                    <td> <%= ((info['tx'].to_i)/1024).to_s +  'Kb' %></td>
                     <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
                     <td> <%= info['disconnected'] %></td>
-                    <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>
+                    <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>			
+		    <td><%= link_to '차단', monitoring_ban_path(:mac => info['MAC']), :class => "btn btn-danger" %></td>
                   </tr>
           <% else %>
                   <tr class = 'bg-color-white'>
                     <td> <%= info['MAC'] %></td>
                     <td> <%= info['IP'] %></td>
                     <td> <%= info['HOST_NAME'] %></td>
-                    <td> <%= ((info['rx'].to_i)/1024).to_s + ' Mb' %></td>
-                    <td> <%= ((info['tx'].to_i)/1024).to_s +  'Mb' %></td>
+                    <td> <%= ((info['rx'].to_i)/1024).to_s +  'Kb' %></td>
+                    <td> <%= ((info['tx'].to_i)/1024).to_s +  'Kb' %></td>
                     <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
                     <td> <%= info['disconnected'] %></td>
                     <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>
+			
+		    <td><button class="btn btn-danger" value="차단"></button></td>
                   </tr>
           <% end %>
       <% end %>
