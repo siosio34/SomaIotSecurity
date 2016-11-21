@@ -21,6 +21,7 @@ struct update_flags{
     int lcd; //lcd need to be update
     int warning; //alart hacking attempt (turn on led & LCD to warn) 00(BIN):NOMAL x1(BIN):arp spoofing 1x(BIN):new device
 
+
 };
 extern struct update_flags update_flag;
 
