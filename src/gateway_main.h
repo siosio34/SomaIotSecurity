@@ -19,8 +19,8 @@ struct update_flags{
     int otp_conf; //guest hostapd need to be change (guest_PW)
     int otp_easyword; //0 for random PW, 1 for easyword PW
     int lcd; //lcd need to be update
-    int warning; //alart hacking attempt (turn on led & LCD to warn)
-
+    int warning; //if warning flag == 1: alart hacking attempt (turn on led & LCD to warn)
+    //if warning flag == 2: alart new device connected
 };
 extern struct update_flags update_flag;
 
