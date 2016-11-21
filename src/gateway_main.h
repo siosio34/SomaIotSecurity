@@ -19,7 +19,7 @@ struct update_flags{
     int otp_conf; //guest hostapd need to be change (guest_PW)
     int otp_easyword; //0 for random PW, 1 for easyword PW
     int lcd; //lcd need to be update
-    int warning; //alart hacking attempt (turn on led & LCD to warn) 00(BIN):NOMAL x1(BIN):new device 1x(BIN):arp spoofing
+    int warning; //alart hacking attempt (turn on led & LCD to warn) 00(BIN):NOMAL x1(BIN):arp spoofing 1x(BIN):new device
 
 };
 extern struct update_flags update_flag;
