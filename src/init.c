@@ -124,7 +124,7 @@ void backup_struct(){
 
 void restart_lcd(){
 
-    pullUpDnControl(LCD_POW_PIN, PUD_DOWN); //pull-down switch pin
+    pullUpDnControl(LCD_POW_PIN, PUD_DOWN); //pull-down lcd power relay pin
     pinMode(LCD_POW_PIN, OUTPUT);
     digitalWrite(LCD_POW_PIN, HIGH);
     sleep(1);
