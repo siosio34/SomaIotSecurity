@@ -45,7 +45,7 @@ void *t_function(void *data) {
 	if(shmem_id==-1){printf("Shmeget ERROR\n"); exit(1);}
 	else{printf("%d\n",shmem_id);}
 
-	state_return_p=(state_return_string_t*)shmat(shmem_id, (void *)0, 0); 
+	state_return_p=(state_return_string_t*)shmat(shmem_id, (void *)0, 0);
 	server_socket = socket(AF_INET, SOCK_STREAM, 0);
 	state_return_p->check=1;
   	int sockopt = 1;
