@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".Activity.MenuActivity" />
         <activity android:name=".Activity.LoginActivity" />
-        <activity android:name=".Activity.MonitorActivity"></activity>
+        <activity android:name=".Activity.MonitorActivity" />
+        <activity android:name=".Activity.MonitorDetailActivity"></activity>
     </application>
 
 </manifest>
