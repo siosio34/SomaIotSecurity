@@ -1,14 +1,28 @@
 # Rasberriy pi 3 Security Iot AP
 
-// todo 프로젝트 설명
+
+
 
 # Qucik Start
 
-// todo 설치 및 기본 셋팅
+### 1. c++ 키는거
 
+### 2. Ruby on Rails Webserver
+
+  $ cd SomaIotSecurity/SomaIotWeb
+  
+  $ thin -R config.ru -a 'your raspberry pi IP Address' -p 3000 start or rails s -b 'your raspberry pi IP Address'
+
+### 3. Android App Client
+
+  1) Install Android-Studio : https://developer.android.com/studio/index.html?hl=ko
+  
+  2) File -> Import Existing Project -> PATH_CLONE_SomaIotSecurity/SomaIotApp
+  
 # ScreenShot
 
 // todo 실제 화면 사진
+// todo 아니면 동영상링크
 
 # References 
 
@@ -23,6 +37,10 @@ Gi-yong Kwon [ handgear05@gmail.com ] site : https://github.com/handgear
 DONGWOO KIM [ kdw8681@naver.com ] site : https://github.com/westwoods  
 
 # 사용 기술
+
+Ruby on Rails
+
+Android
 
 // todo 사용 기술 적어야될듯
 
