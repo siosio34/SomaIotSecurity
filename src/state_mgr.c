@@ -105,7 +105,7 @@ void get_state(int wlan_i){
 					dev[wlan_i][conn_dev_cnt[wlan_i]]=temp_dev;
 					//memcpy((dev[conn_dev_cnt]),temp_dev,sizeof(temp_dev));
 					printf("%s",temp_dev.station);
-					strcpy(dev[wlan_i][conn_dev_cnt[wlan_i]].station,temp_dev.station);					
+					strcpy(dev[wlan_i][conn_dev_cnt[wlan_i]].station,temp_dev.station);
 					get_time(dev[wlan_i][conn_dev_cnt[wlan_i]].connTime);
 					strcpy(dev[wlan_i][conn_dev_cnt[wlan_i]].flag,"1");
 					dev_conn_check_flag[conn_dev_cnt[wlan_i]]=1;
@@ -130,7 +130,7 @@ void get_state(int wlan_i){
 				}
 			}
 			if(1){printf(
-			"\nConneted:%s\nMAC:%s\nIP:%s\nHOST_NAME:%s\nrx:%stx:%sconnected:%s\ndisconnected:%s\nnew_dev_flag:%s\n",
+			"\nConneted:%s\nMAC:%s\nIP:%s\nHOST_NAME:%s\nrx:%s\ntx:%s\nconnected:%s\ndisconnected:%s\nnew_dev_flag:%s\n",
 			dev[wlan_i][i].conn_state,dev[wlan_i][i].station,
 			dev[wlan_i][i].IP,dev[wlan_i][i].host_name,
 			dev[wlan_i][i].rxbytes,dev[wlan_i][i].txbytes,
@@ -151,7 +151,7 @@ void init()
     fr=fopen("backup_connlist_local.txt","r");
    int i=0;
 	if(fr!=NULL){
-	while(fscanf(fr, "%s %s %s %s %s %s %s %s %s ", 
+	while(fscanf(fr, "%s %s %s %s %s %s %s %s %s", 
 	dev[0][i].conn_state,dev[0][i].station,dev[0][i].IP,
         dev[0][i].host_name,dev[0][i].rxbytes,dev[0][i].txbytes,
         dev[0][i].connTime,dev[0][i].disconnTime,dev[0][i].flag) != EOF){
@@ -161,7 +161,7 @@ void init()
    fclose(fr);
    fr=fopen("backup_connlist_guest.txt","r");
   	i=0;
-	while(fscanf(fr, "%s %s %s %s %s %s %s %s %s ",
+	while(fscanf(fr, "%s %s %s %s %s %s %s %s %s",
         dev[1][i].conn_state,dev[1][i].station,dev[1][i].IP,
         dev[1][i].host_name,dev[1][i].rxbytes,dev[1][i].txbytes,
         dev[1][i].connTime,dev[1][i].disconnTime,dev[1][i].flag) != EOF){

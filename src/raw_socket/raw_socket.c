@@ -18,7 +18,7 @@
 #include "arp_db.h"
 
 #define BUF_SIZE 42
-#define DEVICE "enp0s3"
+#define DEVICE "wlan1"
 #define ETH_P_NULL 0x0
 #define ETH_MAC_LEN ETH_ALEN
 #define ETH_ARP 0x0806
@@ -215,7 +215,8 @@ int main(void) {
             eh->h_proto = ETH_ARP;
            
 				db_print(1);
-			for(int i=0;i<db_save_cnt;i++)
+			int i;
+			for(i=0;i<db_save_cnt;i++)
 			{
 				if(memcmp(&arp_db[i],&arp_temp,sizeof(arp_temp))==0&&memcmp(&arp_db[i],&arp_temp,sizeof(arp_temp))==0)
 				{
@@ -267,8 +268,8 @@ void sigint(int signum) {
     exit(0);
 }
 int serch_db(arp_db_t temparp)
-{
-	for(int i=0;i<db_save_cnt;i++)
+{	int i;
+	for(i=0;i<db_save_cnt;i++)
 			{
 				if(strcmp(arp_db[i].SMAC,temparp.SMAC)==0&&!strcmp(arp_db[i].arp_sip,temparp.arp_sip)==0)
 				{//잡았다 요놈
@@ -282,7 +283,8 @@ int serch_db(arp_db_t temparp)
 			return 0;
 }
 void db_print(int signum) {
-   for(int i=0;i<db_save_cnt;i++)
+   	int i;
+	for(i=0;i<db_save_cnt;i++)
 			{
 				printf("\n\n%d SMAC: (%02X:%02X:%02X:%02X:%02X:%02X)",
 					i,
