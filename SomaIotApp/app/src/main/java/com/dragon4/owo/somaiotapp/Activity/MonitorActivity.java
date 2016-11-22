@@ -11,6 +11,10 @@ import com.dragon4.owo.somaiotapp.Data.HttpHandler;
 import com.dragon4.owo.somaiotapp.Model.Monitor;
 import com.dragon4.owo.somaiotapp.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
@@ -43,8 +47,9 @@ public class MonitorActivity extends AppCompatActivity {
 
         try {
             addMonitorList();
-
         } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
             e.printStackTrace();
         }
         //// TODO: 2016. 11. 18. json값 넘겨받기
@@ -52,18 +57,35 @@ public class MonitorActivity extends AppCompatActivity {
 
     }
 
-    public void addMonitorList() throws ExecutionException, InterruptedException {
+    public void addMonitorList() throws ExecutionException, InterruptedException, JSONException {
 
         // TODO: 2016. 11. 19. 유알엘 바꾸기
         String siteUrl = "http://192.168.0.19:3000/welcome/test";
-        String temp = new HttpHandler().execute(siteUrl).get();
+        String conList = new HttpHandler().execute(siteUrl).get();
 
-        if(temp != null) {
-            Log.i("monitorText", temp);
-            Toast.makeText(getApplicationContext(),temp,Toast.LENGTH_LONG).show();
+        Log.i("스트링", conList);
 
+        JSONObject jsonObject = new JSONObject(conList);
+        JSONArray jsonArray = jsonObject.getJSONArray("con_list");
+
+        for(int i=0 ; i < jsonArray.length(); i++) {
+            JSONObject jsonObj = jsonArray.getJSONObject(i);
+            Monitor monitor = new Monitor();
+            monitor.setMacAddress(jsonObj.getString("MAC"));
+            monitor.setIpAddress(jsonObj.getString("IP"));
+            monitor.setHostName(jsonObj.getString("HOST_NAME"));
+            monitor.setRsByte(jsonObj.getString("rx"));
+            monitor.setCsByte(jsonObj.getString("tx"));
+            monitor.setConnectTime(jsonObj.getString("connected"));
+            monitor.setConnectOutTime(jsonObj.getString("disconnected"));
+
+            myDataset.add(monitor);
         }
-        //myDataset.add()
+
+        mAdapter.notifyDataSetChanged();
+
+
+        //
 
     }
 }

@@ -6,6 +6,7 @@ package com.dragon4.owo.somaiotapp.Model;
 
 public class Monitor {
 
+    private static Monitor selectedMonitor = new Monitor();
 
     private String macAddress;
     private String ipAddress;
@@ -28,6 +29,14 @@ public class Monitor {
         this.csByte = csByte;
         this.connectTime = connectTime;
         this.connectOutTime = connectOutTime;
+    }
+
+    public static Monitor getSelectedMonitor() {
+        return selectedMonitor;
+    }
+
+    public static void setSelectedMonitor(Monitor selectedMonitor) {
+        Monitor.selectedMonitor = selectedMonitor;
     }
 
     public String getMacAddress() {
