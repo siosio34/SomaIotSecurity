@@ -26,6 +26,11 @@
 
 # References 
 
+- http://w1.fi/hostapd/
+- http://www.thekelleys.org.uk/dnsmasq/doc.html
+- https://github.com/json-c/json-c
+- http://wiringpi.com/
+
 // todo 참고할 문헌
 
 # Copyright
