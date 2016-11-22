@@ -110,9 +110,15 @@ public class HttpHandler extends AsyncTask<String, Void, String> {
             responseStr = convertStreamToString(in);
             responseStr = responseStr.trim();
 
-            // TODO: 2016. 11. 19. json 처리해야됨
-
-            JSONArray jsonObject = new JSONArray(responseStr);
+           // Log.i("스트링", responseStr);
+           // // TODO: 2016. 11. 19. json 처리해야됨
+           // JSONObject jsonObject = new JSONObject(responseStr);
+           // JSONArray jsonArray = jsonObject.getJSONArray("con_list");
+//
+           // for(int i=0 ; i < jsonArray.length(); i++) {
+           //     JSONObject temp = jsonArray.getJSONObject(i);
+           //     Log.i("스트링 테스트", temp.getString("MAC"));
+           // }
            // Log.i("으악",jsonObject.getString("hello"));
 
 
