@@ -22,11 +22,13 @@ typedef struct{
 	char connTime[15];
 	char disconnTime[15];
 	char flag[2];
+	char ban_check[2];
 }dev_state_t;
 typedef struct{
 	int check;
 	int conn_dev_cont;
 	char dev_states[1024];
+	char MAC[18];
 }state_return_string_t;
 typedef struct{
 	char connTime[15];
@@ -62,20 +64,20 @@ int retText(char *arg,dev_state_t *dev) {
 
 			switch(i)
 			{
-			case 0: snprintf((*dev).station,18, "%s", ptr); break;
-			case 1: sprintf((*dev).inactivetime, "%s", ptr); break;			
-			case 2: sprintf((*dev).rxbytes, "%s", ptr); break;
+			case 0: snprintf((*dev).station,18, "%s\0", ptr); break;
+			case 1: sprintf((*dev).inactivetime, "%s\0", ptr); break;			
+			case 2: sprintf((*dev).rxbytes, "%s", ptr);  break;
 			case 3: sprintf((*dev).rxpackets, "%s", ptr); break;
-			case 4: sprintf((*dev).txbytes, "%s", ptr); break;
-			case 5: sprintf((*dev).txpackets, "%s", ptr); break;
-			case 6: sprintf((*dev).txfailed, "%s", ptr); break;
-			case 7: sprintf((*dev).signal, "%s", ptr); break;
-			case 8: sprintf((*dev).txbitrate, "%s", ptr); break;
-			case 9: sprintf((*dev).rxbitrate, "%s", ptr); break;
-			case 10: sprintf((*dev).authorized, "%s", ptr); break;
-			case 11: sprintf((*dev).authenticated, "%s", ptr); break;
-			case 12: sprintf((*dev).WMMWME, "%s", ptr); break;
-			case 13: sprintf((*dev).TDLSpeer, "%s", ptr); return 1; break;
+			case 4: sprintf((*dev).txbytes, "%s", ptr);  break;
+			case 5: sprintf((*dev).txpackets, "%s\0", ptr); break;
+			case 6: sprintf((*dev).txfailed, "%s\0", ptr); break;
+			case 7: sprintf((*dev).signal, "%s\0", ptr); break;
+			case 8: sprintf((*dev).txbitrate, "%s\0", ptr); break;
+			case 9: sprintf((*dev).rxbitrate, "%s\0", ptr); break;
+			case 10: sprintf((*dev).authorized, "%s\0", ptr); break;
+			case 11: sprintf((*dev).authenticated, "%s\0", ptr); break;
+			case 12: sprintf((*dev).WMMWME, "%s\0", ptr); break;
+			case 13: sprintf((*dev).TDLSpeer, "%s\0", ptr); return 1; break;
 			default: break;
 			}
 			break;

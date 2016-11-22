@@ -33,9 +33,9 @@ class UtilController < ApplicationController
     @edit_guest_pass = params[:edit_guest_pass]
 
 
-    make_setting_json = {:page_name => 'ssid', :local_ssid => @edit_local_ssid,
+    make_setting_json = {:page_name => 'ssid',:admin_pw => @edit_admin_pass :local_ssid => @edit_local_ssid,
                           :guest_ssid => @edit_guest_ssid, :local_pass => @edit_local_pass,
-                         :edit_guest_pass => @edit_guest_pass, :otp_enabled => 'true'}
+                         :edit_guest_pass => @edit_guest_pass}
 
     client = TCPSocket.new 'localhost', 9090
     client.puts JSON.generate(make_setting_json)
@@ -76,12 +76,12 @@ class UtilController < ApplicationController
 
   def monitoring_ban
 	@mac = params[:MAC]
-	passjson = {:page_name => 'ban' , :mac => @mac}
+	@ban_check = params[:ban_check]
+	passjson = {:page_name => 'ban' , :mac => @mac, :ban_check => @ban_check}
 	client = TCPSocket.new 'localhost', 9090
-	client.puts JSON.generate(passjson)
-	
+	client.puts JSON.generate(passjson)	
 	client.close
-	render 'util/monitoring'
+	redirect_to util_monitoring_path
   end
 
 
@@ -92,7 +92,15 @@ class UtilController < ApplicationController
   def otp
 
   end
+	
 
+  def otp_on_off(otp_on_off)
+
+  end
+
+  def otp_random_easy_word(otp_random_easy)
+	
+  end
 
 
 

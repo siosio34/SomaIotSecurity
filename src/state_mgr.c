@@ -12,9 +12,10 @@
 #define MAX_DEVICE_NUM 200
 #define SHMEMKEY 1000
 void sigusr_handler(int signo);
+void sigusr2_handler(int signo);
 void get_state(int wlan_i);
 state_return_string_t* state_return_p=NULL;
-dev_state_t dev[2][20];
+dev_state_t dev[2][20]={0};
 int conn_dev_cnt[2]={0};
 char command[2][35]={"sudo iw dev wlan0 station dump","sudo iw dev wlan1 station dump"};
 void init();
@@ -26,9 +27,10 @@ int main()
 	int shmem_id;
 	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_return_string_t),0666);
 	signal(SIGUSR1,sigusr_handler);
+	signal(SIGUSR2,sigusr2_handler);
 	if(shmem_id ==-1)
 	{
-		perror("shmget ERROR");
+		perror("shmget ERROR_1 statemgr");
 		exit(1);
 	}
 	state_return_p =(state_return_string_t *)shmat(shmem_id,NULL,0);
@@ -71,6 +73,7 @@ void get_state(int wlan_i){
 			Eliminate(buffer,'\t');
 			if(retText(buffer,&temp_dev)){ //마지막 줄을 찾았을때.
 				MAC_IP mac_ip={};
+				strcpy(temp_dev.disconnTime,"0");
 				fp_dhcp=popen(dhcp_command,"r");
 								while(fgets(buffer_dhcp,BUFFER_SIZE,fp_dhcp)!=NULL)
 								{
@@ -89,6 +92,7 @@ void get_state(int wlan_i){
 						if(strcmp(dev[wlan_i][i].conn_state,"0")==0){(get_time(dev[wlan_i][i].connTime));}
 						strcpy(temp_dev.connTime,dev[wlan_i][i].connTime);
 						strcpy(temp_dev.flag,dev[wlan_i][i].flag);
+						strcpy(temp_dev.ban_check,dev[wlan_i][i].ban_check);
 						dev[wlan_i][i]=temp_dev;
 						//memcpy((dev->dev_states[i]),temp_dev,sizeof(temp_dev));
 						new_dev_flag=0;
@@ -105,9 +109,9 @@ void get_state(int wlan_i){
 					dev[wlan_i][conn_dev_cnt[wlan_i]]=temp_dev;
 					//memcpy((dev[conn_dev_cnt]),temp_dev,sizeof(temp_dev));
 					printf("%s",temp_dev.station);
-					strcpy(dev[wlan_i][conn_dev_cnt[wlan_i]].station,temp_dev.station);
 					get_time(dev[wlan_i][conn_dev_cnt[wlan_i]].connTime);
 					strcpy(dev[wlan_i][conn_dev_cnt[wlan_i]].flag,"1");
+					strcpy(dev[wlan_i][conn_dev_cnt[wlan_i]].ban_check,"0");
 					dev_conn_check_flag[conn_dev_cnt[wlan_i]]=1;
 					conn_dev_cnt[wlan_i]++;
 				}
@@ -124,17 +128,17 @@ void get_state(int wlan_i){
 			{
 			strcpy(dev[wlan_i][i].conn_state,"0");
 				//
-			if(strlen(dev[wlan_i][i].disconnTime)==0)
+			if(strcmp(dev[wlan_i][i].disconnTime,"0")==0)
 				{
 				get_time(dev[wlan_i][i].disconnTime);
 				}
 			}
 			if(1){printf(
-			"\nConneted:%s\nMAC:%s\nIP:%s\nHOST_NAME:%s\nrx:%s\ntx:%s\nconnected:%s\ndisconnected:%s\nnew_dev_flag:%s\n",
+			"\nConneted:%s\nMAC:%s\nIP:%s\nHOST_NAME:%s\nrx:%s\ntx:%s\nconnected:%s\ndisconnected:%s\nnew_dev_flag:%s\nban_:%s\n",
 			dev[wlan_i][i].conn_state,dev[wlan_i][i].station,
 			dev[wlan_i][i].IP,dev[wlan_i][i].host_name,
 			dev[wlan_i][i].rxbytes,dev[wlan_i][i].txbytes,
-			dev[wlan_i][i].connTime,dev[wlan_i][i].disconnTime,dev[wlan_i][i].flag);}
+			dev[wlan_i][i].connTime,dev[wlan_i][i].disconnTime,dev[wlan_i][i].flag,dev[wlan_i][i].ban_check);}
 		}
 	}
 
@@ -151,20 +155,20 @@ void init()
     fr=fopen("backup_connlist_local.txt","r");
    int i=0;
 	if(fr!=NULL){
-	while(fscanf(fr, "%s %s %s %s %s %s %s %s %s", 
+	while(fscanf(fr, "%s %s %s %s %s %s %s %s %s %s", 
 	dev[0][i].conn_state,dev[0][i].station,dev[0][i].IP,
         dev[0][i].host_name,dev[0][i].rxbytes,dev[0][i].txbytes,
-        dev[0][i].connTime,dev[0][i].disconnTime,dev[0][i].flag) != EOF){
+        dev[0][i].connTime,dev[0][i].disconnTime,dev[0][i].flag,dev[0][i].ban_check) != EOF){
 	i++;
    }
 	conn_dev_cnt[0]=i;
    fclose(fr);
    fr=fopen("backup_connlist_guest.txt","r");
   	i=0;
-	while(fscanf(fr, "%s %s %s %s %s %s %s %s %s",
+	while(fscanf(fr, "%s %s %s %s %s %s %s %s %s %s",
         dev[1][i].conn_state,dev[1][i].station,dev[1][i].IP,
         dev[1][i].host_name,dev[1][i].rxbytes,dev[1][i].txbytes,
-        dev[1][i].connTime,dev[1][i].disconnTime,dev[1][i].flag) != EOF){
+        dev[1][i].connTime,dev[1][i].disconnTime,dev[1][i].flag,dev[1][i].ban_check) != EOF){
    	i++;
 	}
 	conn_dev_cnt[1]=i;
@@ -179,29 +183,31 @@ void save()
 	int i;
 	for(i=0;i<conn_dev_cnt[0];i++)
 	{
-	fprintf(f,"%s %s %s %s %s %s %s %s %s ",
+	fprintf(f,"%s %s %s %s %s %s %s %s %s %s",
         dev[0][i].conn_state,dev[0][i].station,dev[0][i].IP,
         dev[0][i].host_name,dev[0][i].rxbytes,dev[0][i].txbytes,
-        dev[0][i].connTime,dev[0][i].disconnTime,dev[0][i].flag);
+        dev[0][i].connTime,dev[0][i].disconnTime,dev[0][i].flag,dev[0][i].ban_check);
+	fprintf(f,"\n");
 	}
 	fclose(f);
 	f=fopen("backup_connlist_guest.txt","w");	
 	for(i=0;i<conn_dev_cnt[1];i++)
 	{
-	fprintf(f,"%s %s %s %s %s %s %s %s %s ",
+	fprintf(f,"%s %s %s %s %s %s %s %s %s %s",
 	dev[1][i].conn_state,dev[1][i].station,dev[1][i].IP,
 	dev[1][i].host_name,dev[1][i].rxbytes,dev[1][i].txbytes,
-	dev[1][i].connTime,dev[1][i].disconnTime,dev[1][i].flag);
+	dev[1][i].connTime,dev[1][i].disconnTime,dev[1][i].flag,dev[1][i].ban_check);
+	fprintf(f,"\n");
 	}
 	fclose(f);
 }
 void sigusr_handler(int signo)
 {
 	
-	struct json_object *array,*temp , *object[9];
+	struct json_object *array,*temp , *object[10];
        	array = json_object_new_array();
 	printf("sigusr handler%d %d\n",conn_dev_cnt[0],conn_dev_cnt[1]);
-	if(conn_dev_cnt>0){
+	if(conn_dev_cnt[1]>0||conn_dev_cnt[0]>0){
 	int i,j;
 	for(j=0;j<2;j++)
 	for(i=0; i<conn_dev_cnt[j];i++){
@@ -232,7 +238,11 @@ void sigusr_handler(int signo)
 
         	object[8] = json_object_new_string(dev[j][i].flag);
 		json_object_object_add(temp,"flag", object[8]);
-		json_object_array_add(array,temp);
+		
+		object[9] = json_object_new_string(dev[j][i].ban_check);
+                json_object_object_add(temp,"ban_check", object[9]);
+                json_object_array_add(array,temp);
+
 	}
 	json_object * jobj = json_object_new_object();
 	json_object *con_list = json_object_new_string("con_list");
@@ -254,4 +264,19 @@ void sigusr_handler(int signo)
 	}
 
 	state_return_p->check=0;
+}
+void sigusr2_handler(int signo)
+{
+
+        printf("sigusr2 handler%d %d\n",conn_dev_cnt[0],conn_dev_cnt[1]);
+        int i,j;
+        for(j=0;j<2;j++)
+        for(i=0; i<conn_dev_cnt[j];i++){
+               if(strcmp(state_return_p->MAC,dev[j][i].station)==0)
+		{
+			strcpy(dev[j][i].ban_check,strcmp(dev[j][i].ban_check,"0")==0?"1":"0");
+		}
+	}
+state_return_p->check=0;
+
 }

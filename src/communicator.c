@@ -10,6 +10,7 @@
 #include <sys/shm.h> //공유메모리 라이브러리
 #include <sys/ipc.h>
 #include <signal.h>
+#include <errno.h>
 #include "communicator.h"
 #include "state_mgr.h"
 #include "gateway_main.h"
@@ -17,8 +18,19 @@
 #define BUFF_SIZE 1024
 #define SHMEMKEY 1000
 #define MAX_DEV_NUM 200
+#define MAC_LEN 18
 //특정 문자 삭제 "지우기용
 char* getJsonObject(json_object*,char *);
+void ban_user(char *);
+void unban_user(char *);
+void init_state_mgr();
+struct ban_list_t
+{
+int ban_cnt;
+char ban_list[50][MAC_LEN];
+};
+struct ban_list_t ban_list;
+state_return_string_t* state_return_p=NULL;
 
 //void Eliminate(char *str, char ch); //쓰레드에서 사용할 함수
 int state_mgr_PID;
@@ -39,10 +51,9 @@ void *t_function(void *data) {
 	/*shared_memory val */
 	void * shared_memory=NULL;
 	state_return_string_t state_return_string;
-	state_return_string_t* state_return_p;
 	int shmem_id;
 	shmem_id= shmget((key_t)SHMEMKEY,sizeof(state_return_string_t),0666|IPC_CREAT);
-	if(shmem_id==-1){printf("Shmeget ERROR\n"); exit(1);}
+	if(shmem_id==-1){printf("Shmeget ERROR2 err=%d %s\n",errno, strerror(errno)); exit(1);}
 	else{printf("%d\n",shmem_id);}
 
 	state_return_p=(state_return_string_t*)shmat(shmem_id, (void *)0, 0);
@@ -86,6 +97,7 @@ void *t_function(void *data) {
 			printf("대기상태 모드 설정 실패n");
 			exit(1);
   		}
+		printf("ready to listen\n");
 		client_addr_size = sizeof(client_addr);
 		client_socket = accept(server_socket, (struct sockaddr*)&client_addr,&client_addr_size);
 		if (-1 == client_socket)
@@ -96,7 +108,10 @@ void *t_function(void *data) {
 		//*******read******//
 		int n = 0;
 		n = read(client_socket, buff_rcv, BUFF_SIZE);
-		buff_rcv[n] = NULL;
+		if (n < 0) {
+			printf("CRITICAL ERROR\n");
+		}
+		buff_rcv[n] = '\0';
 		jobj =json_tokener_parse(buff_rcv);
 		printf("jobj from str:\n---\n%s\n---\n", json_object_to_json_string_ext(jobj,JSON_C_TO_STRING_SPACED | JSON_C_TO_STRING_PRETTY));
 		printf("receive: %s\n", buff_rcv);
@@ -149,16 +164,22 @@ void *t_function(void *data) {
 			sprintf(inner_data.admin_PW,"%s",getJsonObject(jobj,"admin_pw"));
 			update_flag.hostapd=1; //변경사항 설정
 		}
+		else if(strcmp(page_name,"ban")==0)
+		{
+			if(strcmp(getJsonObject(jobj,"ban_check"),"0")==0)
+			ban_user(getJsonObject(jobj,"mac"));
+			else
+			unban_user(getJsonObject(jobj,"mac"));
+		}
 		/***************************/
 		//*****write******//
 		//test data 실제 config 값으로 대체
 
 		sprintf(buff_snd, "%s", ans);
-		write(client_socket, buff_snd, strlen(buff_snd) + 1);
+		write(client_socket, buff_snd, strlen(buff_snd) );
 		// +1: NULL까지 포함해서 전송
 		printf("\nsend: %s",buff_snd);
 		printf("\n%s\n",buff_rcv);
-		sleep(1);
 		close(client_socket);
 		printf("	클라이언트 접속 종료   		\n");
 		//==================================//
@@ -182,8 +203,68 @@ void init_state_mgr(){
 }
 char* getJsonObject(json_object *jobj, char *key) {
 	struct json_object *jsontemp;
+//	char str[100];
 	json_object_object_get_ex(jobj, key, &jsontemp);
+//	snprintf(str, 100, "%s", json_object_to_json_string(jsontemp));
 	char *str = json_object_to_json_string(jsontemp);
 	Eliminate(str, '\"');
-		return str;
+	return str;
 }
+void ban_user(char* MAC)
+{
+	char command[70];
+	printf("ban_user %s\n",MAC);
+	int i;
+	int found=0;
+	for(i=0;i<ban_list.ban_cnt;i++)
+	{
+		if(memcmp(ban_list.ban_list[i],MAC,6)==0)// 이미 리스트에 들어잇음.
+		{
+			found=1;
+			break;
+		}
+	}
+	if(!found){
+	sprintf(command,"iptables -I FORWARD -m mac --mac-source %s -j DROP",MAC);
+	system(command);
+	memcpy(ban_list.ban_list[ban_list.ban_cnt++],MAC,6);
+	
+	kill(state_mgr_PID, SIGUSR2);
+	strcpy(state_return_p->MAC,MAC);
+	printf("banuser %s!!!!!!!! \n",state_return_p->MAC);
+	while( state_return_p->check) {
+                      sleep(0.3);
+                    }
+        state_return_p->check=1;
+	}
+}
+
+
+void unban_user(char* MAC)
+{
+        char command[70];
+        printf("ban_user %s\n",MAC);
+        int i;
+        int found=0;
+        for(i=0;i<ban_list.ban_cnt;i++)
+        {
+                if(strcmp(ban_list.ban_list[i],MAC)==0)// 이미 리스트에 들어잇음.
+                {
+                        found=1;
+                        break;
+                }
+        }
+        if(!found){
+        sprintf(command,"iptables -D FORWARD -m mac --mac-source %s -j DROP",MAC);
+        system(command);
+        strcpy(ban_list.ban_list[ban_list.ban_cnt--],MAC); 
+	kill(state_mgr_PID, SIGUSR2);
+	        strcpy(state_return_p->MAC,MAC);
+		printf("unbanuser %s!!!!!!!! \n",state_return_p->MAC);
+        while( state_return_p->check) {
+                      sleep(0.3);
+                    }
+        state_return_p->check=1;
+	}
+}
+

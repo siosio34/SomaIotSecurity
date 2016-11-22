@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'util/monitoring'
 
   get 'util/setting'
+  
+  get 'util/monitoring_ban'
+
 
   resources :wifisets
   resources :posts
