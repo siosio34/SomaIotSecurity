@@ -2,6 +2,8 @@
  <div class="reg-block-monitor">
     <div class="reg-block-header">
       <h2>모니터링</h2>
+      <h4> 오티피 사용</h4>
+      <h4> OTP 랜덤 / 쉬운 단어 사용 </h4>
     </div>
 
 
@@ -20,7 +22,6 @@
 	<th>차단하기</th>
       </tr>
 
-
       <% @info_device_list.each do |info| %>
 	  
           <% t = ((Time.now).to_i - info['connected'].to_i) %>
@@ -28,6 +29,7 @@
           <% hh, mm = mm.divmod(60) %>
           <% dd, hh = hh.divmod(24) %>
           <% flag = info['flag'] %>
+          <% check = info['ban_check'] %>
           <% if flag == '2' %>
                   <tr class = 'bg-danger'>
                     <td> <%= info['MAC'] %></td>
@@ -36,9 +38,13 @@
                     <td> <%= ((info['rx'].to_i)/1024).to_s +  'Kb' %></td>
                     <td> <%= ((info['tx'].to_i)/1024).to_s +  'Kb' %></td>
                     <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
-                    <td> <%= info['disconnected'] %></td>
+                    <td> <%= DateTime.strptime(info['disconnected'], '%s' %></td>
                     <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>
-		    <td><button class="btn btn-danger" value="차단"></button></td>
+		    <% if ban_check == '0' %> 
+                        <td><%= link_to '차단해체', util_monitoring_ban_path(MAC: info['MAC'], ban_check: check), :class => "btn btn-u-black" %></td>
+                    <% elsif ban_check == '1' %>
+                        <td><%= link_to '차단하기', util_monitoring_ban_path(MAC: info['MAC'], ban_check: check), :class => "btn btn-danger" %></td>
+                    <% end %>
                   </tr>
           <% elsif flag == '1' %>
                   <tr class = 'bg-color-green'>
@@ -48,9 +54,13 @@
                     <td> <%= ((info['rx'].to_i)/1024).to_s +  'Kb' %></td>
                     <td> <%= ((info['tx'].to_i)/1024).to_s +  'Kb' %></td>
                     <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
-                    <td> <%= info['disconnected'] %></td>
-                    <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>			
-		    <td><%= link_to '차단', monitoring_ban_path(:mac => info['MAC']), :class => "btn btn-danger" %></td>
+                    <td> <%= DateTime.strptime(info['disconnected'], '%s' %></td>
+                    <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>
+	  	    <% if ban_check == '0' %>
+                        <td><%= link_to '차단해체', util_monitoring_ban_path(MAC: info['MAC'], ban_check: check), :class => "btn btn-u-black" %></td>
+                    <% elsif ban_check == '1' %>
+                        <td><%= link_to '차단하기', util_monitoring_ban_path(MAC: info['MAC'], ban_check: check), :class => "btn btn-danger" %></td>
+                    <% end %>
                   </tr>
           <% else %>
                   <tr class = 'bg-color-white'>
@@ -60,9 +70,14 @@
                     <td> <%= ((info['rx'].to_i)/1024).to_s +  'Kb' %></td>
                     <td> <%= ((info['tx'].to_i)/1024).to_s +  'Kb' %></td>
                     <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
-                    <td> <%= info['disconnected'] %></td>
-                    <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>
-		    <td><button class="btn btn-danger" value="차단"></button></td>
+                    <td> <%= DateTime.strptime(info['disconnected'], '%s' %></td>
+                    <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>	
+		    <% if ban_check == '0' %>
+                        <td><%= link_to '차단해체', util_monitoring_ban_path(MAC: info['MAC'], ban_check: check), :class => "btn btn-u-black" %></td>
+                    <% elsif ban_check == '1' %>
+                        <td><%= link_to '차단하기', util_monitoring_ban_path(MAC: info['MAC'], ban_check: check), :class => "btn btn-danger" %></td>
+                    <% end %>
+
                   </tr>
           <% end %>
       <% end %>
