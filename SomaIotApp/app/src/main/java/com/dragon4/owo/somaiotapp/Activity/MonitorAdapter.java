@@ -1,5 +1,6 @@
 package com.dragon4.owo.somaiotapp.Activity;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +24,7 @@ public class MonitorAdapter extends RecyclerView.Adapter<MonitorAdapter.ViewHold
 
     private ArrayList<Monitor> monitors;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder  {
         // each data item is just a string in this case
 
         TextView macText;
@@ -34,12 +35,16 @@ public class MonitorAdapter extends RecyclerView.Adapter<MonitorAdapter.ViewHold
         TextView connectTime;
         TextView connectOutTime;
 
+
         public ViewHolder(View view) {
             super(view);
             macText = (TextView)view.findViewById(R.id.monitor_mac);
             hostText = (TextView)view.findViewById(R.id.monitor_host);
 
         }
+
+
+
     }
 
     public MonitorAdapter(ArrayList<Monitor> monitorsArray) {
@@ -49,14 +54,25 @@ public class MonitorAdapter extends RecyclerView.Adapter<MonitorAdapter.ViewHold
 
 
     @Override
-    public MonitorAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MonitorAdapter.ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
 
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.monitor_recycle, parent, false);
-        // set the view's size, margins, paddings and layout parameters
 
-        ViewHolder vh = new ViewHolder(v);
+
+        final ViewHolder vh = new ViewHolder(v);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position = vh.getAdapterPosition();
+                Monitor.setSelectedMonitor(monitors.get(position));
+                parent.getContext().startActivity(new Intent(parent.getContext(),MonitorDetailActivity.class));
+
+            }
+        });
+
+
         return vh;
 
 
@@ -65,6 +81,8 @@ public class MonitorAdapter extends RecyclerView.Adapter<MonitorAdapter.ViewHold
     @Override
     public void onBindViewHolder(MonitorAdapter.ViewHolder holder, int position) {
 
+        holder.macText.setText(monitors.get(position).getMacAddress());
+        holder.hostText.setText(monitors.get(position).getHostName());
 
 
     }
