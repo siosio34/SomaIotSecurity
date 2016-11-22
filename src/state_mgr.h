@@ -2,7 +2,7 @@
 #define STATE_TYPE_NUM 14
 
 typedef struct{
-	char conn_state;
+	char conn_state[2];
 	char station[40];
 	char IP[16];
 	char host_name[50];
@@ -21,6 +21,7 @@ typedef struct{
 	char TDLSpeer[20];
 	char connTime[15];
 	char disconnTime[15];
+	char flag[2];
 }dev_state_t;
 typedef struct{
 	int check;

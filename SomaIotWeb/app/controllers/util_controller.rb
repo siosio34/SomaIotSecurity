@@ -65,16 +65,23 @@ class UtilController < ApplicationController
     client.puts JSON.generate(passjson)
 
     response = client.read
-
+    
     strip_json = response.strip
 
     @my_monitoring_json = JSON.parse(strip_json)
     @info_device_list = @my_monitoring_json['con_list']
+    client.close
 
-    render :json => {
-        :device => @info_device_list
-    }
+  end
 
+  def monitoring_ban
+	@mac = params[:MAC]
+	passjson = {:page_name => 'ban' , :mac => @mac}
+	client = TCPSocket.new 'localhost', 9090
+	client.puts JSON.generate(passjson)
+	
+	client.close
+	render 'util/monitoring'
   end
 
 

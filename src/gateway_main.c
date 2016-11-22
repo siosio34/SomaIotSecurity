@@ -3,6 +3,7 @@
 #include <pthread.h>
 #include <unistd.h>
 #include <wiringPi.h>
+#include <signal.h>
 #include "gateway_main.h"
 #include "communicator.h"
 #include "write_conf.h"
@@ -32,13 +33,13 @@ int main(){
     wiringPiSetup();        //init WiringPi
 
     init_struct();
-    // update_flag.hostapd = 1;
+    //update_flag.hostapd = 1;
     // update_flag.otp_conf = 1;
-//    write_conf();
-//    signal(SIGCHLD, SIG_IGN);
+    write_conf();
+    signal(SIGCHLD, SIG_IGN);
     init_service();
     sleep(1);
-  //  restart_lcd(); //cut power to lcd and erase lcd register
+    restart_lcd(); //cut power to lcd and erase lcd register
     //thread1 generation
      thr_id = pthread_create(&p_thread[0], NULL, t_function, (void *)&a);
      if(thr_id < 0){
@@ -49,19 +50,19 @@ int main(){
 
     //lcd thread generation
     thr_id = pthread_create(&p_thread[1], NULL, lcd_update, (void *)&a);
-   // if(thr_id < 0){
-   //         perror("thread create error : ");
-   //         exit(0);
-   // }
+    if(thr_id < 0){
+            perror("thread create error : ");
+            exit(0);
+    }
     printf("hi");
-  //  otp_init();
+    otp_init();
     update_flag.otp_enable = 1; //for debug
+    update_flag.otp_easyword = 1;
 
     //main loop for management demon
     while(1){
-      //  write_conf();
-        update_flag.otp_easyword = 1;
-     //   otp();
+        write_conf();
+        otp();
         sleep(1);
   //  printf("%s\n", inner_data.guest_PW);
   //  printf("===================\n");

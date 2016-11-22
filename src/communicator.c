@@ -45,7 +45,7 @@ void *t_function(void *data) {
 	if(shmem_id==-1){printf("Shmeget ERROR\n"); exit(1);}
 	else{printf("%d\n",shmem_id);}
 
-	state_return_p=(state_return_string_t*)shmat(shmem_id, (void *)0, 0); 
+	state_return_p=(state_return_string_t*)shmat(shmem_id, (void *)0, 0);
 	server_socket = socket(AF_INET, SOCK_STREAM, 0);
 	state_return_p->check=1;
   	int sockopt = 1;
@@ -117,7 +117,7 @@ void *t_function(void *data) {
 				printf("send conlist!");
 				kill(state_mgr_PID, SIGUSR1);
 				while( state_return_p->check) {
-					sleep(1);
+					sleep(0.3);
 					printf("waiting...\n");
 				}
 				sprintf(ans,state_return_p->dev_states);
@@ -158,6 +158,7 @@ void *t_function(void *data) {
 		// +1: NULL까지 포함해서 전송
 		printf("\nsend: %s",buff_snd);
 		printf("\n%s\n",buff_rcv);
+		sleep(1);
 		close(client_socket);
 		printf("	클라이언트 접속 종료   		\n");
 		//==================================//
@@ -177,7 +178,6 @@ void init_state_mgr(){
 
         char *argv[]   = { "/home/pi/SomaIotSecurity/src/state_mgr",NULL};
         execv( "/home/pi/SomaIotSecurity/src/state_mgr", argv);
-	printf("무슨일인지 실행이 안된다");
     }
 }
 char* getJsonObject(json_object *jobj, char *key) {
