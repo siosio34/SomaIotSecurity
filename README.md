@@ -1,8 +1,9 @@
-# Rasberriy pi 3 Security Iot AP
+# Raspberry pi 3 Security Iot AP
 
-  
-
-
+    이 프로젝트는 Raspberry pi3를 사용해서 보통 집안에 있는 공유기를 직접 구현하는 프로젝트이다.
+    실제로 와이파이를 구축해 사용할 수 있을 뿐만 아니라 관리페이지를 통해 웹과 어플리케이션, 관리 및 모니터링을
+    할 수 있고 Double SSID, led warning Alert, OTP 시스템등을 통해 보안적인 요소까지 구현되어있다.
+ 
 # Qucik Start
 
 ### 1. C Core Server
