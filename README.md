@@ -1,12 +1,18 @@
 # Rasberriy pi 3 Security Iot AP
 
-
+  
 
 
 # Qucik Start
 
-### 1. c++ 키는거
+### 1. C Core Server
 
+  $ cd src
+  
+  $ make
+
+  $ sudo ./run
+ 
 ### 2. Ruby on Rails Webserver
 
   $ cd SomaIotSecurity/SomaIotWeb
@@ -26,12 +32,10 @@
 
 # References 
 
-- http://w1.fi/hostapd/
-- http://www.thekelleys.org.uk/dnsmasq/doc.html
-- https://github.com/json-c/json-c
-- http://wiringpi.com/
-
-// todo 참고할 문헌
+- http://w1.fi/hostapd/ - hostpd
+- http://www.thekelleys.org.uk/dnsmasq/doc.html - dnsmasq
+- https://github.com/json-c/json-c - json-c
+- http://wiringpi.com/ - wiringapi
 
 # Copyright
 
@@ -40,14 +44,6 @@
 Youngje jo [ siosio34@nate.com ] site : https://github.com/siosio34  
 Gi-yong Kwon [ handgear05@gmail.com ] site : https://github.com/handgear  
 DONGWOO KIM [ kdw8681@naver.com ] site : https://github.com/westwoods  
-
-# 사용 기술
-
-Ruby on Rails
-
-Android
-
-// todo 사용 기술 적어야될듯
 
 # License
 
