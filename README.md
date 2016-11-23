@@ -8,23 +8,23 @@
 
 ### 1. C Core Server
 
-  $ cd src
+    $ cd src
   
-  $ make
+    $ make
 
-  $ sudo ./run
+    $ sudo ./run
  
 ### 2. Ruby on Rails Webserver
 
-  $ cd SomaIotSecurity/SomaIotWeb
+    $ cd SomaIotSecurity/SomaIotWeb
   
-  $ thin -R config.ru -a 'your raspberry pi IP Address' -p 3000 start or rails s -b 'your raspberry pi IP Address'
+    $ thin -R config.ru -a 'your raspberry pi IP Address' -p 3000 start or rails s -b 'your raspberry pi IP Address'
 
 ### 3. Android App Client
 
-  1) Install Android-Studio : https://developer.android.com/studio/index.html?hl=ko
+    1) Install Android-Studio : https://developer.android.com/studio/index.html?hl=ko
   
-  2) File -> Import Existing Project -> PATH_CLONE_SomaIotSecurity/SomaIotApp
+    2) File -> Import Existing Project -> PATH_CLONE_SomaIotSecurity/SomaIotApp
   
 # ScreenShot
 
@@ -33,20 +33,18 @@
 
 # References 
 
-- http://w1.fi/hostapd/ - hostpd
-- http://www.thekelleys.org.uk/dnsmasq/doc.html - dnsmasq
-- https://github.com/json-c/json-c - json-c
-- http://wiringpi.com/ - wiringapi
+    - http://w1.fi/hostapd/ - hostpd
+    - http://www.thekelleys.org.uk/dnsmasq/doc.html - dnsmasq
+    - https://github.com/json-c/json-c - json-c
+    - http://wiringpi.com/ - wiringapi
 
 # Copyright
+![alt SomaIotSecurity](https://github.com/siosio34/SomaIotSecurity/blob/master/docs/member_profile.png)
 
-// todo 멤버들 각자 프로필
-
-![alt SomaIotSecurity](https://github.com/siosio34/SomaIotSecurity/blob/master/docs/member.png)
-
-Youngje jo [ siosio34@nate.com ] site : https://github.com/siosio34  
-Gi-yong Kwon [ handgear05@gmail.com ] site : https://github.com/handgear  
-DONGWOO KIM [ kdw8681@naver.com ] site : https://github.com/westwoods  
+    
+    Youngje jo [ siosio34@nate.com ] site : https://github.com/siosio34  
+    Gi-yong Kwon [ handgear05@gmail.com ] site : https://github.com/handgear  
+    DONGWOO KIM [ kdw8681@naver.com ] site : https://github.com/westwoods  
 
 # License
 
