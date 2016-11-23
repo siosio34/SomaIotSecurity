@@ -33,18 +33,18 @@
 
 # References 
 
-- http://w1.fi/hostapd/ - hostpd
-- http://www.thekelleys.org.uk/dnsmasq/doc.html - dnsmasq
-- https://github.com/json-c/json-c - json-c
-- http://wiringpi.com/ - wiringapi
+    - http://w1.fi/hostapd/ - hostpd
+    - http://www.thekelleys.org.uk/dnsmasq/doc.html - dnsmasq
+    - https://github.com/json-c/json-c - json-c
+    - http://wiringpi.com/ - wiringapi
 
 # Copyright
 
 // todo 멤버들 각자 프로필
 
-Youngje jo [ siosio34@nate.com ] site : https://github.com/siosio34  
-Gi-yong Kwon [ handgear05@gmail.com ] site : https://github.com/handgear  
-DONGWOO KIM [ kdw8681@naver.com ] site : https://github.com/westwoods  
+    Youngje jo [ siosio34@nate.com ] site : https://github.com/siosio34  
+    Gi-yong Kwon [ handgear05@gmail.com ] site : https://github.com/handgear  
+    DONGWOO KIM [ kdw8681@naver.com ] site : https://github.com/westwoods  
 
 # License
 
