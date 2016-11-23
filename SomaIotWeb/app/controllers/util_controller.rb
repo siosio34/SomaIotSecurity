@@ -33,7 +33,7 @@ class UtilController < ApplicationController
     @edit_guest_pass = params[:edit_guest_pass]
 
 
-    make_setting_json = {:page_name => 'ssid',:admin_pw => @edit_admin_pass :local_ssid => @edit_local_ssid,
+    make_setting_json = {:page_name => 'ssid',:admin_pw => @edit_admin_pass, :local_ssid => @edit_local_ssid,
                           :guest_ssid => @edit_guest_ssid, :local_pass => @edit_local_pass,
                          :edit_guest_pass => @edit_guest_pass}
 
