@@ -1,3 +1,93 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.welcome-wrapper {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+
+.section {
+  top: 0;
+  left: 0;
+  float: left;
+  width: 50%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.btn-wrapper {
+  top: 0;
+  left: 0;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+
+.btn-section {
+  position: relative;
+  top: 50%;
+  clear: both;
+  width: 500px;
+  height: 500px;
+  margin-top: -210px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 0;
+}
+
+.btn-section:hover {
+  width: 480px;
+  height: 480px;
+  margin-top: -240px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.btn {
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 10px;
+  border: none;
+  background: none;
+  outline: 0;
+}
+
+.img {
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: auto;
+  width: 500px;
+  height: 500px;
+  background-image: image-url("admin.png");
+}
+
+.img2 {
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 500px;
+  height: 500px;
+  background-image: image-url("monitoring.png");
+
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+}
+

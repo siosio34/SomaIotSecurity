@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'login/' => 'login#index'
   get 'login/auth' => 'login#auth'
   get 'welcome/test' => 'welcome#test'
+  resources :welcome
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
