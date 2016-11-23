@@ -42,6 +42,8 @@
 
 // todo 멤버들 각자 프로필
 
+![alt SomaIotSecurity](https://github.com/siosio34/SomaIotSecurity/blob/master/docs/member.png)
+
 Youngje jo [ siosio34@nate.com ] site : https://github.com/siosio34  
 Gi-yong Kwon [ handgear05@gmail.com ] site : https://github.com/handgear  
 DONGWOO KIM [ kdw8681@naver.com ] site : https://github.com/westwoods  
