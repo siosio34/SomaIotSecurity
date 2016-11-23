@@ -24,12 +24,13 @@ char* getJsonObject(json_object*,char *);
 void ban_user(char *);
 void unban_user(char *);
 void init_state_mgr();
+void sigusr1_handler(int signo);
 struct ban_list_t
 {
 int ban_cnt;
 char ban_list[50][MAC_LEN];
 };
-struct ban_list_t ban_list;
+struct ban_list_t ban_list={0};
 state_return_string_t* state_return_p=NULL;
 
 //void Eliminate(char *str, char ch); //쓰레드에서 사용할 함수
@@ -59,6 +60,7 @@ void *t_function(void *data) {
 	state_return_p=(state_return_string_t*)shmat(shmem_id, (void *)0, 0);
 	server_socket = socket(AF_INET, SOCK_STREAM, 0);
 	state_return_p->check=1;
+	signal(SIGUSR1,sigusr1_handler);
   	int sockopt = 1;
 	   	if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &sockopt, sizeof(sockopt)) == -1) {
 			  	perror("socket setting failed");
@@ -111,6 +113,12 @@ void *t_function(void *data) {
 		if (n < 0) {
 			printf("CRITICAL ERROR\n");
 		}
+		if(state_return_p->conn_dev_cont==1)
+                {
+                                        update_flag.warning=2;
+                                        state_return_p->conn_dev_cont=0;
+                }
+
 		buff_rcv[n] = '\0';
 		jobj =json_tokener_parse(buff_rcv);
 		printf("jobj from str:\n---\n%s\n---\n", json_object_to_json_string_ext(jobj,JSON_C_TO_STRING_SPACED | JSON_C_TO_STRING_PRETTY));
@@ -128,7 +136,7 @@ void *t_function(void *data) {
 				sprintf(ans,"{\"page_name\":\"ssid\", \"local_ssid\":\"%s\",\"guest_ssid\":\"%s\",\"otp_enable\":\"%s\"}",inner_data.local_SSID,inner_data.guest_SSID,update_flag.otp_enable?"true":"false");
 			}
 			else if(strcmp(request_id,"con_list")==0)
-			{
+			{		update_flag.warning=0;
 				printf("send conlist!");
 				kill(state_mgr_PID, SIGUSR1);
 				while( state_return_p->check) {
@@ -210,6 +218,17 @@ char* getJsonObject(json_object *jobj, char *key) {
 	Eliminate(str, '\"');
 	return str;
 }
+void init()//저장되어있는 벤목록을 로드
+{
+FILE *fr=NULL;
+  fr=fopen("backup_banlist.txt","r");
+   int i=0;
+        if(fr!=NULL){
+        while(fscanf(fr, "%s",ban_list.ban_list[ban_list.ban_cnt])!=EOF)
+        ban_list.ban_cnt++;
+	}
+
+}
 void ban_user(char* MAC)
 {
 	char command[70];
@@ -268,3 +287,8 @@ void unban_user(char* MAC)
 	}
 }
 
+void sigusr1_handler(int signo)
+{
+                    update_flag.warning=2;
+                    state_return_p->conn_dev_cont=0;
+}

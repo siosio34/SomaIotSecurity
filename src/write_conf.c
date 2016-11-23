@@ -5,7 +5,6 @@
 #include "gateway_main.h"
 #include "init.h"
 #include "lcd.h"
-
 char command[100] = {0};
 
 void write_conf(){
@@ -43,7 +42,6 @@ void update_hostapd(){
     sprintf(lcd_data.row[0], "SSID: %s", inner_data.guest_SSID);
     sprintf(lcd_data.row[1], "PW: %s", inner_data.guest_PW);
     update_flag.lcd = 1;
-
 }
 
 void update_otp(){
