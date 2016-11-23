@@ -39,6 +39,10 @@ void update_hostapd(){
     restart_hostapd_local();
     restart_hostapd_guest();
 
+    sprintf(lcd_data.row[0], "SSID: %s", inner_data.guest_SSID);
+    sprintf(lcd_data.row[1], "PW: %s", inner_data.guest_PW);
+    update_flag.lcd = 1;
+
 }
 
 void update_otp(){
