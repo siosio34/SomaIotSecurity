@@ -47,6 +47,7 @@ class UtilController < ApplicationController
     # json 읽는거 만들어야한다
 
     client.close
+    redirect_to welcome_path
 
     #client.puts JSON.generate()
 
