@@ -9,6 +9,7 @@
 #include <json-c/json_object.h>
 #include <string.h>
 #include <signal.h>
+#include <unistd.h>
 #define MAX_DEVICE_NUM 200
 #define SHMEMKEY 1000
 void sigusr_handler(int signo);
@@ -107,6 +108,7 @@ void get_state(int wlan_i){
 
 					printf("\n!!!!!!!!!!!!!!!!!!!!!new divice connected!!!!!!!!!!!\n\n");
 					dev[wlan_i][conn_dev_cnt[wlan_i]]=temp_dev;
+					kill(getppid(),SIGUSR1);
 					//memcpy((dev[conn_dev_cnt]),temp_dev,sizeof(temp_dev));
 					printf("%s",temp_dev.station);
 					get_time(dev[wlan_i][conn_dev_cnt[wlan_i]].connTime);
@@ -114,6 +116,7 @@ void get_state(int wlan_i){
 					strcpy(dev[wlan_i][conn_dev_cnt[wlan_i]].ban_check,"0");
 					dev_conn_check_flag[conn_dev_cnt[wlan_i]]=1;
 					conn_dev_cnt[wlan_i]++;
+					state_return_p->conn_dev_cont=1;
 				}
 			}
 		}
@@ -133,7 +136,7 @@ void get_state(int wlan_i){
 				get_time(dev[wlan_i][i].disconnTime);
 				}
 			}
-			if(1){printf(
+			if(0){printf(
 			"\nConneted:%s\nMAC:%s\nIP:%s\nHOST_NAME:%s\nrx:%s\ntx:%s\nconnected:%s\ndisconnected:%s\nnew_dev_flag:%s\nban_:%s\n",
 			dev[wlan_i][i].conn_state,dev[wlan_i][i].station,
 			dev[wlan_i][i].IP,dev[wlan_i][i].host_name,

@@ -24,6 +24,6 @@ struct update_flags{
 
 };
 extern struct update_flags update_flag;
-
+void init_hostapd_conf();
 int hostapd_local_PID;
 int hostapd_guest_PID;

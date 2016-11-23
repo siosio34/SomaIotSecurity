@@ -9,7 +9,7 @@
 #include "write_conf.h"
 #include "lcd.h"
 #include "otp.h"
-
+char command1[100]={0};
 
 int flag_update = 0;
 struct pharsed_data internal_data;
@@ -33,10 +33,12 @@ int main(){
     wiringPiSetup();        //init WiringPi
 
     init_struct();
-    //update_flag.hostapd = 1;
+   
     // update_flag.otp_conf = 1;
-    write_conf();
     signal(SIGCHLD, SIG_IGN);
+    update_flag.hostapd = 1;
+    init_hostapd_conf();
+    sleep(1);
     init_service();
     sleep(1);
     restart_lcd(); //cut power to lcd and erase lcd register
@@ -80,5 +82,25 @@ int main(){
 
     return 0;
 
+}
+
+void init_hostapd_conf(){
+    //for debug
+    printf("SSID= %s\n", inner_data.local_SSID);
+
+    //update local hostapd .conf (unactivated)
+    sprintf(command1, "./script/update_hostapd_conf.sh %s %s", inner_data.local_SSID, inner_data.local_PW);
+    system(command1); //update conf by script
+
+    //update guest hostapd .conf (unactivated)
+    sprintf(command1, "./script/update_hostapd_conf_1.sh %s %s", inner_data.guest_SSID, inner_data.guest_PW);
+    system(command1); //update conf by script
+
+    //restart hostapd (unactivated)
+    // sprintf(command, "./restart_hostapd.sh")
+    // system(command); //update conf by script
+    sprintf(lcd_data.row[0], "SSID: %s", inner_data.guest_SSID);
+    sprintf(lcd_data.row[1], "PW: %s", inner_data.guest_PW);
+    update_flag.lcd = 1;
 }
 
