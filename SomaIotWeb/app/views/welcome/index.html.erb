@@ -1,24 +1,28 @@
+<div class="welcome-wrapper" xmlns="http://www.w3.org/1999/html">
 
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <%= link_to "공유기 설정 변경" ,util_setting_path%>
+  <div class="section">
+    <div class="btn-wrapper">
+      <div class="btn-section">
+        <%= link_to "", util_setting_path, :class => "img btn animated zoomIn" %>
+      <div class="title">
+        SSID 설정
+      </div>
+      </div>
+    </div>
   </div>
+
+  <div class="section">
+    <div class="btn-wrapper">
+      <div class="btn-section">
+        <%= link_to "", util_monitoring_path, :class => "img2 btn animated zoomIn" %>
+        <div class="title">
+          모니터링 및 OTP 설정
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <%= link_to "자녀 관리", util_chlidren_path %>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <%= link_to "디스플레이 및 OTP 설정", util_otp_path %>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <%= link_to "모니터링 보안", util_monitoring_path %>
-  </div>
-</div>
