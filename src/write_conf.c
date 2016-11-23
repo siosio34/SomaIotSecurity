@@ -4,6 +4,7 @@
 #include "write_conf.h"
 #include "gateway_main.h"
 #include "init.h"
+#include "lcd.h"
 
 char command[100] = {0};
 
