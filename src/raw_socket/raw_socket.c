@@ -31,7 +31,7 @@ long answered_packets = 0;
 arp_db_t arp_db[3000]={0,};
 
 arp_db_t arp_temp={0,};
-int db_save_cnt=0;
+long int db_save_cnt=0;
 
 void sigint(int signum);
 void db_print(int signum);

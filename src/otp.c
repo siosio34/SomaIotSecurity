@@ -17,15 +17,17 @@ char old_otp[16] = {0};
 
 void otp_init(){
     //otp HW switch init
-    pinMode (OTP_SW_PIN, INPUT) ;
+    pinMode(OTP_SW_PIN, INPUT) ;
     pullUpDnControl(OTP_SW_PIN, PUD_UP); //pull-up switch pin
-    wiringPiISR (OTP_SW_PIN, INT_EDGE_FALLING, &otp_switch_handler);
-
+    wiringPiISR(OTP_SW_PIN, INT_EDGE_FALLING, &otp_switch_handler);
+    
+    printf("otp init \n");
     srand(time(NULL));
 }
 
 void otp_switch_handler(){
     update_flag.otp_switch = 1;
+    printf("otp clicked");
 }
 
 void otp(){

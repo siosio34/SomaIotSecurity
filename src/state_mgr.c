@@ -60,7 +60,7 @@ void get_state(int wlan_i){
 	}
 	else
 	{
-		printf("scan wlan%d\n",wlan_i);
+		//printf("scan wlan%d\n",wlan_i);
 		const size_t BUFFER_SIZE = 128;
 		char buffer[BUFFER_SIZE];
 		char buffer_dhcp[BUFFER_SIZE];

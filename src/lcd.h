@@ -1,4 +1,5 @@
 //lcd.h
+char dummy[10000];
 struct lcd_struct{
     char row[4][20];
 };
