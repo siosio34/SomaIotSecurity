@@ -3,18 +3,18 @@
     <div class="reg-block-header">
       <h2>모니터링</h2>
 
-
       <h4> OTP 사용</h4>
-	<!-- Rounded switch -->
-	<label class="switch">
-  	<input type="checkbox">
-  	<div class="slider round"></div>
-	</label>
+	    <label class="switch">
+      	<input type="checkbox">
+      	<div class="slider round"></div>
+	    </label>
+
       <h4> OTP 랜덤 / 쉬운 단어 사용 </h4>
-	<label class="switch">
+	    <label class="switch">
         <input type="checkbox">
         <div class="slider round"></div>
-        </label>
+      </label>
+
     </div>
 
 
@@ -36,12 +36,14 @@
       <% @info_device_list.each do |info| %>
 
           <% t = ((Time.now).to_i - info['connected'].to_i) %>
-          <% mm, ss = t.divmod(60) %>
-          <% hh, mm = mm.divmod(60) %>
-          <% dd, hh = hh.divmod(24) %>
-          <% flag = info['flag'] %>
-          <% check = info['ban_check'] %>
-          <% if flag == '2' %>
+          <% mm, ss = t.divmod(60) %> <!-- 분과 초를 판단할 수 있다 -- >
+          <% hh, mm = mm.divmod(60) %> <!-- 시과 분를 판단할 수 있다 -- >
+          <% dd, hh = hh.divmod(24) %> <!-- 일과 시를 구할 수 있다 -- >
+
+          <% flag = info['flag'] %> <!-- 위험, 새로운 유저 기존유저를 판별하는 변수 -->
+          <% check = info['ban_check'] %> <!-- 차단 당햇는지 아닌지 판단하는 변수 -->
+
+          <% if flag == '2' %> <!-- 위험한 공격을 시도하고 있는 패킷일시 -->
                   <tr class = 'bg-danger'>
                     <td> <%= info['MAC'] %></td>
                     <td> <%= info['IP'] %></td>
@@ -51,13 +53,13 @@
                     <td> <%= DateTime.strptime(info['connected'],'%s') %></td>
                     <td> <%= DateTime.strptime(info['disconnected'], '%s') %></td>
                     <td><%= "%d 일, %d 시, %d 분전" % [dd, hh, mm] %> </td>
-                    <% if check == '1' %>
+                    <% if check == '1' %> <!-- 차단된 유저 일때 -->
                         <td><%= link_to '차단해체', util_monitoring_ban_path(MAC: info['MAC'], ban_check: check), :class => "btn btn-primary" %></td>
-                    <% elsif check == '0' %>
+                    <% elsif check == '0' %> <!--  차단된 유저가 아닐때 -->
                         <td><%= link_to '차단하기', util_monitoring_ban_path(MAC: info['MAC'], ban_check: check), :class => "btn btn-danger" %></td>
                     <% end %>
                   </tr>
-          <% elsif flag == '1' %>
+          <% elsif flag == '1' %> <!-- 새로운 유저가 접속햇을때 -->
                   <tr class = 'bg-color-green'>
                     <td> <%= info['MAC'] %></td>
                     <td> <%= info['IP'] %></td>
@@ -72,9 +74,8 @@
                     <% elsif check == '0' %>
                         <td><%= link_to '차단하기', util_monitoring_ban_path(MAC: info['MAC'], ban_check: check), :class => "btn btn-danger" %></td>
                     <% end %>
-
                   </tr>
-          <% else %>
+          <% else %> <!-- 기존 유저일때 -->
                   <tr class = 'bg-color-white'>
                     <td> <%= info['MAC'] %></td>
                     <td> <%= info['IP'] %></td>

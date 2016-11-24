@@ -32,39 +32,28 @@ class UtilController < ApplicationController
     @edit_guest_ssid = params[:edit_guest_ssid]
     @edit_guest_pass = params[:edit_guest_pass]
 
-
     make_setting_json = {:page_name => 'ssid',:admin_pw => @edit_admin_pass, :local_ssid => @edit_local_ssid,
                           :guest_ssid => @edit_guest_ssid, :local_pass => @edit_local_pass,
                          :edit_guest_pass => @edit_guest_pass}
 
     client = TCPSocket.new 'localhost', 9090
     client.puts JSON.generate(make_setting_json)
-
     response = client.read
-
     strip_json = response.strip
-
-    # json 읽는거 만들어야한다
-
     client.close
     redirect_to welcome_path
 
   end
 
   def monitoring
-
     passjson = {:page_name => 'request' , :request_id => 'con_list'}
     client = TCPSocket.new 'localhost', 9090
     client.puts JSON.generate(passjson)
-
     response = client.read
-    
     strip_json = response.strip
-
     @my_monitoring_json = JSON.parse(strip_json)
     @info_device_list = @my_monitoring_json['con_list']
-      client.close
-
+    client.close
   end
 
   def monitoring_ban
