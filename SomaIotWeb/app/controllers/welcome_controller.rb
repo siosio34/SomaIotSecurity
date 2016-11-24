@@ -6,8 +6,6 @@ class WelcomeController < ApplicationController
 
   end
 
-
-
   def test
     my_hash = {:hello => "goodbye"}
     my_hash2 = {"page_name"=>"con_list","con_list"=>[{"1"=>"true","MAC":"c8:14:79:e8:3e:15",

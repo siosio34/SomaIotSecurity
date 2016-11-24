@@ -49,14 +49,6 @@ class UtilController < ApplicationController
     client.close
     redirect_to welcome_path
 
-    #client.puts JSON.generate()
-
-    #puts @edit_admin_pass
-    #puts @edit_local_ssid
-    #puts @edit_local_pass
-    #puts @edit_guest_ssid
-    #puts @edit_guest_pass
-
   end
 
   def monitoring
@@ -76,13 +68,13 @@ class UtilController < ApplicationController
   end
 
   def monitoring_ban
-	@mac = params[:MAC]
-	@ban_check = params[:ban_check]
-	passjson = {:page_name => 'ban' , :mac => @mac, :ban_check => @ban_check}
-	client = TCPSocket.new 'localhost', 9090
-	client.puts JSON.generate(passjson)	
-	client.close
-	redirect_to util_monitoring_path
+	  @mac = params[:MAC]
+	  @ban_check = params[:ban_check]
+	  passjson = {:page_name => 'ban' , :mac => @mac, :ban_check => @ban_check}
+	  client = TCPSocket.new 'localhost', 9090
+	  client.puts JSON.generate(passjson)
+	  client.close
+	  redirect_to util_monitoring_path
   end
 
 
