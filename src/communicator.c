@@ -25,6 +25,7 @@ void ban_user(char *);
 void unban_user(char *);
 void init_state_mgr();
 void sigusr1_handler(int signo);
+void sigusr2_handler(int signo);
 struct ban_list_t
 {
 int ban_cnt;
@@ -61,6 +62,7 @@ void *t_function(void *data) {
 	server_socket = socket(AF_INET, SOCK_STREAM, 0);
 	state_return_p->check=1;
 	signal(SIGUSR1,sigusr1_handler);
+	signal(SIGUSR2,sigusr2_handler);
   	int sockopt = 1;
 	   	if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &sockopt, sizeof(sockopt)) == -1) {
 			  	perror("socket setting failed");
@@ -113,11 +115,6 @@ void *t_function(void *data) {
 		if (n < 0) {
 			printf("CRITICAL ERROR\n");
 		}
-		if(state_return_p->conn_dev_cont==1)
-                {
-                                        update_flag.warning=2;
-                                        state_return_p->conn_dev_cont=0;
-                }
 
 		buff_rcv[n] = '\0';
 		jobj =json_tokener_parse(buff_rcv);
@@ -165,12 +162,28 @@ void *t_function(void *data) {
 		else if(strcmp(page_name,"ssid")==0)
 		{
 			printf("NEWssid\n");
-			sprintf(inner_data.local_SSID,"%s",getJsonObject(jobj,"local_ssid"));
-			sprintf(inner_data.local_PW,"%s",getJsonObject(jobj,"local_PW"));
-			sprintf(inner_data.guest_PW,"%s",getJsonObject(jobj,"guest_ssid"));
-			sprintf(inner_data.guest_SSID,"%s",getJsonObject(jobj,"guest_pw"));
+			char temp[20]={0};
+			strcpy(temp,getJsonObject(jobj,"local_ssid"));
+			if(strlen(temp)>2&&strcmp(temp,"null")!=0){
+			sprintf(inner_data.local_SSID,"%s",getJsonObject(jobj,"local_ssid"));printf("%s",temp);}
+			
+                        strcpy(temp,getJsonObject(jobj,"local_pw"));
+                        if(strlen(temp)>7&&strcmp(temp,"null")!=0){
+			sprintf(inner_data.local_PW,"%s",getJsonObject(jobj,"local_PW"));printf("%s",temp);}
+			
+                        strcpy(temp,getJsonObject(jobj,"guest_ssid"));
+                        if(strlen(temp)>2&&strcmp(temp,"null")!=0){
+			sprintf(inner_data.guest_SSID,"%s",getJsonObject(jobj,"guest_ssid"));printf("%s",temp);}
+			
+                        strcpy(temp,getJsonObject(jobj,"edit_guest_pass"));
+                        if(strlen(temp)>7&&strcmp(temp,"null")!=0)
+			sprintf(inner_data.guest_PW,"%s",getJsonObject(jobj,"edit_guest_pass"));
+			
+                        strcpy(temp,getJsonObject(jobj,"admin_pw"));
+                        if(strlen(temp)>7&&strcmp(temp,"null")!=0)
 			sprintf(inner_data.admin_PW,"%s",getJsonObject(jobj,"admin_pw"));
 			update_flag.hostapd=1; //변경사항 설정
+			printf("hostapd flag:%d\n",update_flag.hostapd);
 		}
 		else if(strcmp(page_name,"ban")==0)
 		{
@@ -195,15 +208,24 @@ void *t_function(void *data) {
 	return (void *)i;
 }
 
+void init_arp_mgr(){
+
+    state_mgr_PID = fork();
+    if (state_mgr_PID > 0){
+    }
+    else if (state_mgr_PID == 0){
+
+        char *argv[]   = { "/home/pi/SomaIotSecurity/src/raw_socket/raw_socket",NULL};
+        execv( "/home/pi/SomaIotSecurity/src/raw_socket/raw_socket", argv);
+    }
+}
 
 void init_state_mgr(){
 
     state_mgr_PID = fork();
     if (state_mgr_PID > 0){
-        printf("부모 프로세스 %d : %d\n", getpid(), state_mgr_PID); //for debug
     }
     else if (state_mgr_PID == 0){
-        printf("자식 프로세스 %d\n", getpid());//for debug
 
         char *argv[]   = { "/home/pi/SomaIotSecurity/src/state_mgr",NULL};
         execv( "/home/pi/SomaIotSecurity/src/state_mgr", argv);
@@ -291,4 +313,9 @@ void sigusr1_handler(int signo)
 {
                     update_flag.warning=2;
                     state_return_p->conn_dev_cont=0;
+}
+void sigusr2_handler(int signo)
+{
+		printf("get sig2");
+		update_flag.warning=1;
 }

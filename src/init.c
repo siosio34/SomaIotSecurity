@@ -88,7 +88,7 @@ void restart_hostapd_local(){
         exit(0);
     }
 
-    //update flag to notify update complete
+
 }
 
 void restart_hostapd_guest(){
@@ -112,7 +112,7 @@ void restart_hostapd_guest(){
         exit(0);
     }
 
-    //update flag to notify update complete
+
 }
 void backup_struct(){
     //save current struct
@@ -133,7 +133,5 @@ void restart_lcd(){
     sprintf(lcd_data.row[0], "SSID: %s", inner_data.guest_SSID);
     sprintf(lcd_data.row[1], "PW: %s", inner_data.guest_PW);
     update_flag.lcd = 1;
-    // sprintf(lcd_data.row[2], "SSID: %s", inner_data.local_SSID);
-    // sprintf(lcd_data.row[3], "PW: %s", inner_data.local_PW);
-    // update_flag.lcd = 1;
+
 }

@@ -22,8 +22,6 @@ void write_conf(){
 }
 
 void update_hostapd(){
-    //for debug
-    printf("SSID= %s\n", inner_data.local_SSID);
 
     //update local hostapd .conf (unactivated)
     sprintf(command, "./script/update_hostapd_conf.sh %s %s", inner_data.local_SSID, inner_data.local_PW);
@@ -33,36 +31,28 @@ void update_hostapd(){
     sprintf(command, "./script/update_hostapd_conf_1.sh %s %s", inner_data.guest_SSID, inner_data.guest_PW);
     system(command); //update conf by script
 
-    //restart hostapd (unactivated)
-    // sprintf(command, "./restart_hostapd.sh")
-    // system(command); //update conf by script
+    //restart hostapd
     restart_hostapd_local();
     restart_hostapd_guest();
-
+    sleep(1);
     sprintf(lcd_data.row[0], "SSID: %s", inner_data.guest_SSID);
     sprintf(lcd_data.row[1], "PW: %s", inner_data.guest_PW);
     update_flag.lcd = 1;
 }
 
 void update_otp(){
-    //for debug
-    // printf("OTP= %s\n", internal_data.local_SSID);
 
     //update guest hostapd .conf (unactivated)
     sprintf(command, "./script/update_hostapd_conf_1.sh %s %s", inner_data.guest_SSID, inner_data.guest_PW);
     system(command); //update conf by script
 
-    //개별로 restart 하기 힘들 것 같으면 otp변경시에도 hostapd()로 처리 가능
-    //restart hostapd (unactivated)
 
-    // system("sudo service hostapd stop");
-    // sleep(1);
-    // system("sudo service hostapd stop");
-    // sleep(1);
-    // system("sudo systemctl daemon-reload");
-    // system("sudo service networking restart");
-
+    //restart hostapd
     restart_hostapd_guest();
-    //update flag to notify update complete
+    sleep(1);
+    sprintf(lcd_data.row[0], "SSID: %s", inner_data.guest_SSID);
+    sprintf(lcd_data.row[1], "PW: %s", inner_data.guest_PW);
+    update_flag.lcd = 1;
+
 
 }

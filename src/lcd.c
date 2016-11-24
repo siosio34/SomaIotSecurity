@@ -18,13 +18,11 @@ const int LCD_D7 = 4;
 const int LCD_ROW = 4;
 const int LCD_COL = 20;
 
-const int LED_WARNING = 13; //wiringPi pin 2
+const int LED_WARNING = 13; //wiringPi pin 13
 int warning_updated = 0;
 
 void *lcd_update(void *data){
     int lcd; //Handle for LCD
-
-    // wiringPiSetup();        //Initialise WiringPi
 
     //init LCD
     if (lcd = lcdInit (LCD_ROW, LCD_COL, 4, LCD_RS, LCD_E ,LCD_D4 , LCD_D5, LCD_D6,LCD_D7,0,0,0,0)){
@@ -33,18 +31,12 @@ void *lcd_update(void *data){
 
     //init warning LED
     init_warning_LED();
-
-    //test example
-    // strncpy(lcd_data.row[0],"Hello World!" , 20);
-    // strncpy(lcd_data.row[1],"2nd row" , 20);
-    // strncpy(lcd_data.row[2],"3nd row" , 20);
     int i;int y=0;
 
     while(1){
         //check is there update for lcd
         if(update_flag.lcd == 1){
             //write lcd
-            // printf("same memory shared check\n");
             lcdClear(lcd);
             lcdPosition(lcd,0,0);
             lcdPuts(lcd, lcd_data.row[0]);
@@ -54,9 +46,6 @@ void *lcd_update(void *data){
             lcdPuts(lcd, lcd_data.row[2]);
             lcdPosition(lcd,0,3);
             lcdPuts(lcd, lcd_data.row[3]);
-
-            //for debug
-            //sprintf(lcd_data.row[3],"%d", y); y++;
 
             update_flag.lcd = 0;
         }

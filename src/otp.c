@@ -17,9 +17,9 @@ char old_otp[16] = {0};
 
 void otp_init(){
     //otp HW switch init
-    pinMode (OTP_SW_PIN, INPUT) ;
+    pinMode(OTP_SW_PIN, INPUT) ;
     pullUpDnControl(OTP_SW_PIN, PUD_UP); //pull-up switch pin
-    wiringPiISR (OTP_SW_PIN, INT_EDGE_FALLING, &otp_switch_handler);
+    wiringPiISR(OTP_SW_PIN, INT_EDGE_FALLING, &otp_switch_handler);
 
     srand(time(NULL));
 }
@@ -70,9 +70,6 @@ void otp_generate(){
         strncpy(old_otp, new_otp, OTP_LENGTH); //update old_otp
     }
 
-
-
-    // printf("%s\n", new_otp); //for debug
 }
 
 void otp_update(){
@@ -117,7 +114,6 @@ void gen_easy_str(){
                 memset(new_otp, '\0', OTP_WORD_LENGTH);
                 strncpy(new_otp, line, OTP_WORD_LENGTH); //update new_otp
                 new_otp[strlen(line)-1] = ' '; //prevent printing strange char end of otp
-                printf("%s\n", line); //for debug
                 fclose(file);
                 return;
             }
@@ -129,7 +125,7 @@ void gen_easy_str(){
     }
     else{
         //file doesn't exist
-        printf("easyword.txt file not exist\n"); //for debug
+        printf("easyword.txt file not exist\n");
     }
 }
 

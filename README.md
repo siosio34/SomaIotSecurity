@@ -26,10 +26,10 @@
   
     2) File -> Import Existing Project -> PATH_CLONE_SomaIotSecurity/SomaIotApp
   
-# ScreenShot
+# Test Video
 
-// todo 실제 화면 사진
-// todo 아니면 동영상링크
+[![IMAGE ALT youtube](http://img.youtube.com/vi/Gqyu7f9wUgQ/0.jpg)](http://www.youtube.com/watch?v=Gqyu7f9wUgQ)
+
 
 # References 
 

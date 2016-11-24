@@ -38,7 +38,6 @@ int main(){
     signal(SIGCHLD, SIG_IGN);
     update_flag.hostapd = 1;
     init_hostapd_conf();
-    sleep(1);
     init_service();
     sleep(1);
     restart_lcd(); //cut power to lcd and erase lcd register
@@ -60,7 +59,7 @@ int main(){
     otp_init();
     update_flag.otp_enable = 1; //for debug
     update_flag.otp_easyword = 1;
-
+    update_flag.hostapd = 0;
     //main loop for management demon
     while(1){
         write_conf();
